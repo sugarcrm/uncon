@@ -1,2 +1,2 @@
 # uncon
-UnCon 2015 Hackathon!
+Definitive source of all your UnCon materials!
