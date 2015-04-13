@@ -1634,14 +1634,14 @@ SUGAR.Api = (function() {
 //END SUGARAPI.JS
 
 ls.cut = function(key) { 
-	return ls.remove(key);
+    return ls.remove(key);
 };
 
 // Binding a Node.js based keyValueStore by default
 var _createInstance = SUGAR.Api.createInstance;
 SUGAR.Api.createInstance = function(args){
-	args = _.extend({keyValueStore: ls}, args);
-	return _createInstance(args);
+    args = _.extend({keyValueStore: ls}, args);
+    return _createInstance(args);
 };
 
 module.exports = SUGAR.Api;
