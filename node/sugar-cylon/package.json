@@ -1,0 +1,30 @@
+{
+  "name": "sugar-cylon",
+  "version": "0.0.1",
+  "description": "Cylon.js project for SugarCon 2015 UnCon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sugarcrm/uncon.git"
+  },
+  "keywords": [
+    "sugarcon",
+    "sugarcrm",
+    "uncon",
+    "hackathon",
+    "sugar7"
+  ],
+  "author": "Sugar Engineering",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sugarcrm/uncon/issues"
+  },
+  "dependencies": {
+    "cylon": "~1.0.0",
+    "cylon-firmata": "~0.20.0",
+    "sugarapi-node": "../sugarapi-node"
+  }
+}

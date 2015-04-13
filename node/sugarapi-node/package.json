@@ -1,0 +1,29 @@
+{
+  "name": "sugarapi-node",
+  "version": "0.0.1",
+  "description": "Sugar v10 REST API client for Node.js",
+  "main": "sugarapi-node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sugarcrm/uncon.git"
+  },
+  "keywords": [
+    "sugarcrm",
+    "sugar7"
+  ],
+  "author": "Sugar Engineering",
+  "license": "Your installation or use of this SugarCRM package is subject to the applicable terms available at http://support.sugarcrm.com/06_Customer_Center/10_Master_Subscription_Agreements/. If you do not agree to all of the applicable terms or do not have the authority to bind the entity as an authorized representative, then do not install or use this package.",
+  "bugs": {
+    "url": "https://github.com/sugarcrm/uncon/issues"
+  },
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "xmlhttprequest": "~1.7.0",
+    "domino": "~1.0.18",
+    "underscore": "~1.8.3",
+    "local-storage": "~1.4.1"
+  }
+}
