@@ -17,4 +17,12 @@ Prototype for a Sidecar Chrome plug-in to help with Sugar 7 development.
 ### Node
 Node.js Hackathon projects.  Node.js is great for quickly prototyping new integrations and solutions.  If you are interested in Hacking IoT / Node, this contains some resources to help you get started.
 
+## Other Resources
+
+### SugarCRM/Examples git repo
+https://github.com/sugarcrm/examples
+
+### Sugar Developer Guide
+http://support.sugarcrm.com/02_Documentation/04_Sugar_Developer/
+
 
