@@ -21,7 +21,7 @@ var arduino = Cylon.robot({
     connections: {
         //Change port to match the serial connection to your Arduino,
         // discover this using the command `gort scan serial`
-        arduino: { adaptor: 'firmata', port: '/dev/tty.usbmodem1411' }
+        arduino: { adaptor: 'firmata', port: '/dev/tty.usbmodem1d1111' }
     },
 
     devices: {
@@ -34,9 +34,9 @@ var arduino = Cylon.robot({
 
         // Refresh output every second
         every((1).second(), function(){
-            if(ledStatus == 0){
+            if(my.led.isOn() && ledStatus == 0){
                 my.led.turnOff();
-            } else {
+            } else if(!my.led.isOn() && ledStatus == 1) {
                 my.led.turnOn();
             }
         });
