@@ -1,16 +1,13 @@
 var Cylon = require('cylon');
 var _ = require('underscore');
+var config = require('./config');
 
 /**
- * Initalize Sugar API singleton
+ * Initialize Sugar API singleton
  *
- * Set your own server URL
+ * Set your own server URL in config.js
  */
-var api = require('sugarapi-node').getInstance({
-    serverUrl: "http://localhost/~mmarum/sugarcrm/rest/v10",
-    platform: "mobile",
-    timeout: 30,
-});
+var api = require('sugarapi-node').getInstance(config.instance);
 
 var ledStatus = 0;
 
@@ -19,14 +16,18 @@ var ledStatus = 0;
  */
 var arduino = Cylon.robot({
     connections: {
-        //Change port to match the serial connection to your Arduino,
-        // discover this using the command `gort scan serial`
-        arduino: { adaptor: 'firmata', port: '/dev/tty.usbmodem1d1111' }
+        arduino: config.cylon.connections.arduino
+
+        //uncomment this line and comment out line above to use raspberry pi
+        //raspi: config.cylon.connections.raspi
     },
 
     devices: {
         //pin13 is built-in LED pin on Arduino UNO - labeled "L" on board
-        led: { driver: 'led', pin: 13 }  
+        led: { driver: 'led', pin: 13 }
+
+        //uncomment this line and comment out line above to use raspberry pi
+        //led: { driver: 'led', pin: 11 }
     },
 
     work: function(my) {
@@ -86,10 +87,7 @@ var callApi = _.throttle(function(){
 /**
  * Call login with given username/password, if successful - start the Arduino robot
  */
-api.login({
-    username : "admin",
-    password : "admin"
-}, null, {
+api.login(config.users.admin, null, {
     success : function(data){
         console.log("OAuth-Token : " + api.getOAuthToken());
         arduino.start();
