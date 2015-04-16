@@ -26,13 +26,24 @@ $ npm install
 
 These dependencies are then installed under the `node_modules` folder.
 
-You will then want to open `config.js` and tweak the settings to your own environment.
+You will then want to open `config.js` and tweak the settings to your own environment. Here you can point to the proper SugarCRM instance and switch between using Arduino and Raspberry Pi.
 
 Once the dependencies are installed and config is set, you should be able to write and run applications that use this module.
 
 ````
-$ node app.js
+$ node hello.js
 ````
+
+## Example Scripts
+
+### Hello LED
+
+This is the "Hello World" of the IoT world - making the LED blink. This is useful for testing to make sure everything is hooked up properly.
+
+### Sugar Task LED
+
+A simple script using the Sugar API to poll for the number of open tasks for a given user. LED turns on if there are open tasks - and off when all have been completed.
+
 
 ## Raspberry Pi Specific
 
@@ -50,7 +61,7 @@ Once your files are synced over you can ssh in:
 ````
 $ ssh pi@192.168.0.112
 $ cd ~/uncon/node/sugar-cylon
-$ node app.js
+$ node hello.js
 ````
 
 ## Resources

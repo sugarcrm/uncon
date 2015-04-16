@@ -16,17 +16,10 @@ var api = require('sugarapi-node').getInstance(config.instance);
 var ledStatus = 0;
 
 /**
- * Which hardware to use - valid values:
- * config.ARDUINO or config.RASPI
- */
-//var hardware = config.ARDUINO;
-var hardware = config.RASPI;
-
-/**
  * Robot Code
  */
 var robot = Cylon.robot({
-    connections: utils.cylon.getConnection(hardware),
+    connections: utils.cylon.getConnection(),
 
     devices: {
         // Arduino: pin13 is built-in LED pin - labeled "L" on board
@@ -54,38 +47,38 @@ var robot = Cylon.robot({
  */
 var callApi = _.throttle(function() {
     /**
-    * Example: 
-    *   If there are any unfinished Tasks assigned to the current user,
-    *       Turn LED ON
-    *   else 
-    *       Turn LED OFF
-    */
-        api.records('read', 'Tasks', null, {
-            filter: [
-                {
-                    status: {"$in":["Not Started","In Progress"]}
-                },
-                {   
-                    "$owner": ""  //predefined filter
-                }
-            ]
-        }, {
-            error: function(){
-                console.log(arguments);
+     * Example:
+     *   If there are any unfinished Tasks assigned to the current user,
+     *       Turn LED ON
+     *   else
+     *       Turn LED OFF
+     */
+    api.records('read', 'Tasks', null, {
+        filter: [
+            {
+                status: {"$in":["Not Started","In Progress"]}
             },
-            success: function(data){
-                var numOpenAssignedTasks = _.size(data.records);
-                if (numOpenAssignedTasks > 0) {
-                    ledStatus = 1;
-                } else {
-                    ledStatus = 0;
-                }
-            },
-            complete: function(){
-                callApi(); //After each call is complete, queue up next call
+            {
+                "$owner": ""  //predefined filter
             }
-        })
-    }, 3000);
+        ]
+    }, {
+        error: function(){
+            console.log(arguments);
+        },
+        success: function(data){
+            var numOpenAssignedTasks = _.size(data.records);
+            if (numOpenAssignedTasks > 0) {
+                ledStatus = 1;
+            } else {
+                ledStatus = 0;
+            }
+        },
+        complete: function(){
+            callApi(); //After each call is complete, queue up next call
+        }
+    })
+}, 3000);
 
 /**
  * Login and start the robot

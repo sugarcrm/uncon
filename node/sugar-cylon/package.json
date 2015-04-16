@@ -2,7 +2,7 @@
   "name": "sugar-cylon",
   "version": "0.0.1",
   "description": "Cylon.js project for SugarCon 2015 UnCon",
-  "main": "index.js",
+  "main": "hello.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

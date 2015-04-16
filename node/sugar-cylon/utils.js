@@ -2,9 +2,9 @@ var config = require('./config');
 var utils = {};
 
 utils.cylon = {
-    getConnection: function(type) {
+    getConnection: function() {
         var connection = {};
-        connection[type] = (type === config.ARDUINO) ?
+        connection[config.hardware] = (config.hardware === 'arduino') ?
         { adaptor: 'firmata', port: config.arduinoPort } :
         { adaptor: 'raspi' };
         return connection;
