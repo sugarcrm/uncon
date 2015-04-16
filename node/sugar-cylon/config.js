@@ -14,15 +14,15 @@ config.users = {
     jim: {username: 'jim', password: 'jim'}
 };
 
-config.cylon = {
-    connections: {
-        // Change port to match the serial connection to your Arduino,
-        // discover this using the command `gort scan serial`
-        arduino: { adaptor: 'firmata', port: '/dev/tty.usbmodem1411' },
+// Change port to match the serial connection to your Arduino,
+// discover this using the command `gort scan serial`
+config.arduinoPort = '/dev/tty.usbmodem1411';
 
-        // No additional tweaks should be needed here
-        raspi: { adaptor: 'raspi' }
-    }
-};
+
+/***************************************
+ * No need to change anything below this
+ */
+config.ARDUINO = 'arduino';
+config.RASPI = 'raspi';
 
 module.exports = config;

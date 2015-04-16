@@ -52,3 +52,10 @@ $ ssh pi@192.168.0.112
 $ cd ~/uncon/node/sugar-cylon
 $ node app.js
 ````
+
+## Resources
+
+### Raspberry Pi Resources
+
+Raspberry Pi w/ CylonJS: http://cylonjs.com/documentation/platforms/raspberry-pi/
+Raspberry Pi Pin Guide: http://pi.gadgetoid.com/pinout

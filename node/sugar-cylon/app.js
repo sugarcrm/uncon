@@ -1,6 +1,7 @@
 var Cylon = require('cylon');
 var _ = require('underscore');
 var config = require('./config');
+var utils = require('./utils');
 
 /**
  * Initialize Sugar API singleton
@@ -9,25 +10,28 @@ var config = require('./config');
  */
 var api = require('sugarapi-node').getInstance(config.instance);
 
+/**
+ * Toggle switch that will be set later based on API call
+ */
 var ledStatus = 0;
 
 /**
- * Arduino Robot 
+ * Which hardware to use - valid values:
+ * config.ARDUINO or config.RASPI
  */
-var arduino = Cylon.robot({
-    connections: {
-        arduino: config.cylon.connections.arduino
+//var hardware = config.ARDUINO;
+var hardware = config.RASPI;
 
-        //uncomment this line and comment out line above to use raspberry pi
-        //raspi: config.cylon.connections.raspi
-    },
+/**
+ * Robot Code
+ */
+var robot = Cylon.robot({
+    connections: utils.cylon.getConnection(hardware),
 
     devices: {
-        //pin13 is built-in LED pin on Arduino UNO - labeled "L" on board
+        // Arduino: pin13 is built-in LED pin - labeled "L" on board
+        // Raspberry Pi: see pinout reference link in readme for location of pin 13
         led: { driver: 'led', pin: 13 }
-
-        //uncomment this line and comment out line above to use raspberry pi
-        //led: { driver: 'led', pin: 11 }
     },
 
     work: function(my) {
@@ -35,9 +39,9 @@ var arduino = Cylon.robot({
 
         // Refresh output every second
         every((1).second(), function(){
-            if(my.led.isOn() && ledStatus == 0){
+            if (my.led.isOn() && ledStatus == 0){
                 my.led.turnOff();
-            } else if(!my.led.isOn() && ledStatus == 1) {
+            } else if (!my.led.isOn() && ledStatus == 1) {
                 my.led.turnOn();
             }
         });
@@ -48,8 +52,7 @@ var arduino = Cylon.robot({
  * This function is used to poll Sugar API, throttled to prevent excessive
  * hammering of the Sugar server. (No more than 1 API call every 3 seconds.)
  */
-var callApi = _.throttle(function(){
-
+var callApi = _.throttle(function() {
     /**
     * Example: 
     *   If there are any unfinished Tasks assigned to the current user,
@@ -85,12 +88,8 @@ var callApi = _.throttle(function(){
     }, 3000);
 
 /**
- * Call login with given username/password, if successful - start the Arduino robot
+ * Login and start the robot
  */
-api.login(config.users.admin, null, {
-    success : function(data){
-        console.log("OAuth-Token : " + api.getOAuthToken());
-        arduino.start();
-    }
+utils.login(api, 'admin', function() {
+    robot.start();
 });
-
