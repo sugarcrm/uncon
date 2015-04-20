@@ -1,0 +1,52 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/06_Customer_Center/10_Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<div class="dashlet-tabs">
+    <div class="dashlet-tabs-row">
+        {{#each tabs}}
+            <div class="dashlet-tab{{#eq ../settings.attributes.activeTab @index}} active{{/eq}}">
+                <a data-toggle="tab" data-action="tab-switcher" data-index="{{@index}}">
+                    {{str label ../module}}
+                </a>
+            </div>
+        {{/each}}
+    </div>
+</div>
+{{#if data}}
+    {{#eq ../settings.attributes.activeTab 0}}
+    <table class="table table-striped dataTable">
+        <thead>
+            <tr>
+            {{#each displayColumns}}
+                <th><span>{{str label module}}</span></th>
+            {{/each}}
+            </tr>
+        </thead>
+        <tbody>
+        {{#each data}}
+            <tr class="single">
+                <td><a href="#{{buildRoute module=../module id=id}}">{{name}}</a></td>
+                <td>{{distance}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    {{/eq}}
+    {{#eq ../settings.attributes.activeTab 1}}
+    <div class="lmap" style="position: relative; height:300px;"></div>
+    {{/eq}}
+{{else}}
+    {{str 'LBL_ALERT_TITLE_LOADING' }}
+{{/if}}
+
