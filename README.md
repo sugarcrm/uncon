@@ -13,10 +13,13 @@ Definitive source of all your UnCon materials
 
 ## Hackathon Resources
 
+### [geo-contacts-dashlet](geo-contacts-dashlet/)
+Uses Geo-location plug-in for Elasticsearch to create a proof of concept Maps dashlet that allows you to find "Contacts near me".
+
 ### [Elastic-attachments](elastic-attachments/)
 Proof of concept module loadable package that extends Sugar 7's GlobalSearch provider to perform full text search of files in Notes/Attachments and Documents modules.
 
-### [SidecarDevTool](https://github.com/sugarcrm/SidecarDevTool)
+### [SidecarDevTools](https://github.com/sugarcrm/SidecarDevTools)
 Prototype for a Sidecar Chrome plug-in to help with Sugar 7 development.  
 
 ### [Node](node/)
