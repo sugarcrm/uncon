@@ -27,6 +27,7 @@
     "cylon-firmata": "~0.20.0",
     "cylon-gpio": "^0.23.0",
     "cylon-i2c": "^0.21.1",
+    "johnny-five": "^0.8.58",
     "sugarapi-node": "../sugarapi-node",
     "underscore": "~1.8.3"
   }
