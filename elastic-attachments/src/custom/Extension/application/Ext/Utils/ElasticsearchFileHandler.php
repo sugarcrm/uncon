@@ -11,12 +11,8 @@ if (!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * Copyright (C) SugarCRM Inc. All rights reserved.
  */
 
-use Sugarcrm\Sugarcrm\Elasticsearch\Container;
-use Sugarcrm\Sugarcrm\custom\Elasticsearch\Provider\GlobalSearch\Handler\Implement\FileHandler;
-
 // Register file handler
-Container::getInstance()->addProviderInit('GlobalSearch', function($provider) {
-    $provider->addHandler(new FileHandler());
+Sugarcrm\Sugarcrm\Elasticsearch\Container::getInstance()->addProviderInit('GlobalSearch', function($provider) {
+    $provider->addHandler(new Sugarcrm\Sugarcrm\custom\Elasticsearch\Provider\GlobalSearch\Handler\Implement\FileHandler());
 });
-
 

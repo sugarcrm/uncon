@@ -58,7 +58,7 @@ foreach ($files as $name => $file) {
         $zip->addFile($fileReal, $fileRelative);
         $installdefs['copy'][] = array(
             'from' => '<basepath>/' . $fileRelative,
-            'to' => str_replace('src/', '', $fileRelative),
+            'to' => preg_replace('/^src\/(.*)/', '$1', $fileRelative),
         );
     }
 }
