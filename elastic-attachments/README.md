@@ -12,6 +12,7 @@ Proof of concept module adding customizations to the new Elasticsearch framework
 ### Installation
 - Perform installation of SugarCRM 7.7.0.0 from https://github.com/skymeyer/Mango/tree/sugarcon15
 - Use module loader to install the latest release zip from this repository
+- Perform a full reindex with "drop existing data" to ensure the mapping is up-to-date
 
 ### Usage
 - Add notes and/or documents with file attachments
