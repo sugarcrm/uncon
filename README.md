@@ -13,21 +13,21 @@ Definitive source of all your UnCon materials
 
 ## Hackathon Resources
 
-### Elastic-attachments
+### [Elastic-attachments](elastic-attachments/)
 Proof of concept module loadable package that extends Sugar 7's GlobalSearch provider to perform full text search of files in Notes/Attachments and Documents modules.
 
-### ChromeDevTool
+### [SidecarDevTool](https://github.com/sugarcrm/SidecarDevTool)
 Prototype for a Sidecar Chrome plug-in to help with Sugar 7 development.  
 
-### Node
-Node.js Hackathon projects.  Node.js is great for quickly prototyping new integrations and solutions.  If you are interested in Hacking IoT / Node, this contains some resources to help you get started.
+### [Node](node/)
+Node.js Hackathon projects.  Node.js is great for quickly prototyping new integrations and solutions.  If you are interested in hacking on Internet of Things ideas via Node.js, this contains some resources to help you get started.
 
 ## Other Resources
 
-### SugarCRM/Examples git repo
-https://github.com/sugarcrm/examples
+### [SugarCRM/Examples git repo](https://github.com/sugarcrm/examples)
 
-### Sugar Developer Guide
-http://support.sugarcrm.com/02_Documentation/04_Sugar_Developer/
+
+### [Sugar Developer Guide](http://support.sugarcrm.com/02_Documentation/04_Sugar_Developer/)
+
 
 
