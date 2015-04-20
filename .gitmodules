@@ -1,0 +1,3 @@
+[submodule "SidecarDevTools"]
+	path = SidecarDevTools
+	url = git@github.com:sugarcrm/SidecarDevTools.git
