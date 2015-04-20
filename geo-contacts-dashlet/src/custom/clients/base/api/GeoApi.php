@@ -28,7 +28,7 @@ class GeoApi extends SugarApi
                 'reqType' => 'GET',
                 'path' => array('near', '?'),
                 'pathVars' => array('', 'location'),
-                'method' => 'findNearMe',
+                'method' => 'findNear',
                 'shortHelp' => 'Globally find records near a location',
             ),
             'moduleNearLocation' => array(
@@ -36,8 +36,7 @@ class GeoApi extends SugarApi
                 'path' => array('<module>', 'near', '?'),
                 'pathVars' => array('module', '', 'location'),
                 'method' => 'findNear',
-                'shortHelp' => 'This method updates a record of the specified type',
-                'longHelp' => 'include/api/help/module_record_put_help.html',
+                'shortHelp' => 'Find records of a specific type near a location',
             ),
         );
     }
@@ -59,13 +58,25 @@ class GeoApi extends SugarApi
             throw new SugarApiExceptionMissingParameter("Missing location");
         }
 
-        $module = !empty($args['module']) ? $args['module'] : "Contacts";
+        $modules = !empty($args['module']) ? array($args['module']) : $this->getValidModules();
         // Load global search engine
         $engine = $this->getEngine();
-        $iName = $engine->getReadIndexName(array($module));
+        $iName = $engine->getReadIndexName($modules);
         $client = $engine->getClient();
         $index = $client->getIndex($iName);
-        $query = new Elastica\Query();
+        $query = new Elastica\Query\MatchAll();
+        $search = new Elastica\Search($client);
+        $search->addIndex($index);
+        foreach($modules as $module) {
+            $search->addType($module);
+        }
+        if (!empty($args['distance'])) {
+            $filter = new Elastica\Filter\GeoDistance('lat_long_c', $args['location'], $args['distance']);
+            $query = new Elastica\Query\Filtered($query, $filter);
+        }
+
+        //Add sort
+        $query = Elastica\Query::create($query);
         $query->addSort(array(
             '_geo_distance' => array(
                 "lat_long_c" => $args['location'],
@@ -74,10 +85,12 @@ class GeoApi extends SugarApi
             )
         ));
 
-        $results = $index->search($query)->getResults();
 
+        $results = $search->search($query)->getResults();
+        $ret = array();
         foreach ($results as $result) {
             $dist = $result->getParam("sort");
+            $module = $result->getType();
             $bean = $this->formatBeanFromResult($api, $args, $result, BeanFactory::getBean($module));
             $bean['_distance'] = $dist[0];
             $bean['_distance_unit'] = 'km';
@@ -86,6 +99,19 @@ class GeoApi extends SugarApi
 
         return $ret;
 
+    }
+
+    protected function getValidModules(){
+        global $beanList;
+        $modules = array_keys($beanList);
+        $ret = array();
+        foreach ($modules as $module) {
+            $seed = BeanFactory::getBean($module);
+            if (!empty($seed->field_defs['lat_long_c'])) {
+                $ret[] = $module;
+            }
+        }
+        return $ret;
     }
 
     /**

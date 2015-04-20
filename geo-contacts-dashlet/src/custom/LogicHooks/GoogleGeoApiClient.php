@@ -3,7 +3,7 @@
 class GoogleGeoApiClient
 {
     protected static $prefixes = array(
-        'Company' => 'billing_address',
+        'Company' => 'billing_address_',
         'Person' => 'primary_address_'
     );
 
@@ -84,8 +84,8 @@ class GoogleGeoApiClient
         $address = array_map("urlencode", array_filter($address, function ($value) {
             return !empty($value);
         }));
-
         $addrString = implode(',', $address);
+
 
         if (!empty($sugar_config['google_api_key'])) {
             $api_key = $sugar_config['google_api_key'];
