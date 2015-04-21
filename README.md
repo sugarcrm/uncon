@@ -5,7 +5,7 @@ Definitive source of all your UnCon materials
 
 - Bow ties are cool.  But dashlets are cooler.  Have a system you need to integrate with the Sugar UI?  Brand new to Sugar 7 development?  Then Dashlets are a great way to get your feet wet.  Try creating a chart!  Everybody loves those.  We've got plenty of Sugar Engineers around that can help you too.  *Create your first (or 100th) Sugar 7 dashlet.*
 
-- Elasticsearch is REALLY FAST.  We are expanding our investment into Elasticsearch in future releases but the flexibility of Elastic means there's plenty of solutions that are made easier and much faster once you learn how to take advantage of it.  Whether that is full text document search or geolocation for Maps integrations.  *Expore use of Elasticsearch, with the help of the Sugar Architects, to create solutions to common customer requirements*
+- Elasticsearch is REALLY FAST.  We are expanding our investment into Elasticsearch in future releases but the flexibility of Elastic means there's plenty of solutions that are made easier and much faster once you learn how to take advantage of it.  Whether that is full text document search or geolocation for Maps integrations.  *Explore use of Elasticsearch, with the help of the Sugar Architects, to create solutions to common customer requirements*
 
 - Tools make everybody's life easier.  Have you had ideas for a Sugar 7 development tool but your regular job keeps getting in the way?  Now's your chance to give it a shot with the help of some friends or newly met acquaintances.  *Design and Prototype a Sugar 7 Development tool.*
 

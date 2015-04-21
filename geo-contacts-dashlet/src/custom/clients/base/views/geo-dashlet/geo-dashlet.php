@@ -14,8 +14,8 @@
 $viewdefs['base']['view']['geo-dashlet'] = array(
     'dashlets' => array(
         array(
-            'label' => 'Contacts Near Me',
-            'description' => 'Display Contacts near me',
+            'label' => 'Records Near Me',
+            'description' => 'Display Records near me',
             'config' => array(
                 'limit' => '3',
             ),
@@ -24,7 +24,9 @@ $viewdefs['base']['view']['geo-dashlet'] = array(
             ),
             'filter' => array(
                 'module' => array(
-                    'Contacts'
+                    'Contacts',
+                    'Accounts',
+                    'Home'
                 ),
             ),
         ),

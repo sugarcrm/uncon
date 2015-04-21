@@ -22,7 +22,12 @@
         "primary_address_city",
         "primary_address_state",
         "primary_address_postalcode",
-        "primary_address_country"
+        "primary_address_country",
+        "billing_address_street",
+        "billing_address_city",
+        "billing_address_state",
+        "billing_address_postalcode",
+        "billing_address_country"
     ],
     displayColumns: [
         {
@@ -49,6 +54,13 @@
             "primary_address_state",
             "primary_address_postalcode",
             "primary_address_country"
+        ],
+        'Accounts' : [
+            "billing_address_street",
+            "billing_address_city",
+            "billing_address_state",
+            "billing_address_postalcode",
+            "billing_address_country"
         ]
     }
     ,
@@ -73,11 +85,11 @@
         if (this.location) {
             this.loading = true;
             var latLong = this.location.coords.latitude + "," + this.location.coords.longitude,
-                url = app.api.buildURL('Contacts', 'near/' + latLong, null, {
+                module = this.module == "Home" ? "" : this.module,
+                url = app.api.buildURL(module, 'near/' + latLong, null, {
                     lat_long: true,
                     fields : this.requestFields
                 });
-
             app.api.call('read', url, null, {
                 success: function(result) {
                     self.data = result;
