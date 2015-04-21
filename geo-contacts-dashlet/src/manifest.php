@@ -34,70 +34,95 @@ $manifest = array (
 
 
 $installdefs = array (
-  'id' => 'geo_contacts',
-  'custom_fields' => 
-  array (
-    'Contactslat_long_c' => 
-    array (
-      'id' => 'Contactslat_long_c',
-      'name' => 'lat_long_c',
-      'label' => 'LBL_LAT_LONG_C',
-      'comments' => '',
-      'help' => '',
-      'module' => 'Contacts',
-      'type' => 'varchar',
-      'max_size' => '255',
-      'require_option' => '0',
-      'default_value' => '',
-      'date_modified' => '2015-04-17 22:49:15',
-      'deleted' => '0',
-      'audited' => '0',
-      'mass_update' => '0',
-      'duplicate_merge' => '1',
-      'reportable' => '1',
-      'importable' => 'true',
-      'ext1' => '',
-      'ext2' => '',
-      'ext3' => '',
-      'ext4' => '',
+    'id' => 'geo_contacts',
+    'custom_fields' => array(
+        'Contactslat_long_c' => array(
+            'id' => 'Contactslat_long_c',
+            'name' => 'lat_long_c',
+            'label' => 'LBL_LAT_LONG_C',
+            'comments' => '',
+            'help' => '',
+            'module' => 'Contacts',
+            'type' => 'varchar',
+            'max_size' => '255',
+            'require_option' => '0',
+            'default_value' => '',
+            'date_modified' => '2015-04-17 22:49:15',
+            'deleted' => '0',
+            'audited' => '0',
+            'mass_update' => '0',
+            'duplicate_merge' => '1',
+            'reportable' => '1',
+            'importable' => 'true',
+            'ext1' => '',
+            'ext2' => '',
+            'ext3' => '',
+            'ext4' => '',
+        ),
+        'Accountslat_long_c' => array(
+            'id' => 'Accountslat_long_c',
+            'name' => 'lat_long_c',
+            'label' => 'LBL_LAT_LONG_C',
+            'comments' => '',
+            'help' => '',
+            'module' => 'Accounts',
+            'type' => 'varchar',
+            'max_size' => '255',
+            'require_option' => '0',
+            'default_value' => '',
+            'date_modified' => '2015-04-17 22:49:15',
+            'deleted' => '0',
+            'audited' => '0',
+            'mass_update' => '0',
+            'duplicate_merge' => '1',
+            'reportable' => '1',
+            'importable' => 'true',
+            'ext1' => '',
+            'ext2' => '',
+            'ext3' => '',
+            'ext4' => '',
+        ),
     ),
-  ),
-  'copy' => array (
-    array (
-      'from' => '<basepath>/custom/Extension/modules/Contacts/Ext/Vardefs/sugarfield_lat_long_c.php',
-      'to' => 'custom/Extension/modules/Contacts/Ext/Vardefs/sugarfield_lat_long_c.php',
+    'copy' => array(
+        array(
+            'from' => '<basepath>/custom/Extension/modules/Contacts/Ext/Vardefs/sugarfield_lat_long_c.php',
+            'to' => 'custom/Extension/modules/Contacts/Ext/Vardefs/sugarfield_lat_long_c.php',
+        ),
+        array(
+            'from' => '<basepath>/custom/Extension/modules/Accounts/Ext/Vardefs/sugarfield_lat_long_c.php',
+            'to' => 'custom/Extension/modules/Accounts/Ext/Vardefs/sugarfield_lat_long_c.php',
+        ),
+        array(
+            'from' => '<basepath>/custom/clients/base/api/GeoApi.php',
+            'to' => 'custom/clients/base/api/GeoApi.php',
+        ),
+        array(
+            'from' => '<basepath>/custom/clients/base/views/geo-dashlet/geo-dashlet.hbs',
+            'to' => 'custom/clients/base/views/geo-dashlet/geo-dashlet.hbs',
+        ),
+        array(
+            'from' => '<basepath>/custom/clients/base/views/geo-dashlet/geo-dashlet.js',
+            'to' => 'custom/clients/base/views/geo-dashlet/geo-dashlet.js',
+        ),
+        array(
+            'from' => '<basepath>/custom/clients/base/views/geo-dashlet/geo-dashlet.php',
+            'to' => 'custom/clients/base/views/geo-dashlet/geo-dashlet.php',
+        ),
+        array(
+            'from' => '<basepath>/custom/clients/base/views/geo-dashlet/popup.hbs',
+            'to' => 'custom/clients/base/views/geo-dashlet/popup.hbs',
+        ),
+        array(
+            'from' => '<basepath>/custom/Extension/application/Ext/LogicHooks/GeoSearch.php',
+            'to' => 'custom/Extension/application/Ext/LogicHooks/GeoSearch.php',
+        ),
+        array(
+            'from' => '<basepath>/custom/include/SugarSearchEngine/Elastic/SugarSearchEngineElasticMapping.php',
+            'to' => 'custom/include/SugarSearchEngine/Elastic/SugarSearchEngineElasticMapping.php',
+        ),
+        array(
+            'from' => '<basepath>/custom/LogicHooks/GoogleGeoApiClient.php',
+            'to' => 'custom/LogicHooks/GoogleGeoApiClient.php',
+        ),
     ),
-    array (
-      'from' => '<basepath>/custom/clients/base/api/GeoApi.php',
-      'to' => 'custom/clients/base/api/GeoApi.php',
-    ),
-    array (
-      'from' => '<basepath>/custom/clients/base/views/geo-dashlet/geo-dashlet.hbs',
-      'to' => 'custom/clients/base/views/geo-dashlet/geo-dashlet.hbs',
-    ),
-    array (
-      'from' => '<basepath>/custom/clients/base/views/geo-dashlet/geo-dashlet.js',
-      'to' => 'custom/clients/base/views/geo-dashlet/geo-dashlet.js',
-    ),
-    array (
-      'from' => '<basepath>/custom/clients/base/views/geo-dashlet/geo-dashlet.php',
-      'to' => 'custom/clients/base/views/geo-dashlet/geo-dashlet.php',
-    ),
-    array (
-      'from' => '<basepath>/custom/clients/base/views/geo-dashlet/popup.hbs',
-      'to' => 'custom/clients/base/views/geo-dashlet/popup.hbs',
-    ),
-    array (
-      'from' => '<basepath>/custom/Extension/application/Ext/LogicHooks/GeoSearch.php',
-      'to' => 'custom/Extension/application/Ext/LogicHooks/GeoSearch.php',
-    ),
-    array (
-      'from' => '<basepath>/custom/include/SugarSearchEngine/Elastic/SugarSearchEngineElasticMapping.php',
-      'to' => 'custom/include/SugarSearchEngine/Elastic/SugarSearchEngineElasticMapping.php',
-    ),
-    array (
-      'from' => '<basepath>/custom/LogicHooks/GoogleGeoApiClient.php',
-      'to' => 'custom/LogicHooks/GoogleGeoApiClient.php',
-    ),
-  ),
 );
