@@ -93,7 +93,7 @@ class GeoApi extends SugarApi
             $module = $result->getType();
             $bean = $this->formatBeanFromResult($api, $args, $result, BeanFactory::getBean($module));
             $bean['_distance'] = $dist[0];
-            $bean['_distance_unit'] = 'km';
+            $bean['_distance_unit'] = 'mi';
             $ret[] = $bean;
         }
 
