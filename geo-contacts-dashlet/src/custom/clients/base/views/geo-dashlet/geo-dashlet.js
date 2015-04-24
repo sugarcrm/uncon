@@ -70,6 +70,13 @@
         this._super('initialize', arguments);
         this.getLocation(true);
         this.popupTemplate = app.template.getView('geo-dashlet.popup');
+        //Load the L library if required
+        if (typeof L == "undefined") {
+            $('<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />')
+                .appendTo(document.head);
+            $('<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>')
+                .appendTo(document.head);
+        }
     },
 
     initDashlet: function() {
@@ -120,22 +127,28 @@
             this.map = false;
         }
         this._super('_render', arguments);
-        var ll = this.getLatLong();
-        if (L && ll && this.settings.get('activeTab') == 1 && this.$(".lmap").length > 0) {
-            var mapEl = this.$(".lmap"),
-                map = this.map = L.map(mapEl[0], {
-                    center: [ll.lat, ll.long],
-                    zoom: 11
+        if (L) {
+            var ll = this.getLatLong();
+            if (L && ll && this.settings.get('activeTab') == 1 && this.$(".lmap").length > 0) {
+                var mapEl = this.$(".lmap"),
+                    map = this.map = L.map(mapEl[0], {
+                        center: [ll.lat, ll.long],
+                        zoom: 11
+                    });
+                mapEl.height("300px");
+                L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+                _.each(this.data, function(item) {
+                    var itemLL = _.map(item.lat_long_c.split(","), $.trim);
+                    L.marker([itemLL[0], itemLL[1]]).addTo(map)
+                        .bindPopup(self.getPopup(item));
                 });
-            mapEl.height("300px");
-            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-            _.each(this.data, function(item) {
-                var itemLL = _.map(item.lat_long_c.split(","), $.trim);
-                L.marker([itemLL[0], itemLL[1]]).addTo(map)
-                    .bindPopup(self.getPopup(item));
-            });
+            }
+        } else {
+            //if the L library isn't loaded yet, schedule a re-render whenit does load.
+            //doWhen takes condition, callback, params, and scope
+            app.utils.doWhen("L", this._render, [], this);
         }
     },
 
