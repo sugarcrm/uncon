@@ -48,7 +48,7 @@ function setup_environment() {
 
 function repair() {
     $repair = new RepairAndClear();
-    $repair->repairAndClearAll(array('clearAll'),array(translate('LBL_ALL_MODULES')), true,false);
+    $repair->repairAndClearAll(array('clearAll'),array(translate('LBL_ALL_MODULES')), true,false, '');
     //remove the js language files
     LanguageManager::removeJSLanguageFiles();
     //remove language cache files
