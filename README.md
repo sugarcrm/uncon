@@ -1,6 +1,11 @@
 # UnCon 2015
 Definitive source of all your UnCon materials
 
+Copyright (C) 2015 SugarCRM Inc.
+
+## Agenda for [Roundtable discussions](http://bit.ly/uncon2015agenda)
+
+
 ## (Some) Hackathon Ideas
 
 - Bow ties are cool.  But dashlets are cooler.  Have a system you need to integrate with the Sugar UI?  Brand new to Sugar 7 development?  Then Dashlets are a great way to get your feet wet.  Try creating a chart!  Everybody loves those.  We've got plenty of Sugar Engineers around that can help you too.  *Create your first (or 100th) Sugar 7 dashlet.*

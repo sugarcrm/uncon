@@ -1,0 +1,8 @@
+<input type="text"
+       name="{{name}}"
+       value="{{value}}"
+       {{#if def.len}}maxlength="{{def.len}}"{{/if}}
+    {{#if def.placeholder}}placeholder="{{str def.placeholder this.model.module}}"{{/if}}
+       class="inherit-width">
+
+<p class="help-block">

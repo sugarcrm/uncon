@@ -1,4 +1,7 @@
 # Node.js Projects
+
+Copyright (C) 2015 SugarCRM Inc.
+
 Node.js is a great way to quickly prototype applications or integrations.  It allows you to create server-side JavaScript applications.  If you are new to Node, check out https://nodejs.org/about/ to learn more about how Node works.  These projects also make use of Node Package Manager (https://www.npmjs.com/) for dependency management.
 
 **sugarapi-node** is a Node.js module is based upon standard Sugar 7 `sugarapi.js` library used by our Sidecar framework.  It has been modified to allow it to work within a Node environment.  Using this module, you'll be able to easily make Sugar 7 REST API calls from your own Node applications.  Check out the README for more usage details.
