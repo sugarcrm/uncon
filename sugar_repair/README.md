@@ -2,6 +2,8 @@
 
 Running Repair and Rebuild from Command Line
 
+Copyright (C) 2015 SugarCRM Inc.
+
 ## Setup
 
 1. Download the `sugar_repiar` script

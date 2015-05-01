@@ -4,6 +4,8 @@
 
 Elasticsearch Geo Location POC
 
+Copyright (C) 2015 SugarCRM Inc.
+
 ### Installation
 - Use module loader to install the latest release zip from this repository
 - (Optional) modify config_override to include "google_api_key" with your own Google API key 
