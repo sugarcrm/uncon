@@ -2,6 +2,8 @@
 
 ## Elasticsearch file search
 
+Copyright (C) 2015 SugarCRM Inc.
+
 Proof of concept module adding customizations to the new Elasticsearch framework. This customization extends the GlobalSearch provider adding the ability to perform full text search on files for both Notes/Attachments as well as for the Documents module.
 
 ### Requirements

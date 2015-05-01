@@ -1,6 +1,6 @@
-googleSlideSugarField
----------------------
 Google Docs SugarCRM field
+---------------------
+Copyright (C) SugarCRM, 2015.
 
 Steps:
 
@@ -14,4 +14,4 @@ Steps:
 6. When editing, put the identifier in the field.
 7. When viewing, you should see an embedded iframe. That's your Google presentation!
 
-Copyright (C) SugarCRM, 2015.
+

@@ -1,4 +1,7 @@
 # SugarCRM Robotics
+
+Copyright (C) 2015 SugarCRM Inc.
+
 This is a sample module for a Cylon.js (http://cylonjs.com/) robot that uses sugarapi-node module to quickly and easily prototype IoT solutions to CRM problems.
 
 ## Prerequisites

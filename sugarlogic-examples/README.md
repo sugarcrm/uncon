@@ -1,5 +1,7 @@
 # SugarLogic Examples
 
+Copyright (C) 2015 SugarCRM Inc.
+
 ## Dependency Examples
 
 The follow examples would be put in files  in the follow folder `custom/Extension/modules/<module name>/Ext/Dependencies`
