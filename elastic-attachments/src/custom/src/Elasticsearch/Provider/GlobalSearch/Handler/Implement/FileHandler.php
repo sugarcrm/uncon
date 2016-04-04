@@ -25,6 +25,7 @@ use Sugarcrm\Sugarcrm\Elasticsearch\Provider\GlobalSearch\SearchFields;
 use Sugarcrm\Sugarcrm\Elasticsearch\Provider\GlobalSearch\GlobalSearch;
 use Sugarcrm\Sugarcrm\Elasticsearch\Mapping\Property\MultiFieldBaseProperty;
 use Sugarcrm\Sugarcrm\Elasticsearch\Mapping\Property\MultiFieldProperty;
+use Sugarcrm\Sugarcrm\Elasticsearch\Query\QueryBuilder;
 
 /**
  *
@@ -290,7 +291,7 @@ class FileHandler extends AbstractHandler implements
      */
     protected function getSearchField($module)
     {
-        return $module . SearchFields::PREFIX_SEP . $this->searchField;
+        return $module . QueryBuilder::PREFIX_SEP . $this->searchField;
     }
 
     /**
