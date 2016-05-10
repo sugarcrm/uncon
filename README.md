@@ -3,7 +3,7 @@ UnCon 2016 Code Samples
 
 Prerequisites: 
 - Git installed
-- local install of Sugar
+- a local install of Sugar
 
 To install these code samples into a local Sugar instance, run the following commands:
 
