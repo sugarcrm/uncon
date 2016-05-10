@@ -1,10 +1,10 @@
 # UnCon code examples
-Definitive source for all your UnCon materials
+Definitive source for all your UnCon code examples and exercises.
 
 Copyright (C) 2015 SugarCRM Inc.
 
 ## Repository Structure
-The code from each UnCon is in a different branch for each year.
+The sample code from each UnCon is in a different branch for each year.
 
 | Year   | Branch|
 ---------|--------
