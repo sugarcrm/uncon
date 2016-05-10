@@ -4,7 +4,7 @@ Definitive source for all your UnCon materials
 Copyright (C) 2015 SugarCRM Inc.
 
 ## Repository Structure
-The code from previous UnCon events are separated into different branches based upon the year.
+The code from each UnCon is in a different branch for each year.
 
 | Year   | Branch|
 ---------|--------
