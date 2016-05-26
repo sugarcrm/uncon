@@ -9,17 +9,17 @@ Prerequisites:
 
 To install these code sample packages into any Sugar instance, use the following steps:
 
-- Login to Sugar as an Administrator.
-- Go to Administration > Module Loader.
-- "Upload" the zip from PACKAGE_NAME/releases directory.
-- Click "Install" on your package in the list.
+1. Login to Sugar as an Administrator.
+2. Go to Administration > Module Loader.
+3. "Upload" the zip from PACKAGE_NAME/releases directory.
+4. Click "Install" on your package in the list.
 
 ## Editing and Rebuilding a new version of a Package
 
 - Check out this Git repository and make changes to the package.
 
-    $ cd clone git@github.com:sugarcrm/uncon.git
-    $ git checkout origin/2016
-    $ cd PACKAGE_NAME
+        $ cd clone git@github.com:sugarcrm/uncon.git
+        $ git checkout origin/2016
+        $ cd PACKAGE_NAME
 
 - Follow the directions in the README for each package for build instructions.
