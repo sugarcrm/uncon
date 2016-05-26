@@ -2,13 +2,20 @@
 <?php
 // Copyright 2016 SugarCRM Inc.  Licensed by SugarCRM under the Apache 2.0 license.
 
+ /****** REPLACE THESE  *******/
+ $packageID = "REPLACE_ME";
+ $packageLabel = "SugarCRM ML Package Template";
+ $supportedVersionRegex = '^7.7.[\d]+.[\d]+$';
+/******************************/
+
 if (empty($argv[1])) {
     die("Use $argv[0] [version]\n");
 }
 
 $version = $argv[1];
-$id = "uncon16-custom-visibility-{$version}";
-$name = "SugarCRM UnCon 2016 Custom Visibility Demo";
+
+$id = "{$packageID}-{$version}";
+
 $zipFile = "releases/sugarcrm-{$id}.zip";
 
 if (file_exists($zipFile)) {
@@ -16,9 +23,9 @@ if (file_exists($zipFile)) {
 }
 
 $manifest = array(
-    'id' => $id,
-    'name' => $name,
-    'description' => $name,
+    'id' => $packageID,
+    'name' => $packageLabel,
+    'description' => $packageLabel,
     'version' => $version,
     'author' => 'SugarCRM, Inc.',
     'is_uninstallable' => 'true',
@@ -28,7 +35,7 @@ $manifest = array(
         'exact_matches' => array(
         ),
         'regex_matches' => array(
-            '^7.7.[\d]+.[\d]+$',
+            $supportedVersionRegex,
         ),
     ),
 );

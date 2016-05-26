@@ -1,8 +1,8 @@
 application/Ext
 modules/*/Ext
 history/
-index.html
 install/
 .buildpath
 .project
 .settings/
+.DS_Store

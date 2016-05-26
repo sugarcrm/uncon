@@ -1,18 +1,25 @@
 UnCon 2016 Code Samples
 ----------------------
 
-Prerequisites: 
-- Git installed
-- a local install of Sugar
+Prerequisites:
+- Git and PHP installed
+- access to a Sugar instance (does not need to be locally installed)
 
-To install these code samples into a local Sugar instance, run the following commands:
+## Installing Sample Packages
 
-    $ cd SugarRoot/custom
-    $ git init
-    $ git remote add origin git@github.com:sugarcrm/uncon.git
+To install these code sample packages into any Sugar instance, use the following steps:
+
+- Login to Sugar as an Administrator.
+- Go to Administration > Module Loader.
+- "Upload" the zip from PACKAGE_NAME/releases directory.
+- Click "Install" on your package in the list.
+
+## Editing and Rebuilding a new version of a Package
+
+- Check out this Git repository and make changes to the package.
+
+    $ cd clone git@github.com:sugarcrm/uncon.git
     $ git checkout origin/2016
+    $ cd PACKAGE_NAME
 
-Then run *Quick Repair and Rebuild* on your Sugar instance.
-
-
-
+- Follow the directions in the README for each package for build instructions.
