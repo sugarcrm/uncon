@@ -9,8 +9,8 @@ Copyright (C) 2016 SugarCRM Inc.
 - PHP installed (for development)
 
 ### Installation
-- Login as Administrator into Sugar instance
-- Use Sugar's Module Loader to install the latest release zip from this repository
+1. Login as Administrator into Sugar instance
+2. Use Sugar's Module Loader to install the latest release zip from this repository
 
 ### Usage
 ...
