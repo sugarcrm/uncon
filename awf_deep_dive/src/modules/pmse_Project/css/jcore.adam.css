@@ -1,0 +1,1338 @@
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+[class^="adam-icon-"],
+[class*=" adam-icon-"] {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  background-image: url("../img/pmse_sprite_with_zoom.gif");
+  background-repeat: no-repeat;
+  margin-top: 3px;
+  margin-bottom: 2px;
+  background-position: -565px -510px;
+}
+
+[class^="adam-icon-"]:last-child,
+[class*=" adam-icon-"]:last-child {
+  *margin-left: 0;
+}
+
+.adam-icon-start-lead {
+  background-position: -3px -329px;
+}
+
+.adam-icon-start-opportunity {
+  background-position: -29px -329px;
+}
+
+.adam-icon-start-document {
+  background-position: -56px -329px;
+}
+
+.adam-icon-start-other-module {
+  background-position: -395px -1px;
+}
+
+.adam-icon-intermediate-timer {
+  background-position: -83px -329px;
+}
+
+.adam-icon-intermediate-message {
+  background-position: -109px -329px;
+}
+
+.adam-icon-intermediate-receive-message {
+  background-position: -304px -82px;
+}
+
+.adam-icon-intermediate-boundary {
+  background-position: -190px -329px;
+}
+
+.adam-icon-gateway-exclusive {
+  background-position: -164px -329px;
+}
+
+.adam-icon-gateway-parallel {
+  background-position: -214px -329px;
+}
+
+.adam-icon-user-task {
+  background-position: -241px -329px;
+}
+
+.adam-icon-end {
+  background-position: -136px -329px;
+}
+
+.adam-icon-textannotation {
+  background-position: -266px -329px;
+}
+
+.adam-icon-undo-on {
+  background-position: -293px -329px;
+}
+
+.adam-icon-redo-on {
+  background-position: -321px -329px;
+}
+
+.adam-icon-save-on {
+  background-position: -352px -329px;
+}
+
+.adam-icon-save-off {
+  background-position: -383px -329px;
+}
+
+.adam-icon-undo-off {
+  background-position: -413px -329px;
+}
+
+.adam-icon-redo-off {
+  background-position: -442px -329px;
+}
+
+.adam-icon-action {
+  background-position: -342px -80px;
+}
+
+.adam-icon-history {
+  background-position: -515px -205px;
+}
+
+.adam-icon-status {
+  background-position: -515px -280px;
+}
+
+.adam-icon-notes {
+  background-position: -515px -255px;
+}
+
+.adam-icon-reassing {
+  background-position: -515px -230px;
+}
+
+.adam-icon-record_owner {
+  background-position: -515px -305px;
+}
+
+.adam-icon-warning {
+  background-position: -515px -330px;
+}
+
+[class^="adam-shape-"],
+[class*=" adam-shape-"],
+[class^="adam-marker-"],
+[class*=" adam-marker-"],
+[class^="adam-decorator_"],
+[class*=" adam-decorator_"],
+[class^="adam-status-"],
+[class*=" adam-status-"] {
+  display: inline-block;
+  background-image: url("../img/pmse_sprite_with_zoom.gif");
+  background-repeat: no-repeat;
+  background-position: -565px -510px;
+}
+
+.adam-shape-100-event-start {
+  background-position: -3px -3px;
+}
+
+.adam-shape-100-event-intermediate {
+  background-position: -39px -3px;
+}
+
+.adam-shape-100-event-end {
+  background-position: -75px -3px;
+}
+
+.adam-shape-100-gateway-exclusive {
+  background-position: -111px  -3px;
+}
+
+.adam-shape-100-gateway-parallel {
+  background-position: -111px -51px;
+}
+
+.adam-shape-100-gateway-eventbased {
+  background-position: -127px -403px;
+}
+
+.adam-shape-100-gateway-inclusive {
+  background-position: -175px -403px;
+}
+
+.adam-marker-100-start-catch-leads {
+  background-position: -3px  -39px;
+}
+
+.adam-marker-100-start-catch-opportunities {
+  background-position: -3px  -75px;
+}
+
+.adam-marker-100-start-catch-documents {
+  background-position: -3px -111px;
+}
+
+.adam-marker-100-intermediate-catch-timer {
+  background-position: -39px  -39px;
+}
+
+.adam-marker-100-intermediate-throw-message {
+  background-position: -39px  -75px;
+}
+
+.adam-marker-100-start-catch-message {
+  background-position: -39px -111px;
+}
+
+.adam-marker-100-intermediate-catch-message {
+  background-position: -75px  -39px;
+}
+
+.adam-marker-100-end-throw-message {
+  background-position: -75px  -75px;
+}
+
+.adam-marker-100-intemediate-catch-error {
+  background-position: -75px -111px;
+}
+
+.adam-marker-100-end-throw-terminate {
+  background-position: -388px  -427px;
+}
+
+.adam-marker-100-usertask {
+  background-position: -111px -99px;
+}
+
+.adam-marker-100-scripttask {
+  background-position: -111px -121px;
+}
+
+.adam-decorator_100_target_left {
+  background-position: -133px -99px;
+}
+
+.adam-decorator_100_target_right {
+  background-position: -133px -111px;
+}
+
+.adam-decorator_100_target_bottom {
+  background-position: -133px -126px;
+}
+
+.adam-decorator_100_target_top {
+  background-position: -145px -126px;
+}
+
+.adam-decorator_conditional_100_source_left {
+  background-position: -157px -99px;
+}
+
+.adam-decorator_conditional_100_source_right {
+  background-position: -157px -99px;
+}
+
+.adam-decorator_conditional_100_source_bottom {
+  background-position: -157px -111px;
+}
+
+.adam-decorator_conditional_100_source_top {
+  background-position: -157px -111px;
+}
+
+.adam-decorator_default_100_source_left {
+  background-position: -145px -111px;
+}
+
+.adam-decorator_default_100_source_right {
+  background-position: -145px -111px;
+}
+
+.adam-decorator_default_100_source_bottom {
+  background-position: -145px -99px;
+}
+
+.adam-decorator_default_100_source_top {
+  background-position: -145px -99px;
+}
+
+.adam-status-100-error {
+  background-position: -65px -363px !important;
+}
+
+.adam-status-100-warning {
+  vertical-align: top;
+  font-size: 20px;
+  /*background: white; border-radius: 17px;*/
+}
+
+.adam-status-100-info {
+  background-position: -91px -363px !important;
+}
+
+.adam-shape-75-event-start {
+  background-position: -170px -3px;
+}
+
+.adam-shape-75-event-intermediate {
+  background-position: -198px -3px;
+}
+
+.adam-shape-75-event-end {
+  background-position: -226px -3px;
+}
+
+.adam-shape-75-gateway-exclusive {
+  background-position: -254px  -3px;
+}
+
+.adam-shape-75-gateway-parallel {
+  background-position: -254px -39px;
+}
+
+.adam-shape-75-gateway-eventbased {
+  background-position: -284px -425px;
+}
+
+.adam-shape-75-gateway-inclusive {
+  background-position: -320px -425px;
+}
+
+.adam-marker-75-start-catch-leads {
+  background-position: -170px -31px;
+}
+
+.adam-marker-75-start-catch-opportunities {
+  background-position: -170px -59px;
+}
+
+.adam-marker-75-start-catch-documents {
+  background-position: -170px -87px;
+}
+
+.adam-marker-75-intermediate-catch-timer {
+  background-position: -198px -31px;
+}
+
+.adam-marker-75-intermediate-throw-message {
+  background-position: -198px -59px;
+}
+
+.adam-marker-75-start-catch-message {
+  background-position: -198px -87px;
+}
+
+.adam-marker-75-intermediate-catch-message {
+  background-position: -226px -31px;
+}
+
+.adam-marker-75-end-throw-message {
+  background-position: -226px -59px;
+}
+
+.adam-marker-75-intemediate-catch-error {
+  background-position: -226px -87px;
+}
+
+.adam-marker-75-end-throw-terminate {
+  background-position: -363px -427px;
+}
+
+.adam-marker-75-usertask {
+  background-position: -254px -75px;
+}
+
+.adam-marker-75-scripttask {
+  background-position: -254px -92px;
+}
+
+.adam-decorator_75_target_left {
+  background-position: -271px -75px;
+}
+
+.adam-decorator_75_target_right {
+  background-position: -271px -87px;
+}
+
+.adam-decorator_75_target_bottom {
+  background-position: -271px -100px;
+}
+
+.adam-decorator_75_target_top {
+  background-position: -281px -100px;
+}
+
+.adam-decorator_conditional_75_source_left {
+  background-position: -291px -75px;
+}
+
+.adam-decorator_conditional_75_source_right {
+  background-position: -291px -75px;
+}
+
+.adam-decorator_conditional_75_source_bottom {
+  background-position: -291px -87px;
+}
+
+.adam-decorator_conditional_75_source_top {
+  background-position: -291px -87px;
+}
+
+.adam-decorator_default_75_source_left {
+  background-position: -281px -87px;
+}
+
+.adam-decorator_default_75_source_right {
+  background-position: -281px -87px;
+}
+
+.adam-decorator_default_75_source_bottom {
+  background-position: -281px -75px;
+}
+
+.adam-decorator_default_75_source_top {
+  background-position: -281px -75px;
+}
+
+.adam-status-75-error {
+  background-position: -65px -378px !important;
+}
+
+.adam-status-75-warning {
+  background-position: -74px -378px !important;
+}
+
+.adam-status-75-info {
+  background-position: -85px -378px !important;
+}
+
+.adam-shape-50-event-start {
+  background-position: -300px -3px;
+}
+
+.adam-shape-50-event-intermediate {
+  background-position: -320px -3px;
+}
+
+.adam-shape-50-event-end {
+  background-position: -340px -3px;
+}
+
+.adam-shape-50-gateway-exclusive {
+  background-position: -360px  -3px;
+}
+
+.adam-shape-50-gateway-parallel {
+  background-position: -360px -29px;
+}
+
+.adam-shape-50-gateway-eventbased {
+  background-position: -223px -403px;
+}
+
+.adam-shape-50-gateway-inclusive {
+  background-position: -249px -403px;
+}
+
+.adam-marker-50-start-catch-leads {
+  background-position: -300px -23px;
+}
+
+.adam-marker-50-start-catch-opportunities {
+  background-position: -300px -43px;
+}
+
+.adam-marker-50-start-catch-documents {
+  background-position: -300px -63px;
+}
+
+.adam-marker-50-intermediate-catch-timer {
+  background-position: -320px -23px;
+}
+
+.adam-marker-50-intermediate-throw-message {
+  background-position: -320px -43px;
+}
+
+.adam-marker-50-start-catch-message {
+  background-position: -320px -63px;
+}
+
+.adam-marker-50-intermediate-catch-message {
+  background-position: -340px -23px;
+}
+
+.adam-marker-50-end-throw-message {
+  background-position: -340px -43px;
+}
+
+.adam-marker-50-intemediate-catch-error {
+  background-position: -340px -63px;
+}
+
+.adam-marker-50-end-throw-terminate {
+  background-position: -227px -439px;
+}
+
+.adam-marker-50-usertask {
+  background-position: -360px -55px;
+}
+
+.adam-marker-50-scripttask {
+  background-position: -360px -66px;
+}
+
+.adam-decorator_50_target_left {
+  background-position: -372px -55px;
+}
+
+.adam-decorator_50_target_right {
+  background-position: -372px -63px;
+}
+
+.adam-decorator_50_target_bottom {
+  background-position: -372px -71px;
+}
+
+.adam-decorator_50_target_top {
+  background-position: -379px -71px;
+}
+
+.adam-decorator_conditional_50_source_left {
+  background-position: -386px -55px;
+}
+
+.adam-decorator_conditional_50_source_right {
+  background-position: -386px -55px;
+}
+
+.adam-decorator_conditional_50_source_bottom {
+  background-position: -386px -63px;
+}
+
+.adam-decorator_conditional_50_source_top {
+  background-position: -386px -63px;
+}
+
+.adam-decorator_default_50_source_left {
+  background-position: -379px -63px;
+}
+
+.adam-decorator_default_50_source_right {
+  background-position: -379px -63px;
+}
+
+.adam-decorator_default_50_source_bottom {
+  background-position: -379px -55px;
+}
+
+.adam-decorator_default_50_source_top {
+  background-position: -379px -55px;
+}
+
+.adam-status-50-error {
+  background-position: -66px -392px !important;
+}
+
+.adam-status-50-warning {
+  background-position: -72px -392px !important;
+}
+
+.adam-status-50-info {
+  background-position: -80px -392px !important;
+}
+
+.adam-shape-125-event-start {
+  background-position: -3px -150px;
+}
+
+.adam-shape-125-event-intermediate {
+  background-position: -47px -150px;
+}
+
+.adam-shape-125-event-end {
+  background-position: -91px -150px;
+}
+
+.adam-shape-125-gateway-exclusive {
+  background-position: -135px -150px;
+}
+
+.adam-shape-125-gateway-parallel {
+  background-position: -135px -210px;
+}
+
+.adam-shape-125-gateway-eventbased {
+  background-position: -3px -403px;
+}
+
+.adam-shape-125-gateway-inclusive {
+  background-position: -63px -403px;
+}
+
+.adam-marker-125-start-catch-leads {
+  background-position: -3px -194px;
+}
+
+.adam-marker-125-start-catch-opportunities {
+  background-position: -3px -238px;
+}
+
+.adam-marker-125-start-catch-documents {
+  background-position: -3px -282px;
+}
+
+.adam-marker-125-intermediate-catch-timer {
+  background-position: -47px -194px;
+}
+
+.adam-marker-125-intermediate-throw-message {
+  background-position: -47px -238px;
+}
+
+.adam-marker-125-start-catch-message {
+  background-position: -47px -282px;
+}
+
+.adam-marker-125-intermediate-catch-message {
+  background-position: -91px -194px;
+}
+
+.adam-marker-125-end-throw-message {
+  background-position: -91px -238px;
+}
+
+.adam-marker-125-intemediate-catch-error {
+  background-position: -91px -282px;
+}
+
+.adam-marker-125-end-throw-terminate {
+  background-position: -421px -370px;
+}
+
+.adam-marker-125-usertask {
+  background-position: -135px -270px;
+}
+
+.adam-marker-125-scripttask {
+  background-position: -135px -298px;
+}
+
+.adam-decorator_125_target_left {
+  background-position: -163px -270px;
+}
+
+.adam-decorator_125_target_right {
+  background-position: -163px -288px;
+}
+
+.adam-decorator_125_target_bottom {
+  background-position: -163px -305px;
+}
+
+.adam-decorator_125_target_top {
+  background-position: -180px -305px;
+}
+
+.adam-decorator_conditional_125_source_left {
+  background-position: -434px -225px;
+}
+
+.adam-decorator_conditional_125_source_right {
+  background-position: -434px -225px;
+}
+
+.adam-decorator_conditional_125_source_bottom {
+  background-position: -434px -242px;
+}
+
+.adam-decorator_conditional_125_source_top {
+  background-position: -434px -242px;
+}
+
+.adam-decorator_default_125_source_left {
+  background-position: -180px -288px;
+}
+
+.adam-decorator_default_125_source_right {
+  background-position: -180px -288px;
+}
+
+.adam-decorator_default_125_source_bottom {
+  background-position: -180px -270px;
+}
+
+.adam-decorator_default_125_source_top {
+  background-position: -180px -270px;
+}
+
+.adam-status-125-error {
+  background-position: -7px -388px !important;
+}
+
+.adam-status-125-warning {
+  background-position: -22px -388px !important;
+}
+
+.adam-status-125-info {
+  background-position: -39px -388px !important;
+}
+
+.adam-shape-150-event-start {
+  background-position: -200px -120px;
+}
+
+.adam-shape-150-event-intermediate {
+  background-position: -252px -120px;
+}
+
+.adam-shape-150-event-end {
+  background-position: -304px -120px;
+}
+
+.adam-shape-150-gateway-exclusive {
+  background-position: -356px -120px;
+}
+
+.adam-shape-150-gateway-parallel {
+  background-position: -356px -190px;
+}
+
+.adam-shape-150-gateway-eventbased {
+  background-position: -284px -356px;
+}
+
+.adam-shape-150-gateway-inclusive {
+  background-position: -354px -356px;
+}
+
+.adam-marker-150-start-catch-leads {
+  background-position: -200px -172px;
+}
+
+.adam-marker-150-start-catch-opportunities {
+  background-position: -200px -224px;
+}
+
+.adam-marker-150-start-catch-documents {
+  background-position: -200px -276px;
+}
+
+.adam-marker-150-intermediate-catch-timer {
+  background-position: -252px -172px;
+}
+
+.adam-marker-150-intermediate-throw-message {
+  background-position: -252px -224px;
+}
+
+.adam-marker-150-start-catch-message {
+  background-position: -252px -276px;
+}
+
+.adam-marker-150-intermediate-catch-message {
+  background-position: -304px -172px;
+}
+
+.adam-marker-150-end-throw-message {
+  background-position: -304px -224px;
+}
+
+.adam-marker-150-intemediate-catch-error {
+  background-position: -304px -276px;
+}
+
+.adam-marker-150-end-throw-terminate {
+  background-position: -421px  -411px;
+}
+
+.adam-marker-150-usertask {
+  background-position: -356px -260px;
+}
+
+.adam-marker-150-scripttask {
+  background-position: -356px -291px;
+}
+
+.adam-decorator_150_target_left {
+  background-position: -390px -260px;
+}
+
+.adam-decorator_150_target_right {
+  background-position: -390px -282px;
+}
+
+.adam-decorator_150_target_bottom {
+  background-position: -390px -306px;
+}
+
+.adam-decorator_150_target_top {
+  background-position: -412px -306px;
+}
+
+.adam-decorator_conditional_150_source_left {
+  background-position: -434px -260px;
+}
+
+.adam-decorator_conditional_150_source_right {
+  background-position: -434px -260px;
+}
+
+.adam-decorator_conditional_150_source_bottom {
+  background-position: -434px -282px;
+}
+
+.adam-decorator_conditional_150_source_top {
+  background-position: -434px -282px;
+}
+
+.adam-decorator_default_150_source_left {
+  background-position: -412px -282px;
+}
+
+.adam-decorator_default_150_source_right {
+  background-position: -412px -282px;
+}
+
+.adam-decorator_default_150_source_bottom {
+  background-position: -412px -260px;
+}
+
+.adam-decorator_default_150_source_top {
+  background-position: -412px -260px;
+}
+
+.adam-status-150-error {
+  background-position: -5px -363px !important;
+}
+
+.adam-status-150-warning {
+  background-position: -23px -363px !important;
+}
+
+.adam-status-150-info {
+  background-position: -39px -363px !important;
+}
+
+.adam-shape-50-activity-scripttask-none {
+  background-position: -475px -359px;
+}
+
+.adam-shape-50-activity-scripttask-assign_user {
+  background-position: -475px -380px;
+}
+
+.adam-shape-50-activity-scripttask-assign_team {
+  background-position: -475px -401px;
+}
+
+.adam-shape-50-activity-scripttask-change_field {
+  background-position: -475px -422px;
+}
+
+.adam-shape-50-activity-scripttask-add_related_record {
+  background-position: -475px -443px;
+}
+
+.adam-shape-50-activity-scripttask-business_rule {
+  background-position: -514px -180px;
+}
+
+.adam-shape-75-activity-scripttask-none {
+  background-position: -475px -204px;
+}
+
+.adam-shape-75-activity-scripttask-assign_user {
+  background-position: -475px -235px;
+}
+
+.adam-shape-75-activity-scripttask-assign_team {
+  background-position: -475px -266px;
+}
+
+.adam-shape-75-activity-scripttask-change_field {
+  background-position: -475px -297px;
+}
+
+.adam-shape-75-activity-scripttask-add_related_record {
+  background-position: -475px -328px;
+}
+
+.adam-shape-75-activity-scripttask-business_rule {
+  background-position: -514px -145px;
+}
+
+.adam-shape-100-activity-scripttask-none {
+  background-position: -475px -83px;
+}
+
+.adam-shape-100-activity-scripttask-assign_user {
+  background-position: -475px -42px;
+}
+
+.adam-shape-100-activity-scripttask-assign_team {
+  background-position: -475px 0px;
+}
+
+.adam-shape-100-activity-scripttask-change_field {
+  background-position: -475px -125px;
+}
+
+.adam-shape-100-activity-scripttask-add_related_record {
+  background-position: -475px -167px;
+}
+
+.adam-shape-100-activity-scripttask-business_rule {
+  background-position: -514px -105px;
+}
+
+.adam-shape-125-activity-scripttask-none {
+  background-position: -300px -465px;
+}
+
+.adam-shape-125-activity-scripttask-assign_user {
+  background-position: -348px -465px;
+}
+
+.adam-shape-125-activity-scripttask-assign_team {
+  background-position: -396px -465px;
+}
+
+.adam-shape-125-activity-scripttask-change_field {
+  background-position: -444px -465px;
+}
+
+.adam-shape-125-activity-scripttask-add_related_record {
+  background-position: -487px -465px;
+}
+
+.adam-shape-125-activity-scripttask-business_rule {
+  background-position: -514px -55px;
+}
+
+.adam-shape-150-activity-scripttask-none {
+  background-position: -240px -465px;
+}
+
+.adam-shape-150-activity-scripttask-assign_user {
+  background-position: -60px -465px;
+}
+
+.adam-shape-150-activity-scripttask-assign_team {
+  background-position: -0px -465px;
+}
+
+.adam-shape-150-activity-scripttask-change_field {
+  background-position: -120px -465px;
+}
+
+.adam-shape-150-activity-scripttask-add_related_record {
+  background-position: -180px -465px;
+}
+
+.adam-shape-150-activity-scripttask-business_rule {
+  background-position: -514px -0px;
+}
+
+[class^="adam-menu-icon-"],
+[class*=" adam-menu-icon-"] {
+  background-image: url("../img/pmse_sprite_with_zoom.gif");
+  background-repeat: no-repeat;
+  background-position: -565px -510px;
+}
+
+.adam-menu-icon-user {
+  background-position: -236px -380px;
+}
+
+.adam-menu-icon-convert {
+  background-position: -200px -380px;
+}
+
+.adam-menu-icon-configure {
+  background-position: -218px -380px;
+}
+
+.adam-menu-icon-delete {
+  background-position: -254px -380px;
+}
+
+.adam-menu-icon-default-flow {
+  background-position: -456px -310px;
+}
+
+.adam-menu-icon-none {
+  background-position: -456px -295px;
+}
+
+.adam-menu-icon-form {
+  background-position: -456px -205px;
+}
+
+.adam-menu-icon-save {
+  background-position: -456px -190px;
+}
+
+.adam-menu-icon-refresh {
+  background-position: -456px -175px;
+}
+
+.adam-menu-icon-zoom {
+  background-position: -456px -160px;
+}
+
+.adam-menu-icon-group {
+  background-position: -456px -145px;
+}
+
+/*Gateway*/
+.adam-menu-icon-gateway-exclusive {
+  background-position: -456px -220px;
+}
+
+.adam-menu-icon-gateway-parallel {
+  background-position: -254px -363px;
+}
+
+.adam-menu-icon-gateway-inclusive {
+  background-position: -182px -363px;
+}
+
+.adam-menu-icon-gateway-eventbase {
+  background-position: -182px -380px;
+}
+
+.adam-menu-icon-gateway-direction {
+  background-position: -456px -130px;
+}
+
+.adam-menu-icon-gateway-converging {
+  background-position: -456px -115px;
+}
+
+.adam-menu-icon-gateway-diverging {
+  background-position: -456px -100px;
+}
+
+.adam-menu-icon-gateway-mixed {
+  background-position: -456px -85px;
+}
+
+/*Events*/
+.adam-menu-icon-event-leads {
+  background-position: -110px -380px;
+}
+
+.adam-menu-icon-event-opportunities {
+  background-position: -128px -380px;
+}
+
+.adam-menu-icon-event-documents {
+  background-position: -146px -380px;
+}
+
+.adam-menu-icon-event-recive-message {
+  background-position: -456px -250px;
+}
+
+.adam-menu-icon-event-send-message {
+  background-position: -456px -235px;
+}
+
+.adam-menu-icon-event-timer {
+  background-position: -236px -364px;
+}
+
+.adam-menu-icon-event-terminate-process {
+  background-position: -456px -265px;
+}
+
+/*Activities*/
+.adam-menu-icon-activity-script {
+  background-position: -456px -280px;
+}
+
+/*Arrows*/
+.adam-menu-icon-arrow-right {
+  background-position: -380px -90px;
+}
+
+.adam-menu-icon-arrow-down {
+  background-position: -370px -90px;
+}
+
+[class^="adam-tree-icon-"],
+[class*=" adam-tree-icon-"] {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+  background-image: url("../img/pmse_sprite_with_zoom.gif");
+  background-repeat: no-repeat;
+  /*margin-top: 3px;*/
+  /*margin-bottom: 2px;*/
+  background-position: -565px -510px;
+}
+
+[class^="adam-tree-icon-"]:last-child,
+[class*=" adam-tree-icon-"]:last-child {
+  *margin-left: 0;
+}
+
+.adam-tree-icon-start {
+  background-position: -456px -250px;
+}
+
+.adam-tree-icon-start-leads {
+  background-position: -110px -381px;
+}
+
+.adam-tree-icon-start-opportunities {
+  background-position: -128px -381px;
+}
+
+.adam-tree-icon-start-documents {
+  background-position: -146px -381px;
+}
+
+.adam-tree-icon-intermediate-timer {
+  background-position: -128px -364px;
+}
+
+.adam-tree-icon-intermediate-message {
+  background-position: -146px -364px;
+}
+
+.adam-tree-icon-intermediate-boundary {
+  background-position: -164px -364px;
+}
+
+.adam-tree-icon-gateway-exclusive {
+  background-position: -200px -364px;
+}
+
+.adam-tree-icon-gateway-parallel {
+  background-position: -218px -364px;
+}
+
+.adam-tree-icon-user-task {
+  background-position: -110px -364px;
+}
+
+.adam-tree-icon-end {
+  background-position: -182px -364px;
+}
+
+.adam-tree-icon-textannotation {
+  background-position: -164px -381px;
+}
+
+[class^="adam-tooltip-icon-"],
+[class*=" adam-tooltip-icon-"] {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  background-image: url("../img/pmse_sprite_with_zoom.gif");
+  background-repeat: no-repeat;
+  background-position: -565px -510px;
+}
+
+.adam-tooltip-icon-default {
+  background-image: none;
+  font-family: FontAwesome;
+  font-size: 14px;
+  color: #aaa;
+}
+.adam-tooltip-icon-default:before {
+  content: "\f05a";
+}
+.adam-tooltip-icon-default:hover {
+  color: #555;
+}
+
+.adam-tooltip-icon-help {
+  background-position: -430px -150px;
+}
+
+.adam-tooltip-icon-error {
+  background-position: -430px -170px;
+}
+
+.adam-tooltip-icon-add {
+  background-position: -430px -90px;
+}
+
+.adam-tooltip-icon-remove {
+  background-position: -430px -110px;
+}
+
+.ui-draggable-dragging {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/*#container {*/
+/*height: 450px;*/
+/*}*/
+.pane {
+  display: none;
+  /* will appear when layout inits */
+}
+
+#bottomLinks {
+  display: none;
+}
+
+.no-border {
+  border: 0px;
+}
+
+#adam_toolbar {
+  margin: 2px;
+  padding: 2px;
+}
+#adam_toolbar span.navbtn {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+}
+#adam_toolbar span.navbtn:not(.mod):hover {
+  background-color: #FFFFFF;
+}
+#adam_toolbar span.navbtn .button {
+  background-color: #F5F5F5;
+  border: 1px solid #999999;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  padding: 2px;
+  width: 30px;
+}
+#adam_toolbar span.navbtn .button:hover {
+  background-color: #FFFFFF;
+}
+#adam_toolbar .btn-close {
+  color: #000000;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  opacity: 0.2;
+  text-shadow: 0 1px 0 #FFFFFF;
+  margin-top: 5px;
+  margin-right: 3px;
+}
+#adam_toolbar .btn-close:hover, #adam_toolbar .btn-close:focus {
+  color: #000000;
+  cursor: pointer;
+  opacity: 0.4;
+  text-decoration: none;
+}
+#adam_toolbar button.btn-close {
+  background: none repeat scroll 0 0 transparent;
+  border: 0 none;
+  cursor: pointer;
+  padding: 0;
+}
+
+#ProjectTitle {
+  font-family: Arial,Verdana,Helvetica,sans-serif;
+  color: #000000;
+  font-weight: bold;
+  font-size: 12pt;
+  float: right;
+  padding: 8px;
+}
+
+.adam-activity-task {
+  background-color: #d9edf7;
+  border: 2px solid #0055cc;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.friendly-select {
+  width: 70px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  height: 30px;
+  background-color: #F5F5F5;
+  font-size: 12px;
+  margin: 0px;
+}
+
+.datepicker {
+  z-index: 1034;
+}
+
+div.line {
+  -moz-transform-origin: left top;
+  -ms-transform-origin: left top;
+  -webkit-transform-origin: left top;
+  transform-origin: left top;
+  height: 1px;
+  /* Line width of 3 */
+  background: #000000;
+  /* Black fill */
+  background-clip: content-box;
+  cursor: pointer;
+}
+
+.adam-flow div.line.line-horizontal {
+  padding: 1px 0;
+}
+
+.adam-flow div.line.line-vertical {
+  padding: 0 1px;
+}
+
+.adam-flow:hover div.line {
+  background: #C30;
+  /*box-shadow: 0 0 8px #C30;*/
+  opacity: 1;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.adam-error-color {
+  color: #e61718;
+}
+
+.adam-artifact-annotation-border {
+  width: 25%;
+  height: inherit;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px 0 1px 1px;
+}
+
+/* Added for custom action icon */
+.adam-shape-100-activity-scripttask-capitalize_name {
+  background-image: url("../img/purple-cross.png");
+  background-position: 2px 1px;
+  background-size: 36px;
+}
