@@ -6,7 +6,7 @@ namespace Sugarcrm\Sugarcrm\custom\Elasticsearch\Provider\GlobalSearch\AsciiFold
 use Sugarcrm\Sugarcrm\Elasticsearch\Provider\GlobalSearch\Handler\AnalysisHandlerInterface;
 use Sugarcrm\Sugarcrm\Elasticsearch\Provider\GlobalSearch\Handler\AbstractHandler;
 use Sugarcrm\Sugarcrm\Elasticsearch\Analysis\AnalysisBuilder;
-use Sugarcrm\Sugarcrm\custom\Elasticsearch\AnalysisBuilderInjector;
+use Sugarcrm\Sugarcrm\custom\Elasticsearch\Analysis\AnalysisBuilderInjector;
 
 /**
  *

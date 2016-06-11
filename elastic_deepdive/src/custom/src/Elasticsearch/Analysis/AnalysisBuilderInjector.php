@@ -1,7 +1,7 @@
 <?php
 // Copyright 2016 SugarCRM Inc.  Licensed by SugarCRM under the Apache 2.0 license.
 
-namespace Sugarcrm\Sugarcrm\custom\Elasticsearch;
+namespace Sugarcrm\Sugarcrm\custom\Elasticsearch\Analysis;
 
 use Sugarcrm\Sugarcrm\Elasticsearch\Analysis\AnalysisBuilder;
 use ReflectionObject;
