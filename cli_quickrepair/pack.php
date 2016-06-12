@@ -2,10 +2,10 @@
 <?php
 // Copyright 2016 SugarCRM Inc.  Licensed by SugarCRM under the Apache 2.0 license.
 
- /****** REPLACE THESE  *******/
- $packageID = "SugarCLI_QuickRepair";
- $packageLabel = "SugarCRM CLI Framework - Quick Repair command (example) ";
- $supportedVersionRegex = '^7.7.[1-9].[\d]+$';
+/****** REPLACE THESE  *******/
+$packageID = "uncon16-cli-quickrepair";
+$packageLabel = "UnCon 2016 CLI Quick Repair and Rebuild";
+$supportedVersionRegex = '^7.7.[1-9].[\d]+$';
 /******************************/
 
 if (empty($argv[1])) {
