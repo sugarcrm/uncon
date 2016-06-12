@@ -15,11 +15,11 @@ This package adds support for a simple Quick Repair and Rebuild command that can
 2. Use Sugar's Module Loader to install the latest release zip from this repository
 
 ### Usage
-After installation, a new `dev:repair` command will be registered with the `sugarcrm` command line interface.
+After installation, a new `uncon:repair` command will be registered with the `sugarcrm` command line interface.
 
 Using the command is easy!
 
-    $ bin/sugarcrm dev:repair
+    $ bin/sugarcrm uncon:repair
 
     Starting Quick Repair...
     Complete.

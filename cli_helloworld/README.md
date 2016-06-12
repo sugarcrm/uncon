@@ -15,9 +15,9 @@ This package contains a custom CLI "hello world" command.
 2. Use Sugar's Module Loader to install the latest release zip from this repository
 
 ### Usage
-- Execute "bin/sugarcrm"
-- Observe availability of "uncon:helloworld"
-- Execute "bin/sugarcrm uncon:helloworld"
+- Execute `bin/sugarcrm`
+- Observe availability of `uncon:helloworld`
+- Execute `bin/sugarcrm uncon:helloworld`
 
 ### Build instructions
 Run `pack.php [version]` to generate a Module Loadable Package into the `releases/` directory.
