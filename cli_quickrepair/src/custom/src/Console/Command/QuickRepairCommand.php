@@ -44,7 +44,8 @@ class QuickRepairCommand extends Command implements InstanceModeInterface
      * Execute QRR
      */
     protected function repair()
-    {   
+    {
+        $GLOBALS['mod_strings'] = return_module_language('en_us', 'Administration');
         $repair = new RepairAndClear();
         $repair->repairAndClearAll(array('clearAll'), array(translate('LBL_ALL_MODULES')), true, false, '');
         //remove the js language files

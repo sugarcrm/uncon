@@ -32,22 +32,6 @@ class HelloWorldCommand extends Command implements InstanceModeInterface
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->writeln("Hello world -> " . $this->getMode());
-    }
-
-    /**
-     * Get mode
-     * @return string
-     */
-    protected function getMode()
-    {
-        switch ($this->getApplication()->getMode()) {
-            case CommandRegistry::MODE_INSTANCE:
-                return 'Instance Mode';
-            case CommandRegistry::MODE_STANDALONE:
-                return 'Standalone Mode';
-            default:
-                return 'Unknown Mode';
-        }
+        $output->writeln("Hello world -> " . $this->getApplication()->getMode());
     }
 }

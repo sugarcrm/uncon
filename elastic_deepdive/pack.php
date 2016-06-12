@@ -4,7 +4,7 @@
 
 /****** REPLACE THESE  *******/
 $packageID = "uncon16-elastic-deepdive";
-$packageLabel = "Uncon 2016 Elasticsearch Deep Dive Demo";
+$packageLabel = "UnCon 2016 Elasticsearch Deep Dive Demo";
 $supportedVersionRegex = '^7.7.[1-9]+.[\d]+$';
 /******************************/
 
