@@ -1,0 +1,15 @@
+// config/app-dev.json
+// Custom settings used for development/debugging. These settings may be different
+// for different developers. This file is normally git-ignored.
+{
+  "jsConfig": {
+    // The only setting which is required to run the web app in debug mode is the absolute URL to Sugar instance
+    "siteUrl": "http://localhost/ent7700",
+
+    // Turn off welcome guide and offline mode.
+    "skipTutorial": true,
+    "offline": {
+       "enabled": false
+    }
+  }
+}
