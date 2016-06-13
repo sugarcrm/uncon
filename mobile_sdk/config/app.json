@@ -1,0 +1,49 @@
+// config/app.json
+// SDK contains the default configuration.
+// This file contains the settings that you need to override. 
+{
+    "defaults": {
+        // This section affects the web part of the app
+        "jsConfig": {
+            // Indicates which version of SDK you are using as you may have multiple versions installed
+            "sdkVersion": "3.1.0.346 alpha5",
+            
+            "appName": "Acme",
+            "productName": "AcmeCRM",
+            "appVersion": "1.0.0",
+            "appBuild": "1",
+
+            // Register new icons
+            "UI": {
+                "icons": {
+                    "actions": {
+                        "file-text": "icon icon-file-text-o"
+                    },
+                    "dashlets": {
+                        "todo": "icon icon-list-ol"
+                    }
+                }
+            }
+            
+        },
+        "ui": {
+            "lessFile": "./app.less"
+        },
+        // This section customizes the native app
+        "native": {
+            // Customize splashscreen
+            "splashscreenBackgroundColor": "#fff",
+            "splashscreenLogo": "./splashscreen-logo.svg",
+            "ios": {
+                "binaryName": "AcmeCRM",
+                "applicationIcon": "./app-icon-ios.svg",
+                "bundleId": "com.acme.crm"
+            },
+            "android": {
+                "binaryName": "AcmeCRM",
+                "applicationIcon": "./app-icon-android.svg",
+                "packageName": "com.acme.crm"
+            }
+        }        
+    }
+}

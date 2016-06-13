@@ -1,0 +1,13 @@
+{
+  "name": "acmecrm",
+  "version": "1.0.0",
+  "description": "AcmeCRM",
+  "main": "index.js",
+  "scripts": {
+    "sdk": "node index.js"
+  },
+  "dependencies": {
+    "lodash": "4.6.1",
+    "strip-json-comments": "2.0.1"
+  }
+}
