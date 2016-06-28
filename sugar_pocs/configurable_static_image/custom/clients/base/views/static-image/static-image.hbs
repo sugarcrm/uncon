@@ -1,0 +1,9 @@
+{{#if this.settings.attributes.url}}
+    <a href="{{this.settings.attributes.url}}" target="_blank">
+{{/if}}
+    <img style="{{#if this.settings.attributes.width}}width:{{this.settings.attributes.width}}px;{{/if}}
+         {{#if this.settings.attributes.height}}height:{{this.settings.attributes.height}}px{{/if}}"
+            src="rest/v10/Home/file/static_image?_hash={{this.settings.attributes.static_image}}&oauth_token={{token}}" />
+{{#if this.settings.attributes.url}}
+    </a>
+{{/if}}

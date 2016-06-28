@@ -1,0 +1,21 @@
+<div>
+    {{#if value.short}}
+        <i class="fa {{def.icon}} fa-2x" style="color:{{def.color}}; PADDING-RIGHT: 5px; PADDING-BOTTOM: 5px" ></i>
+        {{#if collapsed}}
+            {{nl2br value.short}}&hellip;
+        {{else}}
+            {{nl2br value.long}}
+        {{/if}}
+        <button data-action="toggle" class="btn btn-link btn-invisible toggle-text">
+            {{#if collapsed}}
+                {{str 'LBL_TEXTAREA_MORE' module}}
+            {{else}}
+                {{str 'LBL_TEXTAREA_LESS' module}}
+            {{/if}}
+        </button>
+    {{else}}
+        <i class="fa {{def.icon}} fa-2x" style="color:{{def.color}}" ></i>
+        {{nl2br value.long}}
+    {{/if}}
+
+</div>

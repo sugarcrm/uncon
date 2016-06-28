@@ -1,0 +1,15 @@
+{{#if def.dnc}}
+    <div class="ellipsis_inline" data-placement="bottom" rel="tooltip" title="{{value.long}}" style="text-align:center">
+        <i class="fa {{def.icon}} fa-2x" style="color:{{def.color}}"></i>
+    </div>
+{{else}}
+    <div class="ellipsis_inline" data-placement="bottom" style="text-align:center">
+        {{#eq def.icon 'fa-envelope'}}
+        <a href="javascript:void(0)" data-action="custom_email" data-email-to="{{def.email}}" data-email-name="{{def.name}}">
+        {{/eq}}
+        <i class="fa {{def.icon}} fa-2x" style="color:{{def.color}}"></i>
+        {{#eq def.icon 'fa-envelope'}}
+        </a>
+        {{/eq}}
+    </div>
+{{/if}}

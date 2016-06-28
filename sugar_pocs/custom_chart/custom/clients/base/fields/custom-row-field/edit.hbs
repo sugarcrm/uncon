@@ -1,0 +1,84 @@
+{{#each category}}
+    <div class="row-fluid">
+        {{#if ../groupedChart}}
+            <div class="span12 record-cell" style="padding: 0px">
+                <div class="span8 record-cell" style="padding: 0px">
+                    <div class="record-label" style="margin-bottom: 7px;">Category</div>
+            <span class="normal index">
+                <span>
+                    <input type="text" name="category_{{{@index}}}" class="inherit-width" aria-label="Label"
+                           value="{{value}}" data-index="{{{@index}}}">
+                </span>
+            </span>
+                </div>
+                {{#if show_delete}}
+                    <div class="span4 record-cell" style="margin-left: 10px;">
+                        <div class="record-label" style="margin-bottom: 7px;">Actions</div>
+            <span>
+
+                <span class="fieldset edit">
+                    <a class="btn deleteCategoryButton" name="delete_{{{@index}}}" data-index="{{{@index}}}">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                </span>
+            </span>
+                    </div>
+                {{/if}}
+            </div>
+        {{/if}}
+        {{#each rows}}
+            <div class="panel_body new_row_{{{@index}}}">
+                <div class="span4 record-cell" data-type data-name="label_{{{@index}}}">
+                    <div class="record-label" style="margin-bottom: 7px;" data-name="label_{{{@index}}}">Label</div>
+                <span class="normal index" data-fieldname="label_{{{@index}}}">
+                    <span>
+                        <input type="text" name="label_{{{@index}}}" class="inherit-width" aria-label="Label"
+                               value="{{label}}" data-category="{{parentCategory}}" data-index="{{{@index}}}">
+                    </span>
+                </span>
+                </div>
+                <div class="span4 record-cell" data-type data-name="value_{{{@index}}}">
+                    <div class="record-label" style="margin-bottom: 7px;" data-name="value_{{{@index}}}">Value</div>
+                <span class="normal index" data-fieldname="value_{{{@index}}}">
+                    <span>
+                        <input type="text" name="value_{{{@index}}}" class="inherit-width" aria-label="Label"
+                               value="{{value}}" data-category="{{parentCategory}}" data-index="{{{@index}}}">
+                    </span>
+                </span>
+                </div>
+                <div class="span4 record-cell" data-type data-name="action_{{{@index}}}">
+                    <div class="record-label" data-name="action_{{{@index}}}" style="margin-bottom: 7px">Actions</div>
+                <span class="normal index" data-fieldname="action_{{{@index}}}">
+                    <span class="fieldset edit">
+                        <div class="fieldset-field">
+                            {{#if display_delete_button}}
+                                <span>
+                                    <a class="btn deleteButton" name="delete_{{{@index}}}"
+                                       data-category="{{parentCategory}}" data-index="{{{@index}}}">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                </span>
+                            {{/if}}
+                            <span>
+                                <a class="btn addButton" name="add_{{{@index}}}" data-category="{{parentCategory}}"
+                                   data-index="{{{@index}}}">
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </span>
+                </span>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+{{/each}}
+{{#if groupedChart}}
+    <div class="row-fluid">
+    <span>
+        <a class="btn addCategory" style="margin-left: 0px;">
+            Add Category
+        </a>
+    </span>
+    </div>
+{{/if}}
