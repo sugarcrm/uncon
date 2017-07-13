@@ -1,0 +1,9 @@
+.idea
+application/Ext
+modules/*/Ext
+history/
+install/
+.buildpath
+.project
+.settings/
+.DS_Store
