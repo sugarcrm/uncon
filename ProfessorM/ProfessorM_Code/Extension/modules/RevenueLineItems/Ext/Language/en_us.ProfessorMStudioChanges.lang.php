@@ -1,0 +1,36 @@
+<?php
+// WARNING: The contents of this file are auto-generated.
+$mod_strings['LNK_NEW_REVENUELINEITEM'] = 'Create Funding Line Item';
+$mod_strings['LBL_MODULE_NAME'] = 'Funding Line Items';
+$mod_strings['LBL_MODULE_NAME_SINGULAR'] = 'Funding Line Item';
+$mod_strings['LBL_NEW_FORM_TITLE'] = 'Create Funding Line Item';
+$mod_strings['LNK_REVENUELINEITEM_LIST'] = 'View Funding Line Items';
+$mod_strings['LNK_IMPORT_REVENUELINEITEMS'] = 'Import Funding Line Items';
+$mod_strings['LBL_LIST_FORM_TITLE'] = 'Funding Line Item List';
+$mod_strings['LBL_SEARCH_FORM_TITLE'] = 'Funding Line Item Search';
+$mod_strings['LBL_CONTACT_ID'] = 'Student ID';
+$mod_strings['LBL_CONTACTS_SUBPANEL_TITLE'] = 'Students';
+$mod_strings['LBL_CONTACT'] = 'Student';
+$mod_strings['LBL_LIST_ACCOUNT_NAME'] = 'Super Group Name';
+$mod_strings['LBL_ACCOUNT_NAME'] = 'Super Group Name:';
+$mod_strings['LBL_ACCOUNT_ID'] = 'Super Group ID';
+$mod_strings['LBL_LIST_OPPORTUNITY_NAME'] = 'Donation Name';
+$mod_strings['LBL_OPPORTUNITY_ID'] = 'Donation ID';
+$mod_strings['LBL_OPPORTUNITY'] = 'Donation';
+$mod_strings['WARNING_MERGE_RLIS_WITH_DIFFERENT_OPPORTUNITIES'] = 'One or more of the records you&#039;ve selected can not be merged together as they belong to different Donations';
+$mod_strings['LBL_LEAD_SOURCE'] = 'Applicant Source';
+$mod_strings['LBL_LEADS_SUBPANEL_TITLE'] = 'Applicants';
+$mod_strings['LBL_MODULE_TITLE'] = 'Funding Line Items: Home';
+$mod_strings['LBL_RELATED_PRODUCTS'] = 'Related Funding Line Item';
+$mod_strings['LBL_LIST_NAME'] = 'Funding Line Item';
+$mod_strings['LBL_NAME'] = 'Funding Line Item';
+$mod_strings['LBL_DEFAULT_SUBPANEL_TITLE'] = 'Funding Line Items';
+$mod_strings['LBL_CALCULATED_LINE_ITEM_AMOUNT'] = 'Calculated Funding Line Item Amount';
+$mod_strings['LBL_CONVERT_TO_QUOTE_INFO_MESSAGE'] = 'Generating Quote From Funding Line Item';
+$mod_strings['LBL_CONVERT_INVALID_RLI'] = 'One or more of the Funding Line Items that you selected can not be converted into a Quote:';
+$mod_strings['LBL_CONVERT_INVALID_RLI_PRODUCT'] = 'The Funding Line Item needs a Product from the Product Catalog before a Quote can be generated.';
+$mod_strings['LBL_CONVERT_INVALID_RLI_PRODUCT_PLURAL'] = 'One or more of the Funding Line Items needs a Product from the Product Catalog before a Quote can be generated.';
+$mod_strings['LBL_CONVERT_INVALID_RLI_ALREADYQUOTED_PLURAL'] = 'One or more of the selected Funding Line Items are already quoted.';
+$mod_strings['LBL_CONVERT_TO_QUOTE_ERROR_MESSAGE'] = 'There was an error converting this Funding Line Item to a Quote';
+$mod_strings['LBL_CONVERT_RLI_TO_QUOTE'] = 'Generate Quote from Funding Line Item';
+$mod_strings['LBL_CONVERT_INVALID_RLI_ALREADYQUOTED'] = 'The Funding Line Item is already quoted.';
