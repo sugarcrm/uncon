@@ -1,0 +1,2423 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ProfessorM Sample Data",
+		"_postman_id": "fc375495-ded0-309d-599e-fa5c27b17910",
+		"description": "This collection is associated with the tutorial posted at XXXX and the environment posted at YYYYY.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"description": "",
+			"item": [
+				{
+					"name": "Authenticate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var access_token = jsonData.access_token;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"access_token exists\"] = access_token !== null || access_token !== \"\";",
+									"",
+									"postman.setEnvironmentVariable(\"access_token\", access_token);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/oauth2/token",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"grant_type\":\"password\",\n   \"client_id\":\"sugar\",\n   \"client_secret\":\"\",\n   \"username\":\"{{username}}\",\n   \"password\":\"{{password}}\",\n   \"platform\":\"api\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Super Groups (Accounts)",
+			"description": "",
+			"item": [
+				{
+					"name": "Create SuperGroup Brotherhood of Deviants",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfSuperGroup = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfSuperGroup !== null || idOfSuperGroup !== \"\";",
+									"tests[\"name is correct\"] = \"Brotherhood of Deviants\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"SuperGroup_Brotherhood\", idOfSuperGroup);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Accounts",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ratesg_c\":\"B Minus\",\n\t\"status_c\":\"Reactivated\",\n\t\"industry\":\"Education\",\n\t\"account_type\":\"Competitor\",\n\t\"tag\":[\"Mutants\"],\n\t\"name\":\"Brotherhood of Deviants\",\n\t\"employees\":\"5-10\",\n\t\"billing_address_city\":\"Jersey City\",\n\t\"billing_address_state\":\"NJ\",\n\t\"billing_address_country\":\"USA\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create SuperGroup M-Men",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfSuperGroup = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfSuperGroup !== null || idOfSuperGroup !== \"\";",
+									"tests[\"name is correct\"] = \"M-Men\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"SuperGroup_M-Men\", idOfSuperGroup);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Accounts",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ratesg_c\":\"B Plus\",\n\t\"status_c\":\"Active\",\n\t\"industry\":\"Education\",\n\t\"account_type\":\"Analyst\",\n\t\"tag\":[\"Mutants\"],\n\t\"name\":\"M-Men\",\n\t\"employees\":\"5-10\",\n\t\"billing_address_city\":\"Westchester\",\n\t\"billing_address_state\":\"NY\",\n\t\"billing_address_country\":\"USA\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create SuperGroup Adherents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfSuperGroup = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfSuperGroup !== null || idOfSuperGroup !== \"\";",
+									"tests[\"name is correct\"] = \"Adherents\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"SuperGroup_Adherents\", idOfSuperGroup);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Accounts",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ratesg_c\":\"D Plus\",\n\t\"status_c\":\"Unknown\",\n\t\"industry\":\"Education\",\n\t\"account_type\":\"Competitor\",\n\t\"tag\":[\"Mutants\", \"offshoot\"],\n\t\"name\":\"Adherents\",\n\t\"employees\":\"10-20\",\n\t\"billing_address_city\":\"Mont St Francis\",\n\t\"billing_address_country\":\"France\",\n\t\"parent_id\":\"{{SuperGroup_Brotherhood}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create SuperGroup Superheroes for Sale",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfSuperGroup = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfSuperGroup !== null || idOfSuperGroup !== \"\";",
+									"tests[\"name is correct\"] = \"Superheroes for Sale\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"SuperGroup_Superheroes\", idOfSuperGroup);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Accounts",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ratesg_c\":\"A Plus\",\n\t\"status_c\":\"Defunct\",\n\t\"industry\":\"Apparel\",\n\t\"account_type\":\"Customer\",\n\t\"name\":\"Superheroes for Sale\",\n\t\"employees\":\"<5\",\n\t\"billing_address_city\":\"Manhattan\",\n\t\"billing_address_state\":\"NY\",\n\t\"billing_address_country\":\"USA\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create SuperGroup Hideaways",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfSuperGroup = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfSuperGroup !== null || idOfSuperGroup !== \"\";",
+									"tests[\"name is correct\"] = \"Hideaways\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"SuperGroup_Hideaways\", idOfSuperGroup);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Accounts",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ratesg_c\":\"A Plus\",\n\t\"status_c\":\"Unknown\",\n\t\"industry\":\"Banking\",\n\t\"account_type\":\"Integrator\",\n\t\"name\":\"Hideaways\",\n\t\"employees\":\"5-10\",\n\t\"billing_address_city\":\"Malibu\",\n\t\"billing_address_state\":\"CA\",\n\t\"billing_address_country\":\"USA\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create SuperGroup Revengers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfSuperGroup = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfSuperGroup !== null || idOfSuperGroup !== \"\";",
+									"tests[\"name is correct\"] = \"Revengers\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"SuperGroup_Revengers\", idOfSuperGroup);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Accounts",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ratesg_c\":\"A Minus\",\n\t\"status_c\":\"Active\",\n\t\"industry\":\"Education\",\n\t\"account_type\":\"Analyst\",\n\t\"name\":\"Revengers\",\n\t\"employees\":\"5-10\",\n\t\"billing_address_city\":\"Manhattan\",\n\t\"billing_address_state\":\"NY\",\n\t\"billing_address_country\":\"USA\",\n\t\"twitter\":\"https://twitter.com/revenge\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create SuperGroup Protectors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfSuperGroup = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfSuperGroup !== null || idOfSuperGroup !== \"\";",
+									"tests[\"name is correct\"] = \"Protectors\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"SuperGroup_Protectors\", idOfSuperGroup);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Accounts",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ratesg_c\":\"B Minus\",\n\t\"status_c\":\"Active\",\n\t\"industry\":\"Chemicals\",\n\t\"account_type\":\"Customer\",\n\t\"tag\":[\"offshoot\"],\n\t\"name\":\"Protectors\",\n\t\"employees\":\"<5\",\n\t\"billing_address_city\":\"New York\",\n\t\"billing_address_state\":\"NY\",\n\t\"billing_address_country\":\"USA\",\n\t\"parent_id\":\"{{SuperGroup_Revengers}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create SuperGroup East Coast Revengers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfSuperGroup = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfSuperGroup !== null || idOfSuperGroup !== \"\";",
+									"tests[\"name is correct\"] = \"East Coast Revengers\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"SuperGroup_East\", idOfSuperGroup);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Accounts",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ratesg_c\":\"C\",\n\t\"status_c\":\"Defunct\",\n\t\"industry\":\"Construction\",\n\t\"account_type\":\"Analyst\",\n\t\"tag\":[\"offshoot\"],\n\t\"name\":\"East Coast Revengers\",\n\t\"employees\":\"5-10\",\n\t\"billing_address_city\":\"Los Angeles\",\n\t\"billing_address_state\":\"CA\",\n\t\"billing_address_country\":\"USA\",\n\t\"parent_id\":\"{{SuperGroup_Revengers}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create SuperGroup Unaffiliated",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfSuperGroup = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfSuperGroup !== null || idOfSuperGroup !== \"\";",
+									"tests[\"name is correct\"] = \"Unaffiliated\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"SuperGroup_Unaffiliated\", idOfSuperGroup);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Accounts",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ratesg_c\":\"A Plus\",\n\t\"status_c\":\"Active\",\n\t\"account_type\":\"Other\",\n\t\"name\":\"Unaffiliated\",\n\t\"description\":\"For those who aren't ready to commit yet.\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create SuperGroup M-Force",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfSuperGroup = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfSuperGroup !== null || idOfSuperGroup !== \"\";",
+									"tests[\"name is correct\"] = \"M-Force\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"SuperGroup_M-Force\", idOfSuperGroup);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Accounts",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ratesg_c\":\"B\",\n\t\"status_c\":\"Reactivated\",\n\t\"industry\":\"Education\",\n\t\"account_type\":\"Customer\",\n\t\"tag\":[\"mutants\", \"offshoot\"],\n\t\"name\":\"M-Force\",\n\t\"employees\":\"5-10\",\n\t\"parent_id\":\"{{SuperGroup_M-Men}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create SuperGroup M-pressive M-Men",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfSuperGroup = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfSuperGroup !== null || idOfSuperGroup !== \"\";",
+									"tests[\"name is correct\"] = \"M-pressive M-Men\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"SuperGroup_M-pressive\", idOfSuperGroup);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Accounts",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ratesg_c\":\"B Plus\",\n\t\"status_c\":\"Defunct\",\n\t\"industry\":\"Education\",\n\t\"account_type\":\"Analyst\",\n\t\"tag\":[\"mutants\", \"offshoot\"],\n\t\"name\":\"M-pressive M-Men\",\n\t\"employees\":\"5-10\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create SuperGroup Young M-Men",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfSuperGroup = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfSuperGroup !== null || idOfSuperGroup !== \"\";",
+									"tests[\"name is correct\"] = \"Young M-Men\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"SuperGroup_Young\", idOfSuperGroup);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Accounts",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ratesg_c\":\"C Plus\",\n\t\"status_c\":\"Defunct\",\n\t\"industry\":\"Education\",\n\t\"account_type\":\"Analyst\",\n\t\"tag\":[\"mutants\", \"offshoot\"],\n\t\"name\":\"Young M-Men\",\n\t\"employees\":\"10-20\",\n\t\"billing_address_city\":\"Westchester\",\n\t\"billing_address_state\":\"NY\",\n\t\"billing_address_country\":\"USA\",\n\t\"parent_id\":\"{{SuperGroup_M-Men}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Product Categories",
+			"description": "",
+			"item": [
+				{
+					"name": "Create ProductCategory General",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductCategory = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductCategory !== null || idOfProductCategory !== \"\";",
+									"tests[\"name is correct\"] = \"General\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductCategory_General\", idOfProductCategory);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductCategories",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"General\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductCategory Facilities",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductCategory = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductCategory !== null || idOfProductCategory !== \"\";",
+									"tests[\"name is correct\"] = \"Facilities\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductCategory_Facilities\", idOfProductCategory);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductCategories",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Facilities\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductCategory Scholarships",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductCategory = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductCategory !== null || idOfProductCategory !== \"\";",
+									"tests[\"name is correct\"] = \"Scholarships\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductCategory_Scholarships\", idOfProductCategory);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductCategories",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Scholarships\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductCategory Installments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductCategory = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductCategory !== null || idOfProductCategory !== \"\";",
+									"tests[\"name is correct\"] = \"Installments\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductCategory_Installments\", idOfProductCategory);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductCategories",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Installments\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Product Types",
+			"description": "",
+			"item": [
+				{
+					"name": "Create ProductType Fundraisers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductType = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductType !== null || idOfProductType !== \"\";",
+									"tests[\"name is correct\"] = \"Fundraisers\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductType_Fundraisers\", idOfProductType);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductTypes",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Fundraisers\",\n\t\"list_order\":4\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductType Charity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductType = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductType !== null || idOfProductType !== \"\";",
+									"tests[\"name is correct\"] = \"Charity\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductType_Charity\", idOfProductType);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductTypes",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Charity\",\n\t\"list_order\":3\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductType Endowments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductType = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductType !== null || idOfProductType !== \"\";",
+									"tests[\"name is correct\"] = \"Endowments\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductType_Endowments\", idOfProductType);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductTypes",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Endowments\",\n\t\"list_order\":2\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductType Donations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductType = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductType !== null || idOfProductType !== \"\";",
+									"tests[\"name is correct\"] = \"Donations\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductType_Donations\", idOfProductType);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductTypes",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Donations\",\n\t\"list_order\":1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Product Catalog Items",
+			"description": "",
+			"item": [
+				{
+					"name": "Create ProductCatalog Charity Ball ticket (General)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductCatalog = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductCatalog !== null || idOfProductCatalog !== \"\";",
+									"tests[\"name is correct\"] = \"Charity Ball ticket (General)\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductType_CharityBallGeneral\", idOfProductCatalog);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductTemplates",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\":\"Available\",\n\t\"tax_class\":\"Taxable\",\n\t\"pricing_formula\":\"Fixed\",\n\t\"support_term\":\"+6 months\",\n\t\"discount_price\":\"100.00\",\n\t\"name\":\"Charity Ball ticket (General)\",\n\t\"category_id\":\"{{ProductCategory_General}}\",\n\t\"type_id\":\"{{ProductType_Charity}}\",\n\t\"discount_usdollar\":\"100.00\",\n\t\"list_price\":\"100.00\",\n\t\"list_usdollar\":\"100.00\",\n\t\"cost_price\":\"0.00\",\n\t\"cost_usdollar\":\"0.00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductCatalog Donor plaque (bench)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductCatalog = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductCatalog !== null || idOfProductCatalog !== \"\";",
+									"tests[\"name is correct\"] = \"Donor plaque (bench)\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductType_DonorPlaqueGeneral\", idOfProductCatalog);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductTemplates",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\":\"Available\",\n\t\"tax_class\":\"Taxable\",\n\t\"pricing_formula\":\"Fixed\",\n\t\"support_term\":\"+6 months\",\n\t\"discount_price\":\"1000.00\",\n\t\"name\":\"Donor plaque (bench)\",\n\t\"category_id\":\"{{ProductCategory_Facilities}}\",\n\t\"type_id\":\"{{ProductType_Donations}}\",\n\t\"discount_usdollar\":\"1000.00\",\n\t\"list_price\":\"1000.00\",\n\t\"list_usdollar\":\"1000.00\",\n\t\"cost_price\":\"0.00\",\n\t\"cost_usdollar\":\"0.00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductCatalog Charity Ball ticket (Elite)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductCatalog = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductCatalog !== null || idOfProductCatalog !== \"\";",
+									"tests[\"name is correct\"] = \"Charity Ball ticket (Elite)\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductType_CharityBallElite\", idOfProductCatalog);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductTemplates",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\":\"Available\",\n\t\"tax_class\":\"Taxable\",\n\t\"pricing_formula\":\"Fixed\",\n\t\"support_term\":\"+6 months\",\n\t\"discount_price\":\"1000.00\",\n\t\"name\":\"Charity Ball ticket (Elite)\",\n\t\"category_id\":\"{{ProductCategory_General}}\",\n\t\"type_id\":\"{{ProductType_Charity}}\",\n\t\"discount_usdollar\":\"1000.00\",\n\t\"list_price\":\"1000.00\",\n\t\"list_usdollar\":\"1000.00\",\n\t\"cost_price\":\"0.00\",\n\t\"cost_usdollar\":\"0.00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductCatalog Donor plaque (walkway)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductCatalog = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductCatalog !== null || idOfProductCatalog !== \"\";",
+									"tests[\"name is correct\"] = \"Donor plaque (walkway)\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductType_DonorPlaqueWalkway\", idOfProductCatalog);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductTemplates",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\":\"Available\",\n\t\"tax_class\":\"Taxable\",\n\t\"pricing_formula\":\"Fixed\",\n\t\"support_term\":\"+6 months\",\n\t\"discount_price\":\"100.00\",\n\t\"name\":\"Donor plaque (walkway)\",\n\t\"category_id\":\"{{ProductCategory_Facilities}}\",\n\t\"type_id\":\"{{ProductType_Donations}}\",\n\t\"discount_usdollar\":\"100.00\",\n\t\"list_price\":\"100.00\",\n\t\"list_usdollar\":\"100.00\",\n\t\"cost_price\":\"0.00\",\n\t\"cost_usdollar\":\"0.00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductCatalog Building naming rights (whole)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductCatalog = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductCatalog !== null || idOfProductCatalog !== \"\";",
+									"tests[\"name is correct\"] = \"Building naming rights (whole)\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductType_BuildingWhole\", idOfProductCatalog);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductTemplates",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\":\"Available\",\n\t\"tax_class\":\"Taxable\",\n\t\"pricing_formula\":\"Fixed\",\n\t\"support_term\":\"+6 months\",\n\t\"discount_price\":\"1000000.00\",\n\t\"name\":\"Building naming rights (whole)\",\n\t\"category_id\":\"{{ProductCategory_Facilities}}\",\n\t\"type_id\":\"{{ProductType_Endowments}}\",\n\t\"discount_usdollar\":\"1000000.00\",\n\t\"list_price\":\"1000000.00\",\n\t\"list_usdollar\":\"1000000.00\",\n\t\"cost_price\":\"0.00\",\n\t\"cost_usdollar\":\"0.00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductCatalog Building naming rights (wing)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductCatalog = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductCatalog !== null || idOfProductCatalog !== \"\";",
+									"tests[\"name is correct\"] = \"Building naming rights (wing)\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductType_BuildingWing\", idOfProductCatalog);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductTemplates",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\":\"Available\",\n\t\"tax_class\":\"Taxable\",\n\t\"pricing_formula\":\"Fixed\",\n\t\"support_term\":\"+6 months\",\n\t\"discount_price\":\"500000.00\",\n\t\"name\":\"Building naming rights (wing)\",\n\t\"category_id\":\"{{ProductCategory_Facilities}}\",\n\t\"type_id\":\"{{ProductType_Endowments}}\",\n\t\"discount_usdollar\":\"500000.00\",\n\t\"list_price\":\"500000.00\",\n\t\"list_usdollar\":\"500000.00\",\n\t\"cost_price\":\"0.00\",\n\t\"cost_usdollar\":\"0.00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductCatalog Building naming rights (room)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductCatalog = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductCatalog !== null || idOfProductCatalog !== \"\";",
+									"tests[\"name is correct\"] = \"Building naming rights (room)\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductType_BuildingRoom\", idOfProductCatalog);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductTemplates",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\":\"Available\",\n\t\"tax_class\":\"Taxable\",\n\t\"pricing_formula\":\"Fixed\",\n\t\"support_term\":\"+6 months\",\n\t\"discount_price\":\"100000.00\",\n\t\"name\":\"Building naming rights (room)\",\n\t\"category_id\":\"{{ProductCategory_Facilities}}\",\n\t\"type_id\":\"{{ProductType_Endowments}}\",\n\t\"discount_usdollar\":\"100000.00\",\n\t\"list_price\":\"100000.00\",\n\t\"list_usdollar\":\"100000.00\",\n\t\"cost_price\":\"0.00\",\n\t\"cost_usdollar\":\"0.00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductCatalog Building contribution",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductCatalog = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductCatalog !== null || idOfProductCatalog !== \"\";",
+									"tests[\"name is correct\"] = \"Building contribution\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductType_BuildingContribution\", idOfProductCatalog);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductTemplates",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\":\"Available\",\n\t\"tax_class\":\"Taxable\",\n\t\"pricing_formula\":\"Fixed\",\n\t\"support_term\":\"+6 months\",\n\t\"discount_price\":\"5000.00\",\n\t\"name\":\"Building contribution\",\n\t\"category_id\":\"{{ProductCategory_Facilities}}\",\n\t\"type_id\":\"{{ProductType_Endowments}}\",\n\t\"discount_usdollar\":\"5000.00\",\n\t\"list_price\":\"5000.00\",\n\t\"list_usdollar\":\"5000.00\",\n\t\"cost_price\":\"0.00\",\n\t\"cost_usdollar\":\"0.00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductCatalog Scholarship contribution",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductCatalog = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductCatalog !== null || idOfProductCatalog !== \"\";",
+									"tests[\"name is correct\"] = \"Scholarship contribution\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductType_ScholarshipContribution\", idOfProductCatalog);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductTemplates",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\":\"Available\",\n\t\"tax_class\":\"Taxable\",\n\t\"pricing_formula\":\"Fixed\",\n\t\"support_term\":\"+6 months\",\n\t\"discount_price\":\"1000.00\",\n\t\"name\":\"Scholarship contribution\",\n\t\"category_id\":\"{{ProductCategory_Scholarships}}\",\n\t\"type_id\":\"{{ProductType_Endowments}}\",\n\t\"discount_usdollar\":\"1000.00\",\n\t\"list_price\":\"1000.00\",\n\t\"list_usdollar\":\"1000.00\",\n\t\"cost_price\":\"0.00\",\n\t\"cost_usdollar\":\"0.00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductCatalog Scholarship naming rights",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductCatalog = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductCatalog !== null || idOfProductCatalog !== \"\";",
+									"tests[\"name is correct\"] = \"Scholarship naming rights\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductType_ScholarshipNamingRights\", idOfProductCatalog);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductTemplates",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\":\"Available\",\n\t\"tax_class\":\"Taxable\",\n\t\"pricing_formula\":\"Fixed\",\n\t\"support_term\":\"+6 months\",\n\t\"discount_price\":\"10000.00\",\n\t\"name\":\"Scholarship naming rights\",\n\t\"category_id\":\"{{ProductCategory_Scholarships}}\",\n\t\"type_id\":\"{{ProductType_Endowments}}\",\n\t\"discount_usdollar\":\"10000.00\",\n\t\"list_price\":\"10000.00\",\n\t\"list_usdollar\":\"10000.00\",\n\t\"cost_price\":\"0.00\",\n\t\"cost_usdollar\":\"0.00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductCatalog Annual",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductCatalog = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductCatalog !== null || idOfProductCatalog !== \"\";",
+									"tests[\"name is correct\"] = \"Annual\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductType_Annual\", idOfProductCatalog);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductTemplates",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\":\"Available\",\n\t\"tax_class\":\"Taxable\",\n\t\"pricing_formula\":\"Fixed\",\n\t\"support_term\":\"+6 months\",\n\t\"discount_price\":\"100.00\",\n\t\"name\":\"Annual\",\n\t\"category_id\":\"{{ProductCategory_Installments}}\",\n\t\"type_id\":\"{{ProductType_Donations}}\",\n\t\"discount_usdollar\":\"100.00\",\n\t\"list_price\":\"100.00\",\n\t\"list_usdollar\":\"100.00\",\n\t\"cost_price\":\"0.00\",\n\t\"cost_usdollar\":\"0.00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductCatalog Monthly",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductCatalog = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductCatalog !== null || idOfProductCatalog !== \"\";",
+									"tests[\"name is correct\"] = \"Monthly\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductType_Monthly\", idOfProductCatalog);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductTemplates",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\":\"Available\",\n\t\"tax_class\":\"Taxable\",\n\t\"pricing_formula\":\"Fixed\",\n\t\"support_term\":\"+6 months\",\n\t\"discount_price\":\"10.00\",\n\t\"name\":\"Monthly\",\n\t\"category_id\":\"{{ProductCategory_Installments}}\",\n\t\"type_id\":\"{{ProductType_Donations}}\",\n\t\"discount_usdollar\":\"10.00\",\n\t\"list_price\":\"10.00\",\n\t\"list_usdollar\":\"10.00\",\n\t\"cost_price\":\"0.00\",\n\t\"cost_usdollar\":\"0.00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create ProductCatalog One time",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProductCatalog = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProductCatalog !== null || idOfProductCatalog !== \"\";",
+									"tests[\"name is correct\"] = \"One time\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"ProductType_OneTime\", idOfProductCatalog);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/ProductTemplates",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\":\"Available\",\n\t\"tax_class\":\"Taxable\",\n\t\"pricing_formula\":\"Fixed\",\n\t\"support_term\":\"+6 months\",\n\t\"discount_price\":\"10.00\",\n\t\"name\":\"One time\",\n\t\"category_id\":\"{{ProductCategory_Installments}}\",\n\t\"type_id\":\"{{ProductType_Donations}}\",\n\t\"discount_usdollar\":\"10.00\",\n\t\"list_price\":\"10.00\",\n\t\"list_usdollar\":\"10.00\",\n\t\"cost_price\":\"0.00\",\n\t\"cost_usdollar\":\"0.00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Professors",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Professor Beige",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProfessor = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProfessor !== null || idOfProfessor !== \"\";",
+									"tests[\"name is correct\"] = \"Ms. Janice Beige\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"Professor_Beige\", idOfProfessor);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/PR_Professors",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\":\"Firebird\",\n\t\"status\":\"Active\",\n\t\"tag\":[\"Mutants\"],\n\t\"salutation\":\"Ms.\",\n\t\"first_name\":\"Janice\",\n\t\"last_name\":\"Beige\",\n\t\"hiredate\":\"2010-10-04\",\n\t\"department\":\"Telepathy/Telekinesis Studies\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Professor Marum",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfProfessor = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfProfessor !== null || idOfProfessor !== \"\";",
+									"tests[\"name is correct\"] = \"Prof. Matt Marum\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"Professor_Marum\", idOfProfessor);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/PR_Professors",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\":\"Professor M\",\n\t\"status\":\"Active\",\n\t\"tag\":[\"Mutants\"],\n\t\"salutation\":\"Prof.\",\n\t\"first_name\":\"Matt\",\n\t\"last_name\":\"Marum\",\n\t\"description\": \"Telepath\",\n\t\"hiredate\":\"1960-01-01\",\n\t\"department\":\"Administration\",\n\t\"primary_address_city\": \"Westchester\",\n    \"primary_address_state\": \"NY\",\n    \"primary_address_country\": \"USA\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Students (Contacts)",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Student Attracto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfStudent = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfStudent !== null || idOfStudent !== \"\";",
+									"tests[\"alias is correct\"] = \"Attracto\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_Attracto\", idOfStudent);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Contacts",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status_c\":\"Alumnus\",\n\t\"tag\":[\"Mutants\"],\n\t\"preferred_language\":\"en_us\",\n\t\"salutation\":\"Mr.\",\n\t\"lead_source\":\"Self Generated\",\n\t\"first_name\":\"Val\",\n\t\"last_name\":\"Eisenhower\",\n\t\"alias_c\":\"Attracto\",\n\t\"birthdate\":\"1928-08-05\",\n\t\"account_id\":\"{{SuperGroup_Brotherhood}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Student Rascal",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfStudent = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfStudent !== null || idOfStudent !== \"\";",
+									"tests[\"alias is correct\"] = \"Rascal\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_Rascal\", idOfStudent);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Contacts",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status_c\":\"Current Student\",\n\t\"tag\":[\"Mutants\"],\n\t\"preferred_language\":\"en_us\",\n\t\"lead_source\":\"Partner\",\n\t\"salutation\":\"Ms.\",\n\t\"first_name\":\"Annette\",\n\t\"last_name\":\"Mary\",\n\t\"alias_c\":\"Rascal\",\n\t\"birthdate\":\"1989-12-26\",\n\t\"account_id\":\"{{SuperGroup_M-Men}}\",\n\t\"primary_address_city\":\"Caldecott\",\n\t\"primary_address_state\":\"MS\",\n\t\"primary_address_country\":\"USA\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Student Honey Badger",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfStudent = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfStudent !== null || idOfStudent !== \"\";",
+									"tests[\"alias is correct\"] = \"Honey Badger\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_HoneyBadger\", idOfStudent);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Contacts",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status_c\":\"Alumnus\",\n\t\"tag\":[\"Mutants\"],\n\t\"preferred_language\":\"en_us\",\n\t\"lead_source\":\"Cold Call\",\n\t\"salutation\":\"Mr.\",\n\t\"first_name\":\"Jimmy\",\n\t\"last_name\":\"Harwit\",\n\t\"alias_c\":\"Honey Badger\",\n\t\"birthdate\":\"1887-05-08\",\n\t\"account_id\":\"{{SuperGroup_M-Men}}\",\n\t\"primary_address_city\":\"Whitehorse\",\n\t\"primary_address_state\":\"YT\",\n\t\"primary_address_country\":\"Canada\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Student Glamour",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfStudent = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfStudent !== null || idOfStudent !== \"\";",
+									"tests[\"alias is correct\"] = \"Glamour\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_Glamour\", idOfStudent);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Contacts",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "OAuth-Token",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status_c\":\"Past Student\",\n\t\"tag\":[\"Mutants\"],\n\t\"preferred_language\":\"en_us\",\n\t\"lead_source\":\"Partner\",\n\t\"salutation\":\"Ms.\",\n\t\"first_name\":\"Symone\",\n\t\"last_name\":\"Lighthome\",\n\t\"alias_c\":\"Glamour\",\n\t\"birthdate\":\"1961-07-11\",\n\t\"account_id\":\"{{SuperGroup_Brotherhood}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Student Firebird",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfStudent = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfStudent !== null || idOfStudent !== \"\";",
+									"tests[\"alias is correct\"] = \"Firebird\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_Firebird\", idOfStudent);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Contacts",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status_c\":\"Alumnus\",\n\t\"tag\":[\"Mutants\"],\n\t\"preferred_language\":\"en_us\",\n\t\"lead_source\":\"Employee\",\n\t\"salutation\":\"Ms.\",\n\t\"first_name\":\"Janice\",\n\t\"last_name\":\"Beige\",\n\t\"alias_c\":\"Firebird\",\n\t\"birthdate\":\"1975-05-22\",\n\t\"account_id\":\"{{SuperGroup_M-Men}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Link Student Firebird to Professor Firebird",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfStudent = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Contacts/{{Student_Firebird}}/link",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"link_name\":\"pr_professors_contacts\",\"ids\":[\"{{Professor_Beige}}\"]}"
+						},
+						"description": "Firebird has been converted from an applicant to a professor.  As part of the conversion process, we need to create a link from the student record to the professor record."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Student Shadylynx",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfStudent = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfStudent !== null || idOfStudent !== \"\";",
+									"tests[\"alias is correct\"] = \"Shadylynx\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_Shadylynx\", idOfStudent);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Contacts",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status_c\":\"Prospective Student\",\n\t\"tag\":[\"Mutants\"],\n\t\"preferred_language\":\"en_us\",\n\t\"lead_source\":\"Partner\",\n\t\"salutation\":\"Ms.\",\n\t\"first_name\":\"Cate\",\n\t\"last_name\":\"Purry\",\n\t\"alias_c\":\"Shadylynx\",\n\t\"birthdate\":\"1992-01-24\",\n\t\"account_id\":\"{{SuperGroup_Young}}\",\n\t\"primary_address_city\":\"Deerfield\",\n\t\"primary_address_state\":\"IL\",\n\t\"primary_address_country\":\"USA\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Applicants (Leads)",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Applicant Firebird",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfApplicant = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfApplicant !== null || idOfApplicant !== \"\";",
+									"tests[\"alias is correct\"] = \"Firebird\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_Firebird\", idOfApplicant);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Leads",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias_c\":\"Firebird\",\n\t\"salutation\":\"Ms.\",\n\t\"first_name\":\"Janice\",\n\t\"last_name\":\"Beige\",\n\t\"converted\":true,\n\t\"status\":\"Converted\",\n\t\"tag\":[\"Mutants\"],\n\t\"lead_source\":\"Employee\",\n\t\"birthdate\":\"1975-05-22\",\n\t\"status_description\":\"Beware: potentially volatile\",\n\t\"pr_professors_leadspr_professors_ida\":\"{{Professor_Beige}}\",\n\t\"account_name\":\"M-Men\",\n\t\"account_id\":\"{{SuperGroup_M-Men}}\",\n\t\"contact_id\":\"{{Student_Firebird}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Applicant Glamour",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfApplicant = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfApplicant !== null || idOfApplicant !== \"\";",
+									"tests[\"alias is correct\"] = \"Glamour\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_Glamour\", idOfApplicant);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Leads",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias_c\":\"Glamour\",\n\t\"salutation\":\"Ms.\",\n\t\"first_name\":\"Symone\",\n\t\"last_name\":\"Lighthome\",\n\t\"converted\":true,\n\t\"status\":\"Converted\",\n\t\"tag\":[\"Mutants\"],\n\t\"lead_source\":\"Partner\",\n\t\"birthdate\":\"1961-07-11\",\n\t\"status_description\":\"Shifty, but highly skilled.\",\n\t\"account_name\":\"Brotherhood of Deviants\",\n\t\"account_id\":\"{{SuperGroup_Brotherhood}}\",\n\t\"contact_id\":\"{{Student_Glamour}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Applicant Attracto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfApplicant = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfApplicant !== null || idOfApplicant !== \"\";",
+									"tests[\"alias is correct\"] = \"Attracto\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_Attracto\", idOfApplicant);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Leads",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias_c\":\"Attracto\",\n\t\"salutation\":\"Mr.\",\n\t\"first_name\":\"Val\",\n\t\"last_name\":\"Eisenhower\",\n\t\"converted\":true,\n\t\"status\":\"Converted\",\n\t\"tag\":[\"Mutants\"],\n\t\"lead_source\":\"Self Generated\",\n\t\"birthdate\":\"1928-08-05\",\n\t\"status_description\":\"Shows great potential. Anger issues.\",\n\t\"account_name\":\"Brotherhood of Deviants\",\n\t\"account_id\":\"{{SuperGroup_Brotherhood}}\",\n\t\"contact_id\":\"{{Student_Attracto}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Applicant Honey Badger",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfApplicant = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfApplicant !== null || idOfApplicant !== \"\";",
+									"tests[\"alias is correct\"] = \"Honey Badger\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_HoneyBadger\", idOfApplicant);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Leads",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias_c\":\"Honey Badger\",\n\t\"salutation\":\"Mr.\",\n\t\"first_name\":\"Jimmy\",\n\t\"last_name\":\"Harwit\",\n\t\"converted\":true,\n\t\"status\":\"Converted\",\n\t\"tag\":[\"Mutants\"],\n\t\"lead_source\":\"Cold Call\",\n\t\"birthdate\":\"1887-05-08\",\n\t\"status_description\":\"Does not play nicely with others.\",\n\t\"account_name\":\"M-Men\",\n\t\"account_id\":\"{{SuperGroup_M-Men}}\",\n\t\"contact_id\":\"{{Student_HoneyBadger}}\",\n\t\"primary_address_city\":\"Whitehorse\",\n\t\"primary_address_state\":\"YT\",\n\t\"primary_address_country\":\"Canada\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Applicant Rascal",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfApplicant = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfApplicant !== null || idOfApplicant !== \"\";",
+									"tests[\"alias is correct\"] = \"Rascal\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_Rascal\", idOfApplicant);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Leads",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias_c\":\"Rascal\",\n\t\"salutation\":\"Ms.\",\n\t\"first_name\":\"Annette\",\n\t\"last_name\":\"Mary\",\n\t\"converted\":true,\n\t\"status\":\"Converted\",\n\t\"tag\":[\"Mutants\"],\n\t\"lead_source\":\"Partner\",\n\t\"birthdate\":\"1989-12-26\",\n\t\"status_description\":\"Former Brotherhood member. Trust issues.\",\n\t\"account_name\":\"M-Men\",\n\t\"account_id\":\"{{SuperGroup_M-Men}}\",\n\t\"contact_id\":\"{{Student_Rascal}}\",\n\t\"primary_address_city\":\"Caldecott\",\n\t\"primary_address_state\":\"MS\",\n\t\"primary_address_country\":\"USA\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Applicant Shadylynx",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfApplicant = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfApplicant !== null || idOfApplicant !== \"\";",
+									"tests[\"alias is correct\"] = \"Shadylynx\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_Shadylynx\", idOfApplicant);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Leads",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias_c\":\"Shadylynx\",\n\t\"salutation\":\"Ms.\",\n\t\"first_name\":\"Cate\",\n\t\"last_name\":\"Purry\",\n\t\"converted\":true,\n\t\"status\":\"Converted\",\n\t\"tag\":[\"Mutants\"],\n\t\"lead_source\":\"Partner\",\n\t\"birthdate\":\"1992-01-24\",\n\t\"status_description\":\"Very apt student.\",\n\t\"account_name\":\"Young M-Men\",\n\t\"account_id\":\"{{SuperGroup_Young}}\",\n\t\"contact_id\":\"{{Student_Shadylynx}}\",\n\t\"primary_address_city\":\"Deerfield\",\n\t\"primary_address_state\":\"IL\",\n\t\"primary_address_country\":\"USA\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Applicant Deathpond",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfApplicant = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfApplicant !== null || idOfApplicant !== \"\";",
+									"tests[\"alias is correct\"] = \"Deathpond\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_Deathpond\", idOfApplicant);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Leads",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias_c\":\"Deathpond\",\n\t\"salutation\":\"Mr.\",\n\t\"first_name\":\"Wayne\",\n\t\"last_name\":\"Williams\",\n\t\"converted\":false,\n\t\"status\":\"Dead\",\n\t\"tag\":[\"Mutants\"],\n\t\"lead_source\":\"Word of mouth\",\n\t\"birthdate\":\"1986-03-18\",\n\t\"status_description\":\"DO NOT ALLOW ANYWHERE NEAR STUDENTS.\",\n\t\"primary_address_city\":\"Clare\",\n\t\"primary_address_state\":\"SK\",\n\t\"primary_address_country\":\"Canada\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Applicant Mr. Fabulous",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfApplicant = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfApplicant !== null || idOfApplicant !== \"\";",
+									"tests[\"alias is correct\"] = \"Mr. Fabulous\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_MrFabulous\", idOfApplicant);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Leads",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias_c\":\"Mr. Fabulous\",\n\t\"salutation\":\"Mr.\",\n\t\"first_name\":\"Roy\",\n\t\"last_name\":\"Rogers\",\n\t\"converted\":false,\n\t\"status\":\"New\",\n\t\"tag\":[\"Genetically Enhanced\", \"Genius\", \"Human\"],\n\t\"birthdate\":\"1969-02-12\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Applicant Steel Man",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfApplicant = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfApplicant !== null || idOfApplicant !== \"\";",
+									"tests[\"alias is correct\"] = \"Steel Man\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_SteelMan\", idOfApplicant);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Leads",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias_c\":\"Steel Man\",\n\t\"salutation\":\"Mr.\",\n\t\"first_name\":\"Tony\",\n\t\"last_name\":\"Stork\",\n\t\"converted\":false,\n\t\"status\":\"New\",\n\t\"tag\":[\"Genius\", \"Human\"],\n\t\"lead_source\":\"Campaign\",\n\t\"birthdate\":\"1972-04-02\",\n\t\"account_name\":\"Revengers\",\n\t\"primary_address_city\":\"Long Island\",\n\t\"primary_address_state\":\"NY\",\n\t\"primary_address_country\":\"USA\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Applicant The Hunk",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfApplicant = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfApplicant !== null || idOfApplicant !== \"\";",
+									"tests[\"alias is correct\"] = \"The Hunk\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_TheHunk\", idOfApplicant);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Leads",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias_c\":\"The Hunk\",\n\t\"salutation\":\"Mr.\",\n\t\"first_name\":\"Brian\",\n\t\"last_name\":\"Pennant\",\n\t\"converted\":false,\n\t\"status\":\"New\",\n\t\"tag\":[\"Genetically Enhanced\", \"Genius\", \"Human\"],\n\t\"lead_source\":\"Campaign\",\n\t\"birthdate\":\"1980-11-03\",\n\t\"account_name\":\"Revengers\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Applicant Blonde Tarantula",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfApplicant = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfApplicant !== null || idOfApplicant !== \"\";",
+									"tests[\"alias is correct\"] = \"Blonde Tarantula\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_BlondeTarantula\", idOfApplicant);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Leads",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias_c\":\"Blonde Tarantula\",\n\t\"salutation\":\"Ms.\",\n\t\"first_name\":\"Iggy\",\n\t\"last_name\":\"Ora\",\n\t\"converted\":false,\n\t\"status\":\"New\",\n\t\"tag\":[\"Assassin\", \"Human\"],\n\t\"lead_source\":\"Campaign\",\n\t\"birthdate\":\"1982-06-06\",\n\t\"account_name\":\"Revengers\",\n\t\"primary_address_city\":\"Volgograd\",\n\t\"primary_address_country\":\"Russia\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Applicant Chance",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfApplicant = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfApplicant !== null || idOfApplicant !== \"\";",
+									"tests[\"alias is correct\"] = \"Chance\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_Chance\", idOfApplicant);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Leads",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias_c\":\"Chance\",\n\t\"salutation\":\"Mr.\",\n\t\"first_name\":\"Ronny\",\n\t\"last_name\":\"LeFlame\",\n\t\"converted\":false,\n\t\"status\":\"New\",\n\t\"tag\":[\"Mutants\"],\n\t\"lead_source\":\"Web Site\",\n\t\"birthdate\":\"1984-09-09\",\n\t\"account_name\":\"M-Men\",\n\t\"primary_address_city\":\"New Orleans\",\n\t\"primary_address_state\":\"LA\",\n\t\"primary_address_country\":\"USA\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Applicant Captain USA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfApplicant = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfApplicant !== null || idOfApplicant !== \"\";",
+									"tests[\"alias is correct\"] = \"Captain USA\" === jsonData.alias_c;",
+									"",
+									"postman.setEnvironmentVariable(\"Student_CaptainUSA\", idOfApplicant);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Leads",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias_c\":\"Captain USA\",\n\t\"salutation\":\"Mr.\",\n\t\"first_name\":\"Jamie\",\n\t\"last_name\":\"Rahn\",\n\t\"converted\":false,\n\t\"status\":\"New\",\n\t\"tag\":[\"Genetically Enhanced\", \"Human\"],\n\t\"lead_source\":\"Campaign\",\n\t\"birthdate\":\"1925-10-20\",\n\t\"account_name\":\"Revengers\",\n\t\"primary_address_city\":\"Bronx\",\n\t\"primary_address_state\":\"NY\",\n\t\"primary_address_country\":\"USA\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Donations (Opportunities)",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Donation Deviants Annual",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfDonation = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfDonation !== null || idOfDonation !== \"\";",
+									"tests[\"name is correct\"] = \"Deviants annual memberships\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"Donation_DeviantsAnnual\", idOfDonation);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Opportunities",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Deviants annual memberships\",\n\t\"account_id\":\"{{SuperGroup_Brotherhood}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Donation Revengers Thanksgiving",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfDonation = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfDonation !== null || idOfDonation !== \"\";",
+									"tests[\"name is correct\"] = \"Revengers Thanksgiving donation\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"Donation_RevengersThanksgiving\", idOfDonation);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Opportunities",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Revengers Thanksgiving donation\",\n\t\"account_id\":\"{{SuperGroup_Revengers}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Revenue Line Items",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Funding Line Item Revengers Scholarship",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfLineItem = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfLineItem !== null || idOfLineItem !== \"\";",
+									"tests[\"name is correct\"] = \"Revengers - 2017 scholarship\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"LineItem_RevengersScholarship\", idOfLineItem);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/RevenueLineItems",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n   \"quantity\":\"5.00\",\n   \"commit_stage\":\"exclude\",\n   \"sales_stage\":\"Id. Decision Makers\",\n   \"probability\":\"40\",\n   \"name\":\"Revengers - 2017 scholarship\",\n   \"opportunity_id\":\"{{Donation_RevengersThanksgiving}}\",\n   \"account_id\":\"{{SuperGroup_Revengers}}\",\n   \"date_closed\":\"2017-11-23\",\n   \"product_template_id\":\"{{ProductType_ScholarshipNamingRights}}\",\n   \"category_id\":\"{{ProductCategory_Scholarships}}\",\n   \"best_case\":\"50000.00\",\n   \"likely_case\":\"40000.00\",\n   \"worst_case\":\"10000.00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Funding Line Item Membership Block",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfLineItem = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfLineItem !== null || idOfLineItem !== \"\";",
+									"tests[\"name is correct\"] = \"Membership Block (10)\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"LineItem_MembershipBlock\", idOfLineItem);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/RevenueLineItems",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n   \"quantity\":\"10.00\",\n   \"commit_stage\":\"exclude\",\n   \"sales_stage\":\"Needs Analysis\",\n   \"probability\":\"25\",\n   \"name\":\"Membership Block (10)\",\n   \"opportunity_id\":\"{{Donation_DeviantsAnnual}}\",\n   \"account_id\":\"{{SuperGroup_Brotherhood}}\",\n   \"date_closed\":\"2017-09-29\",\n   \"product_template_id\":\"{{ProductType_Annual}}\",\n   \"category_id\":\"{{ProductCategory_Installments}}\",\n   \"best_case\":\"1000.00\",\n   \"likely_case\":\"1000.00\",\n   \"worst_case\":\"100.00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Quotes",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Quote Annual Membership Block",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfQuote = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfQuote !== null || idOfQuote !== \"\";",
+									"tests[\"name is correct\"] = \"Annual Membership Block (10)\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"Quote_AnnualMembershipBlock\", idOfQuote);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Quotes",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n   \"product_bundles\":{  \n      \"create\":[  \n         {  \n            \"_module\":\"ProductBundles\",\n            \"_action\":\"create\",\n            \"_link\":\"product_bundles\",\n            \"default_group\":true,\n            \"products\":{  \n               \"create\":[  \n\t\t\t\t\t{  \n\t                     \"discount_price\":\"100.000000\",\n\t                     \"quantity\":10,\n\t                     \"product_template_id\":\"{{ProductType_Annual}}\",\n\t                     \"product_template_name\":\"Annual\",\n\t                     \"name\":\"Annual\",\n\t                     \"category_id\":\"{{ProductCategory_Installments}}\",\n\t                     \"category_name\":\"Installments\",\n\t                     \"type_id\":\"{{ProductType_Donations}}\",\n\t                     \"type_name\":\"Donations\",\n\t                     \"revenuelineitem_id\":\"{{LineItem_MembershipBlock}}\"\n                  }\n               ]\n            }\n         }\n      ]\n   },\n   \"quote_stage\":\"Delivered\",\n   \"payment_terms\":\"Net 30\",\n   \"order_stage\":\"Pending\",\n   \"name\":\"Annual Membership Block (10)\",\n   \"opportunity_id\":\"{{Donation_DeviantsAnnual}}\",\n   \"date_quote_expected_closed\":\"2017-09-29\",\n   \"billing_account_id\":\"{{SuperGroup_Brotherhood}}\",\n   \"shipping_account_id\":\"{{SuperGroup_Brotherhood}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Quote Revengers Thanksgiving",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfQuote = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfQuote !== null || idOfQuote !== \"\";",
+									"tests[\"name is correct\"] = \"Revengers Thanksgiving donation\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"Quote_RevengersThanksgiving\", idOfQuote);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Quotes",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n   \"product_bundles\":{  \n      \"create\":[  \n         {  \n            \"_module\":\"ProductBundles\",\n            \"_action\":\"create\",\n            \"_link\":\"product_bundles\",\n            \"default_group\":true,\n            \"product_bundle_notes\":{  \n               \"create\":[  \n                  {  \n                     \"_module\":\"ProductBundleNotes\",\n                     \"_link\":\"product_bundle_notes\",\n                     \"description\":\"10% Frequent Donor Discount offered until 8/31\"\n                  }\n               ]\n            },\n            \"products\":{  \n               \"create\":[  \n\t\t\t\t\t{  \n\t                     \"discount_price\":\"10000.000000\",\n\t                     \"discount_amount\":10,\n\t                     \"discount_select\":true,\n\t                     \"quantity\":5,\n\t                     \"product_template_id\":\"{{ProductType_ScholarshipNamingRights}}\",\n\t                     \"product_template_name\":\"Annual\",\n\t                     \"name\":\"Annual\",\n\t                     \"category_id\":\"{{ProductCategory_Scholarships}}\",\n\t                     \"category_name\":\"Scholarships\",\n\t                     \"type_id\":\"{{ProductType_Endowments}}\",\n\t                     \"type_name\":\"Endowments\",\n\t                     \"revenuelineitem_id\":\"{{LineItem_RevengersScholarship}}\"\n                  }\n               ]\n            }\n         }\n      ]\n   },\n   \"quote_stage\":\"Draft\",\n   \"order_stage\":\"Pending\",\n   \"name\":\"Revengers Thanksgiving donation\",\n   \"opportunity_id\":\"{{Donation_RevengersThanksgiving}}\",\n   \"date_quote_expected_closed\":\"2017-08-31\",\n   \"billing_account_id\":\"{{SuperGroup_Revengers}}\",\n   \"shipping_account_id\":\"{{SuperGroup_Revengers}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
