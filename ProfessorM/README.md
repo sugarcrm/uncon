@@ -9,11 +9,43 @@ Prerequisites:
 
 Install the modules and customizations:
 - Download ProfM.zip
-- Login to Sugar as an Administrator.
+- Login to Sugar as an Administrator
 - Go to Administration > Module Loader
 - "Upload" the zip 
 - Click "Install" for the ProfessorM module
 - Review and accept the license agreement.  Click "Commmit."
+
+Hide modules that will not be used:
+- Login to Sugar as an Administrator if you have not already done so
+- Go to Administration > Display Modules and Subpanels
+- Drag the following modules from the Displayed Modules box to the Hidden Modules box:
+  - Calendar
+  - Calls
+  - Meetings
+  - Tasks
+  - Notes
+  - Emails
+  - Campaigns
+  - Targets
+  - Target Lists
+  - Quotes
+  - Forecasts
+  - Process Definitions
+  - Processes
+  - Process Business Rules
+  - Process Email Templates
+  - Documents
+  - Cases
+  - Tags
+- Rearrange the items in the Displayed Modules box so they are in the following order from top to bottom:
+  - Accounts
+  - Leads
+  - Contacts
+  - Professors
+  - Opportunities
+  - Revenue Line Items
+  - Reports
+- Click Save
 
 Use the Sugar REST API to create the Professor M sample data
 - Download ProfessorM_SampleData/ProfessorM_PostmanCollection.json
