@@ -12,7 +12,8 @@ Install the modules and customizations:
 - Login to Sugar as an Administrator.
 - Go to Administration > Module Loader
 - "Upload" the zip 
-- Click "Install" for the ProfM module
+- Click "Install" for the ProfessorM module
+- Review and accept the license agreement.  Click "Commmit."
 
 Use the Sugar REST API to create the Professor M sample data
 - Download ProfessorM_SampleData/ProfessorM_PostmanCollection.json
@@ -29,6 +30,7 @@ Use the Sugar REST API to create the Professor M sample data
 - Ensure the environment you just created is selected
 - Click Run ProfessorM S...
 - Wait for the collection to finish running.
+Hint:  If you see many failures, you may have forgotten to install the modules and customizations using ProfM.zip.  See instructions in previous section for how to do the install.
 
 About the sample data
 - coming soon
