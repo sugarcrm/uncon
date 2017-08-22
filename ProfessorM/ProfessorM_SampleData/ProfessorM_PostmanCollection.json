@@ -112,9 +112,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -150,9 +150,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -188,9 +188,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -226,9 +226,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -264,9 +264,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -302,9 +302,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -340,9 +340,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -378,9 +378,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -416,9 +416,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -454,9 +454,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -492,9 +492,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -536,9 +536,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -574,9 +574,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -612,9 +612,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -650,9 +650,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -694,9 +694,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -732,9 +732,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -770,9 +770,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -808,9 +808,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -852,9 +852,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -890,9 +890,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -928,9 +928,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -966,9 +966,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -1004,9 +1004,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -1042,9 +1042,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -1080,9 +1080,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -1118,9 +1118,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -1156,9 +1156,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -1194,9 +1194,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -1232,9 +1232,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -1270,9 +1270,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -1308,9 +1308,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"description": "",
 								"key": "OAuth-Token",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -2373,14 +2373,51 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{  \n   \"product_bundles\":{  \n      \"create\":[  \n         {  \n            \"_module\":\"ProductBundles\",\n            \"_action\":\"create\",\n            \"_link\":\"product_bundles\",\n            \"default_group\":true,\n            \"products\":{  \n               \"create\":[  \n\t\t\t\t\t{  \n\t                     \"discount_price\":\"100.000000\",\n\t                     \"quantity\":10,\n\t                     \"product_template_id\":\"{{ProductType_Annual}}\",\n\t                     \"product_template_name\":\"Annual\",\n\t                     \"name\":\"Annual\",\n\t                     \"category_id\":\"{{ProductCategory_Installments}}\",\n\t                     \"category_name\":\"Installments\",\n\t                     \"type_id\":\"{{ProductType_Donations}}\",\n\t                     \"type_name\":\"Donations\",\n\t                     \"revenuelineitem_id\":\"{{LineItem_MembershipBlock}}\"\n                  }\n               ]\n            }\n         }\n      ]\n   },\n   \"quote_stage\":\"Delivered\",\n   \"payment_terms\":\"Net 30\",\n   \"order_stage\":\"Pending\",\n   \"name\":\"Annual Membership Block (10)\",\n   \"opportunity_id\":\"{{Donation_DeviantsAnnual}}\",\n   \"date_quote_expected_closed\":\"2017-09-29\",\n   \"billing_account_id\":\"{{SuperGroup_Brotherhood}}\",\n   \"shipping_account_id\":\"{{SuperGroup_Brotherhood}}\"\n}"
+							"raw": "{  \n   \"product_bundles\":{  \n      \"create\":[  \n         {  \n            \"_module\":\"ProductBundles\",\n            \"_action\":\"create\",\n            \"_link\":\"product_bundles\",\n            \"default_group\":true,\n            \"products\":{  \n               \"create\":[  \n\t\t\t\t\t{  \n\t                     \"discount_price\":\"100.000000\",\n\t                     \"quantity\":10,\n\t                     \"product_template_id\":\"{{ProductType_Annual}}\",\n\t                     \"name\":\"Annual\",\n\t                     \"category_id\":\"{{ProductCategory_Installments}}\",\n\t                     \"opportunity_id\":\"{{Donation_DeviantsAnnual}}\",\n\t                     \"type_id\":\"{{ProductType_Donations}}\"\n                  }\n               ]\n            }\n         }\n      ]\n   },\n   \"quote_stage\":\"Delivered\",\n   \"payment_terms\":\"Net 30\",\n   \"order_stage\":\"Pending\",\n   \"name\":\"Annual Membership Block (10)\",\n   \"opportunity_id\":\"{{Donation_DeviantsAnnual}}\",\n   \"date_quote_expected_closed\":\"2017-09-29\",\n   \"billing_account_id\":\"{{SuperGroup_Brotherhood}}\",\n   \"shipping_account_id\":\"{{SuperGroup_Brotherhood}}\"\n}"
 						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "Create Quote Revengers Thanksgiving",
+					"name": "Link Line Item to Quote Annual Memberships",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfQuote = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfQuote !== null || idOfQuote !== \"\";",
+									"tests[\"id is correct\"] = postman.getEnvironmentVariable(\"LineItem_MembershipBlock\") === jsonData.record.id;",
+									"tests[\"link is correct\"] = postman.getEnvironmentVariable(\"Quote_AnnualMembershipBlock\") === jsonData.related_record.id;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/RevenueLineItems/{{LineItem_MembershipBlock}}/link/quotes/{{Quote_AnnualMembershipBlock}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":\"{{LineItem_MembershipBlock}}\",\n\t\"link\":\"quotes\",\n\t\"relatedId\":\"{{Quote_AnnualMembershipBlock}}\",\n\t\"related\":{\n\t\t\"quote_id\":\"{{Quote_AnnualMembershipBlock}}\"\n\t\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Quote Revengers Scholarship",
 					"event": [
 						{
 							"listen": "test",
@@ -2411,7 +2448,44 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{  \n   \"product_bundles\":{  \n      \"create\":[  \n         {  \n            \"_module\":\"ProductBundles\",\n            \"_action\":\"create\",\n            \"_link\":\"product_bundles\",\n            \"default_group\":true,\n            \"product_bundle_notes\":{  \n               \"create\":[  \n                  {  \n                     \"_module\":\"ProductBundleNotes\",\n                     \"_link\":\"product_bundle_notes\",\n                     \"description\":\"10% Frequent Donor Discount offered until 8/31\"\n                  }\n               ]\n            },\n            \"products\":{  \n               \"create\":[  \n\t\t\t\t\t{  \n\t                     \"discount_price\":\"10000.000000\",\n\t                     \"discount_amount\":10,\n\t                     \"discount_select\":true,\n\t                     \"quantity\":5,\n\t                     \"product_template_id\":\"{{ProductType_ScholarshipNamingRights}}\",\n\t                     \"product_template_name\":\"Annual\",\n\t                     \"name\":\"Annual\",\n\t                     \"category_id\":\"{{ProductCategory_Scholarships}}\",\n\t                     \"category_name\":\"Scholarships\",\n\t                     \"type_id\":\"{{ProductType_Endowments}}\",\n\t                     \"type_name\":\"Endowments\",\n\t                     \"revenuelineitem_id\":\"{{LineItem_RevengersScholarship}}\"\n                  }\n               ]\n            }\n         }\n      ]\n   },\n   \"quote_stage\":\"Draft\",\n   \"order_stage\":\"Pending\",\n   \"name\":\"Revengers Thanksgiving donation\",\n   \"opportunity_id\":\"{{Donation_RevengersThanksgiving}}\",\n   \"date_quote_expected_closed\":\"2017-08-31\",\n   \"billing_account_id\":\"{{SuperGroup_Revengers}}\",\n   \"shipping_account_id\":\"{{SuperGroup_Revengers}}\"\n}"
+							"raw": "{  \n   \"product_bundles\":{  \n      \"create\":[  \n         {  \n            \"_module\":\"ProductBundles\",\n            \"_action\":\"create\",\n            \"_link\":\"product_bundles\",\n            \"default_group\":true,\n            \"product_bundle_notes\":\n            \t{\n            \t\t\"create\":\n            \t\t\t[\n            \t\t\t\t{\n            \t\t\t\t\t\"_module\":\"ProductBundleNotes\",\n            \t\t\t\t\t\"_link\":\"product_bundle_notes\",\n            \t\t\t\t\t\"description\":\"10% Frequent Donor Discount offered until 8/31\"\n            \t\t\t\t}\n            \t\t\t]\n            \t},\n            \"products\":{  \n               \"create\":[  \n\t\t\t\t\t{  \n\t                     \"discount_price\":\"100.000000\",\n\t                     \"quantity\":10,\n\t                     \"product_template_id\":\"{{ProductType_ScholarshipNamingRights}}\",\n\t                     \"name\":\"Annual\",\n\t                     \"category_id\":\"{{ProductCategory_Scholarships}}\",\n\t                     \"type_id\":\"{{ProductType_Endowments}}\"\n                  }\n               ]\n            }\n         }\n      ]\n   },\n   \"quote_stage\":\"Draft\",\n   \"order_stage\":\"Pending\",\n   \"name\":\"Revengers Thanksgiving donation\",\n   \"opportunity_id\":\"{{Donation_RevengersThanksgiving}}\",\n   \"date_quote_expected_closed\":\"2017-08-31\",\n   \"billing_account_id\":\"{{SuperGroup_Revengers}}\",\n   \"shipping_account_id\":\"{{SuperGroup_Revengers}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Link Line Item to Quote Revengers Thanksgiving",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfQuote = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfQuote !== null || idOfQuote !== \"\";",
+									"tests[\"id is correct\"] = postman.getEnvironmentVariable(\"LineItem_RevengersScholarship\") === jsonData.record.id;",
+									"tests[\"link is correct\"] = postman.getEnvironmentVariable(\"Quote_RevengersThanksgiving\") === jsonData.related_record.id;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/RevenueLineItems/{{LineItem_RevengersScholarship}}/link/quotes/{{Quote_RevengersThanksgiving}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":\"{{LineItem_RevengersScholarship}}\",\n\t\"link\":\"quotes\",\n\t\"relatedId\":\"{{Quote_RevengersThanksgiving}}\",\n\t\"related\":{\n\t\t\"quote_id\":\"{{Quote_RevengersThanksgiving}}\"\n\t\t}\n}"
 						},
 						"description": ""
 					},
