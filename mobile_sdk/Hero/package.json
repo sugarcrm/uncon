@@ -1,0 +1,8 @@
+{
+  "version": "0.0.1",
+  "sdkVersion": "6.0.0.424-1.2.0-1",
+  "description": "HeroCRM mobile app",
+  "main": "sdk",
+  "devDependencies": {
+  }
+}

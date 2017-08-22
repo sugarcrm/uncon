@@ -1,0 +1,3 @@
+// Open native/platforms/android/AndroidManifest.xml
+// Comment out the following line:
+<uses-feature android:name="android.hardware.location" />

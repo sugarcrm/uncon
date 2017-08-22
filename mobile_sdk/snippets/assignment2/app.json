@@ -1,0 +1,11 @@
+{
+    "defaults": {
+            "ui": {
+                "icons": {
+                    "actions": {
+                        "hello": "icon icon-smile-o"
+                    }
+                }
+            }
+        }
+}

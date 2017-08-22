@@ -1,0 +1,12 @@
+{
+    "defaults": {
+        "jsConfig": {
+            "ui": {
+                "icons": {
+                    "actions": {
+                        "location": "icon icon-location-arrow"
+                    }
+                }
+            }
+        },
+}
