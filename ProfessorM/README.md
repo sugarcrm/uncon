@@ -44,32 +44,32 @@ Sugar will display many modules by default that you will not be using while work
 1. Login to Sugar as an Administrator if you have not already done so
 1. Go to **Administration** > **Display Modules and Subpanels**
 1. Drag the following modules from the **Displayed Modules** box to the **Hidden Modules** box:
-  * Calendar
-  * Calls
-  * Meetings
-  * Tasks
-  * Notes
-  * Emails
-  * Campaigns
-  * Targets
-  * Target Lists
-  * Quotes
-  * Forecasts
-  * Process Definitions
-  * Processes
-  * Process Business Rules
-  * Process Email Templates
-  * Documents
-  * Cases
-  * Tags
+   * Calendar
+   * Calls
+   * Meetings
+   * Tasks
+   * Notes
+   * Emails
+   * Campaigns
+   * Targets
+   * Target Lists
+   * Quotes
+   * Forecasts
+   * Process Definitions
+   * Processes
+   * Process Business Rules
+   * Process Email Templates
+   * Documents
+   * Cases
+   * Tags
 1. Rearrange the items in the **Displayed Modules** box so they are in the following order from top to bottom:
-  * Accounts
-  * Leads
-  * Contacts
-  * Professors
-  * Opportunities
-  * Revenue Line Items
-  * Reports
+   * Accounts
+   * Leads
+   * Contacts
+   * Professors
+   * Opportunities
+   * Revenue Line Items
+   * Reports
 1. Click **Save**
 
 ### Use the Sugar REST API to create the Professor M sample data
@@ -79,10 +79,10 @@ In order to create the Professor M sample data, you'll use Postman to run a coll
 1. Click **Choose Files** and import **ProfessorM_PostmanCollection.json**
 1. Close the **Import** dialog
 1. Create a new Postman environment with the following keys and values:
-  * url: the url of your Sugar installation (for example, http://localhost:8888/profm)
-  * rest_endpoint:  /rest/v10
-  * username:  the username for an admin user in your Sugar installation
-  * password:  the password associated with the username above
+   * url: the url of your Sugar installation (for example, http://localhost:8888/profm)
+   * rest_endpoint:  /rest/v10
+   * username:  the username for an admin user in your Sugar installation
+   * password:  the password associated with the username above
 1. Click **Runner**
 1. Select the **ProfessorM Sample Data** collection
 1. Ensure the environment you just created is selected
