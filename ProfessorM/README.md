@@ -13,7 +13,7 @@ The school uses Sugar for the following use cases:
 For those familiar with Sugar, you'll notice that some of the standard modules have been renamed.
 
 | Professor M Module | Original Sugar Module |
-| --- | --- |
+| :--- | :--- |
 | Super Groups | Accounts |
 | Applicants | Leads |
 | Students | Contacts |
@@ -26,7 +26,7 @@ For those familiar with Sugar, you'll notice that some of the standard modules h
 Before beginning any of the tutorials associated with UnCon 2017, you'll want to setup a Sugar instance that has the Professor M scenario installed.
 
 ### Prerequisites
-- Sugar 7.9.1.0 installed with NO sample data
+- Sugar 7.9.1.0 installed with NO sample data.  See [Getting Started with Sugar Development](https://developer.sugarcrm.com/getting-started) for help.
 - [Postman](www.getpostman.com) installed 
 
 ### Install the modules and customizations
@@ -74,15 +74,19 @@ Sugar will display many modules by default that you will not be using while work
 
 ### Use the Sugar REST API to create the Professor M sample data
 In order to create the Professor M sample data, you'll use Postman to run a collection of Sugar REST API calls.  Each call in the collection has one or more simple tests associated with it to ensure the call was successful.
-1. Download [ProfessorM_PostmanCollection.json](ProfessorM_SampleData/ProfessorM_PostmanCollection.json)
+1. Save a copy of [ProfessorM_PostmanCollection.json](https://raw.githubusercontent.com/sugarcrm/uncon/2017/ProfessorM/ProfessorM_SampleData/ProfessorM_PostmanCollection.json)
 1. In Postman, click **Import**
 1. Click **Choose Files** and import **ProfessorM_PostmanCollection.json**
-1. Close the **Import** dialog
-1. Create a new Postman environment with the following keys and values:
+1. Click the gear icon in the upper right corner and select **Manage Enviornments**
+1. Click **Add** 
+1. Input a name for your environment (for example, **Professor M**)
+1. Add the following keys and values:
    * url: the url of your Sugar installation (for example, http://localhost:8888/profm)
    * rest_endpoint:  /rest/v10
    * username:  the username for an admin user in your Sugar installation
    * password:  the password associated with the username above
+1. Click **Add**
+1. Close the **Manage Environments** dialog
 1. Click **Runner**
 1. Select the **ProfessorM Sample Data** collection
 1. Ensure the environment you just created is selected
