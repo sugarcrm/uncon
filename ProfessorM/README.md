@@ -53,7 +53,6 @@ Sugar will display many modules by default that you will not be using while work
    * Campaigns
    * Targets
    * Target Lists
-   * Quotes
    * Forecasts
    * Process Definitions
    * Processes
@@ -69,6 +68,7 @@ Sugar will display many modules by default that you will not be using while work
    * Professors
    * Opportunities
    * Revenue Line Items
+   * Quotes
    * Reports
 1. Click **Save**
 

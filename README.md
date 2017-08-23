@@ -18,7 +18,7 @@ To install these code sample packages into any Sugar instance, use the following
 
 - Check out this Git repository and make changes to the package.
 
-        $ cd clone git@github.com:sugarcrm/uncon.git
+        $ git clone git@github.com:sugarcrm/uncon.git
         $ git checkout origin/2017
         $ cd PACKAGE_NAME
 
