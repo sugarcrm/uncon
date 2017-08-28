@@ -7,13 +7,10 @@ use Sugarcrm\Sugarcrm\Elasticsearch\Container;
 use Sugarcrm\Sugarcrm\Elasticsearch\ContainerAwareInterface;
 use Sugarcrm\Sugarcrm\Elasticsearch\Provider\AbstractProvider;
 use Sugarcrm\Sugarcrm\Elasticsearch\Analysis\AnalysisBuilder;
-use Sugarcrm\Sugarcrm\Elasticsearch\Mapping\Property\RawProperty;
+use Sugarcrm\Sugarcrm\Elasticsearch\Mapping\Property\MultiFieldProperty;
 use Sugarcrm\Sugarcrm\Elasticsearch\Mapping\Mapping;
 use Sugarcrm\Sugarcrm\Elasticsearch\Adapter\Document;
 use Sugarcrm\Sugarcrm\Elasticsearch\Query\MatchAllQuery;
-use Elastica\Aggregation\Terms;
-use Elastica\Aggregation\Sum;
-use Elastica\ResultSet;
 use SugarBean;
 use Opportunity;
 
@@ -97,15 +94,19 @@ class DataAnalytics extends AbstractProvider implements ContainerAwareInterface
         }
 
         // store the status for aggregation
-        $mapping->addNotAnalyzedField('custom_da_status');
+        $status = new MultiFieldProperty();
+        $status->setType('keyword');
+        $mapping->addModuleField('custom_da_status', 'da_agg', $status);
 
         // store the dollar amount for aggregation
-        $dollar = new RawProperty();
-        $dollar->setMapping(array('type' => 'float'));
-        $mapping->addRawProperty('custom_da_dollar', $dollar);
+        $dollar = new MultiFieldProperty();
+        $dollar->setType('float');
+        $mapping->addModuleField('custom_da_dollar', 'da_agg', $dollar);
 
         // store the related account id for filtering
-        $mapping->addNotAnalyzedField('custom_da_account');
+        $account = new MultiFieldProperty();
+        $account->setType('keyword');
+        $mapping->addModuleField('custom_da_account', 'da_filter', $account);
     }
 
     /**
@@ -161,17 +162,17 @@ class DataAnalytics extends AbstractProvider implements ContainerAwareInterface
     public function getOppMetrics($accountId)
     {
         // filter by account id
-        $accountFilter = new \Elastica\Filter\Term();
-        $accountFilter->setTerm('custom_da_account', $accountId);
+        $accountFilter = new \Elastica\Query\Term();
+        $accountFilter->setTerm('Opportunities' . Mapping::PREFIX_SEP . 'custom_da_account.da_filter', $accountId);
 
         // main aggregation bucket
-        $agg = new Terms('status');
-        $agg->setField('custom_da_status');
+        $agg = new \Elastica\Aggregation\Terms('status');
+        $agg->setField('Opportunities' . Mapping::PREFIX_SEP . 'custom_da_status.da_agg');
         $agg->setSize(3);
 
         // sum aggregation
-        $amount = new Sum('amount');
-        $amount->setField('custom_da_dollar');
+        $amount = new \Elastica\Aggregation\Sum('amount');
+        $amount->setField('Opportunities' . Mapping::PREFIX_SEP . 'custom_da_dollar.da_agg');
         $agg->addAggregation($amount);
 
         // query builder
@@ -190,10 +191,10 @@ class DataAnalytics extends AbstractProvider implements ContainerAwareInterface
 
     /**
      * Get normalized opportunity metrics from Elastica response
-     * @param ResultSet $resultSet
+     * @param \Elastica\ResultSet $resultSet
      * @return array
      */
-    protected function getOppMetricsResult(ResultSet $resultSet)
+    protected function getOppMetricsResult(\Elastica\ResultSet $resultSet)
     {
         $metrics = array(
             'won' => array('amount_usdollar' => 0, 'count' => 0),
