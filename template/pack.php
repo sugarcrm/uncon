@@ -1,11 +1,11 @@
 #!/usr/bin/env php
 <?php
-// Copyright 2016 SugarCRM Inc.  Licensed by SugarCRM under the Apache 2.0 license.
+// Copyright 2017 SugarCRM Inc.  Licensed by SugarCRM under the Apache 2.0 license.
 
  /****** REPLACE THESE  *******/
- $packageID = "REPLACE_ME";
- $packageLabel = "SugarCRM ML Package Template";
- $supportedVersionRegex = '^7.7.[\d]+.[\d]+$';
+ $packageID = "uncon217-replace-me-id";
+ $packageLabel = "UnCon 2017 Replace Me Description";
+ $supportedVersionRegex = '^7.9.[\d]+.[\d]+$';
 /******************************/
 
 if (empty($argv[1])) {
