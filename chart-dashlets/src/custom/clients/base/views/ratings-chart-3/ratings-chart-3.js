@@ -51,6 +51,9 @@
                 });
     },
 
+    /**
+     * @inheritdoc
+     */
     initDashlet: function() {
         this._super('initDashlet');
         if (this.meta.config) {
@@ -98,10 +101,10 @@
         this.displayNoData(!this.chart_loaded);
     },
 
-    buildStatusCollection: function(chartData, gradeScale) {
-        var statusList = app.lang.getAppListStrings('account_status_list');
-        var statusCollection = [];
-        var total = 0;
+    /**
+     * Generate an average for each status in the chart data
+     */
+    rollupStatusAverages: function(chartData, gradeScale) {
         var rollup = {};
 
         chartData.values.map(function(value) {
@@ -124,6 +127,16 @@
             rollup[value.label] = status;
         });
 
+        return rollup;
+    },
+
+    /**
+     * Create a collection from each status in account status list dom
+     */
+    buildStatusCollection: function(chartData, gradeScale) {
+        var statusList = app.lang.getAppListStrings('account_status_list');
+        var statusCollection = [];
+        var rollup = this.rollupStatusAverages(chartData, gradeScale);
         var total = d3.sum(rollup, function(d) { return d.value; });
 
         // build the status collection from status list
