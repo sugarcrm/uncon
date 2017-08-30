@@ -75,39 +75,37 @@
         var gradeData = [];
         var total = 0;
 
-        var colorScale = d3.interpolateRgb(d3.rgb('#0f0'), d3.rgb('#f00'));
         var colorRange = d3.scale.linear()
             .domain([0, 0.5, 1])
             .range([d3.rgb('#0f0'), d3.rgb('#00f'), d3.rgb('#f00')]);
         var colorIndex = 0;
+        var gradeSize = _.size(gradeList) - 1;
 
         _.each(gradeList, function(grade, key, values) {
             gradeList[key] = {
                 index: colorIndex,
                 value: 0,
-                key: values[key]
+                key: grade,
+                color: colorRange(colorIndex/gradeSize)
             };
             colorIndex += 1;
         });
-        colorIndex -= 1;
 
         _.each(records, function(record) {
             gradeList[record.ratesg_c].value += 1;
-            total += 1;
         });
 
         _.each(gradeList, function(grade) {
-            grade.color = colorRange(grade.index/colorIndex);
             gradeData.push(grade);
         });
 
-        this.total = total;
+        this.total = d3.sum(gradeData, function(g) { return g.value; });
 
         this.chartData = {
             data: gradeData,
             properties: {
                 title: app.lang.get('LBL_DASHLET_GRADES_CHART_NAME'),
-                label: total
+                total: total
             }
         };
 
@@ -118,8 +116,11 @@
      * @inheritdoc
      */
     loadData: function(options) {
+        if (this.meta.config) {
+            return;
+        }
         var url = app.api.buildURL('Accounts', 'filter');
-        var filter_args = {
+        var api_args = {
             'fields': 'id,status_c,ratesg_c',
             'order_by': 'ratesg_c',
             'max_num': 10
@@ -130,6 +131,6 @@
             }, this),
             complete: options ? options.complete : null
         };
-        app.api.call('create', url, filter_args, options, {context: this});
+        app.api.call('create', url, api_args, options, {context: this});
     }
 })

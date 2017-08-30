@@ -116,6 +116,22 @@
     },
 
     /**
+     * Event handler for toggling the active data series for the pie chart
+     *
+     * @inheritdoc
+     */
+    changeStatus: function(evt) {
+        var state = $(evt.currentTarget).data('status');
+        if (state && (evt.type === 'click' || evt.keyCode === 13 || evt.keyCode === 32)) {
+            d3.select(this.el)
+                .select('svg#' + this.cid + ' .nv-pie-hole-label')
+                .text('Loading...');
+            this.statusState = state;
+            this.loadData();
+        }
+    },
+
+    /**
      * Generate an average for each status in the chart data
      */
     rollupStatusAverages: function(chartData, gradeScale) {
@@ -182,27 +198,26 @@
         var gradeList = app.lang.getAppListStrings('grading_list');
         var chartData = serverData && serverData.chartData ? serverData.chartData : [];
 
-        var reportStatusValues = [];
-        var gradeScale = {};
         var gradeData = [];
         var total = 0;
+        var reportStatusValues = [];
+        var gradeScale = {};
 
-        var colorScale = d3.interpolateRgb(d3.rgb('#0f0'), d3.rgb('#f00'));
         var colorRange = d3.scale.linear()
             .domain([0, 0.5, 1])
             .range([d3.rgb('#0f0'), d3.rgb('#00f'), d3.rgb('#f00')]);
         var colorIndex = 0;
+        var gradeSize = _.size(gradeList) - 1;
 
         _.each(gradeList, function(grade, key, values) {
-            var key = values[key];
-            gradeScale[key] = {
+            gradeScale[grade] = {
                 index: colorIndex,
                 value: 0,
-                key: key
+                key: grade,
+                color: colorRange(colorIndex/gradeSize)
             };
             colorIndex += 1;
         });
-        colorIndex -= 1;
 
         if (chartData.values && chartData.values.length) {
 
@@ -221,7 +236,6 @@
                     });
 
                 _.each(gradeScale, function(grade) {
-                    grade.color = colorRange(grade.index / colorIndex);
                     gradeData.push(grade);
                 });
             }
@@ -229,13 +243,13 @@
             this.buildStatusCollection(chartData, gradeScale);
         }
 
-        this.total = total;
+        this.total = d3.sum(gradeData, function(g) { return g.value; });
 
         this.chartData = {
             data: gradeData,
             properties: {
                 title: app.lang.get('LBL_DASHLET_GRADES_CHART_NAME'),
-                label: total
+                total: total
             }
         };
 
@@ -243,8 +257,6 @@
     },
 
     /**
-     * Makes a call to Reports/saved_reports/:id to fetch specific saved report data
-     *
      * @inheritdoc
      */
     loadData: function(options) {
@@ -252,28 +264,15 @@
             return;
         }
         var url = app.api.buildURL('Reports/chart/' + this.reportId);
+        var api_args = {
+            'ignore_datacheck': true
+        };
         var options = {
             success: _.bind(function(serverData) {
                 this.evaluateResult(serverData);
             }, this),
             complete: options ? options.complete : null
         };
-        app.api.call('create', url, {'ignore_datacheck': true}, options, {context: this});
-    },
-
-    /**
-     * Event handler for toggling the active data series for the pie chart
-     *
-     * @inheritdoc
-     */
-    changeStatus: function(evt) {
-        var state = $(evt.currentTarget).data('status');
-        if (state && (evt.type === 'click' || evt.keyCode === 13 || evt.keyCode === 32)) {
-            d3.select(this.el)
-                .select('svg#' + this.cid + ' .nv-pie-hole-label')
-                .text('Loading...');
-            this.statusState = state;
-            this.loadData();
-        }
+        app.api.call('create', url, api_args, options, {context: this});
     }
 })
