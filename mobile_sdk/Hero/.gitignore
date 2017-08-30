@@ -1,0 +1,5 @@
+.idea
+.DS_Store
+/build/
+/config/app-dev.json
+/native/

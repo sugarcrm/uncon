@@ -1,0 +1,53 @@
+{
+    "defaults": {
+        "jsConfig": {
+            "appName": "Hero",
+            "productName": "HeroCRM",
+            "brandName": "HeroCRM",
+            "appBuild": "1",
+            "appVersion": "1.0.0",
+            "about": {
+                "privacy": "http://herocrm.com/mobile_privacy",
+                "tos": "http://herocrm.com/mobile_tos",
+                "support": "support.herocrm.com",
+                "supportEmail": "support@herocrm.com",
+                "copyrightText": "Copyright © 2017 HeroCRM Inc. All Rights Reserved.",
+                "trademarkText": "Hero and HeroCRM are trademarks owned by HeroCRM Inc. All other trademarks are the property of their respective owners."
+            },
+            "ui": {
+                // Reference icon CSS styles for your custom actions in ui.icons section  
+                "icons": {
+                    "actions": {
+                        "hello": "icon icon-smile-o",
+                        "location": "icon icon-location-arrow"
+                    }
+                }
+            }
+        },
+        "native": {
+            // Customize colors of status bar and launch screen for native apps 
+            "statusBarBackgroundColor": "#f2fcff",
+            "splashscreenBackgroundColor": "#f2fcff",
+            "ios": {
+                "bundleId": "com.hero.crm",
+                "binaryName": "HeroCRM",
+                "teamId": ""
+            },
+            "android": {
+                "packageName": "com.hero.crm",
+                "binaryName": "HeroCRM"
+            }
+        }
+    },
+    "store": {
+        "native": {
+            "android": {
+                "signingKey": {
+                    "keystore": "",
+                    "storepass": "",
+                    "alias": ""
+                }
+            }
+        }
+    }
+}

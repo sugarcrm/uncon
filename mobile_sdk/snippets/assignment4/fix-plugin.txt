@@ -1,0 +1,8 @@
+// Open native/platforms/ios/Nomad/Plugins/cordova-plugin-googlemaps/GoogleMaps.m
+// Search for:
+    self.pluginLayer = [[MyPluginLayer alloc] initWithFrame:self.webView.frame];
+ 
+// Replace with:
+    CGRect viewBounds = [self.webView bounds];
+    viewBounds.size.height = viewBounds.size.height + 20;
+    self.pluginLayer = [[MyPluginLayer alloc] initWithFrame:viewBounds];
