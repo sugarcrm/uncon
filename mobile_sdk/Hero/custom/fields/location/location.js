@@ -32,7 +32,6 @@ let LocationField = customization.extend(TextField, {
     // Custom instance methods
     // ---------------------------------
     
-    
     __onTap(e) {
         e.stopPropagation();
         e.preventDefault();

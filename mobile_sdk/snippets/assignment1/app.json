@@ -1,0 +1,17 @@
+{
+    "defaults": {
+        "native": {
+            // Copy statusBarBackgroundColor and splashscreenBackgroundColor into config/app.json's defaults.native section
+            "statusBarBackgroundColor": "#f2fcff",
+            "splashscreenBackgroundColor": "#f2fcff",
+            "ios": {
+                // Copy bundleId into defaults.native.ios
+                "bundleId": "com.hero.crm"
+            },
+            "android": {
+              // Copy bundleId into defaults.native.android
+                "packageName": "com.hero.crm"
+            }
+        }
+    },
+}

@@ -11,8 +11,6 @@ let MeetingsMapView = customization.extend(NomadView, {
     headerConfig: {
         title: app.lang.get('Meetings Locations'),
         buttons: {
-            // TODO: Couldn't find js docs for the header
-            // TODO: Where are docs for HBS templates?
             cancel: { label: app.lang.get('Close') },
         }
     },

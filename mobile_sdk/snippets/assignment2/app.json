@@ -1,5 +1,6 @@
 {
     "defaults": {
+            // Copy "ui" section into config/app.json's "defaults" section.
             "ui": {
                 "icons": {
                     "actions": {

@@ -29,10 +29,12 @@
             "statusBarBackgroundColor": "#f2fcff",
             "splashscreenBackgroundColor": "#f2fcff",
             "ios": {
+                "bundleId": "com.hero.crm",
                 "binaryName": "HeroCRM",
                 "teamId": ""
             },
             "android": {
+                "packageName": "com.hero.crm",
                 "binaryName": "HeroCRM"
             }
         }
