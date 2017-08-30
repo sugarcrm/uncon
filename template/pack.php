@@ -3,7 +3,7 @@
 // Copyright 2017 SugarCRM Inc.  Licensed by SugarCRM under the Apache 2.0 license.
 
  /****** REPLACE THESE  *******/
- $packageID = "uncon217-replace-me-id";
+ $packageID = "uncon2017-replace-me-id";
  $packageLabel = "UnCon 2017 Replace Me Description";
  $supportedVersionRegex = '^7.9.[\d]+.[\d]+$';
 /******************************/
