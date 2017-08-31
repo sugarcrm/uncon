@@ -3,8 +3,8 @@
 // Copyright 2017 SugarCRM Inc.  Licensed by SugarCRM under the Apache 2.0 license.
 
  /****** REPLACE THESE  *******/
- $packageID = "uncon217-replace-me-id";
- $packageLabel = "UnCon 2017 Replace Me Description";
+ $packageID = "uncon217-chart-dashlets-id";
+ $packageLabel = "UnCon 2017 - Building your first Chart Dashlet";
  $supportedVersionRegex = '^7.9.[\d]+.[\d]+$';
 /******************************/
 

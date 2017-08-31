@@ -9,14 +9,12 @@ Copyright (C) 2017 SugarCRM Inc.
 - PHP installed (for development)
 - [ProfessorM Module Package installed](https://github.com/sugarcrm/uncon/tree/2017/ProfessorM)
 
-
 ### Installation
 1. Login as Administrator into 7.9 or 7.10 Sugar instance (does not need to be locally installed)
 2. Go to Administration > Module Loader
 3. Use Sugar's Module Loader to install the latest release zip from this repository
 4. Click "Install" on your package in the list.
-5. Once the package is installed you should see 4 new dashlets for the Home and Accounts dashboards.
-
+5. Once the package is installed you should see 4 new dashlets available to be place on the Home and Accounts dashboards.
 
 ## Usage
 
