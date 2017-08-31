@@ -27,7 +27,7 @@ Before beginning any of the tutorials associated with UnCon 2017, you'll want to
 
 ### Prerequisites
 - Sugar 7.9.1.0 installed with NO sample data.  See [Getting Started with Sugar Development](https://developer.sugarcrm.com/getting-started) for help.
-- [Postman](www.getpostman.com) installed 
+- [Postman](https://www.getpostman.com) installed 
 
 ### Install the modules and customizations
 We've created a custom package you can install.  The package will create and customize the modules you'll need for the scenario.  The following instructions will walk you throw how to install the package.
