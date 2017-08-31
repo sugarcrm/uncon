@@ -6,8 +6,10 @@ const TextField = require('%app.fields%/text-field');
 // Extend custom location field the base text field
 let LocationField = customization.extend(TextField, {
     
-    events: {
-        click: '__onTap',
+    events() {
+        return {
+            click: '__onTap',
+        };
     },
     
     initialize(options) {
