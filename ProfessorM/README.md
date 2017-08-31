@@ -93,3 +93,20 @@ In order to create the Professor M sample data, you'll use Postman to run a coll
 1. Click **Run ProfessorM S...**
 1. Wait for the collection to finish running. All tests should pass.
    Hint:  If you see many failures, you may have forgotten to install the modules and customizations using ProfM.zip.  See instructions in previous section for how to do the install.
+
+## How to fix your Sugar instance without starting completely over
+
+As you work through the tutorials, you may do something like accidentally write broken code that seems to break your Sugar instance.  Try running **Quick Repair and Rebuild**:
+1. Log in as an administrator.
+1. Click your profile picture in the upper-right corner and select **Administration**.
+1. In the **System** section, click **Repair**.
+1. Click **Quick Repair and Rebuild**.
+
+If you become unable to login to your Sugar instance or running **Quick Repair** does not work, try the following:
+
+1. Remove the custom code that is causing problems.
+1. Delete the contents of the `cache` directory.
+1. Use a program like MySQL Workbench to truncate the `metadata_cache` table.
+1. Access your Sugar instance in a browser. If you still receive an error, reload the page.
+
+If the above steps do not fix your problem, you may need to start over.  Delete your Sugar root directory and follow the steps in the Installation Instructions above.
