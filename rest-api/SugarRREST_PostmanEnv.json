@@ -1,0 +1,46 @@
+{
+  "id": "206f3d03-3ba3-6cc3-5306-e95b20b4e82b",
+  "name": "Sugar - Intro to REST",
+  "values": [
+    {
+      "enabled": true,
+      "key": "url",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "username",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "password",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "access_token",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "refresh_token",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "applicant_id",
+      "value": "",
+      "type": "text"
+    }
+  ],
+  "timestamp": 1502899735378,
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2017-08-16T16:10:22.738Z",
+  "_postman_exported_using": "Postman/5.1.3"
+}
