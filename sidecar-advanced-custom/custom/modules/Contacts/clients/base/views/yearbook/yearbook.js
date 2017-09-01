@@ -51,7 +51,7 @@
         var tag = this.model.get('tag') && this.model.get('tag')[0];
         var notes = app.data.createBeanCollection('Notes');
         var self = this;
-        if (this.imgUrl) {
+        if (this.imgUrl || !tag) {
             return;
         }
 
@@ -66,7 +66,7 @@
                 },
                 success: function(collection) {
                     var id = collection.at(0) ? collection.at(0).get('id') : void 0;
-                    self.imgUrl = App.api.buildFileURL({module:'Notes', id: id, field: 'filename'});
+                    self.imgUrl = app.api.buildFileURL({module:'Notes', id: id, field: 'filename'});
                     self.render();
                 }
             }
