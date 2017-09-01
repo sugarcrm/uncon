@@ -1,0 +1,480 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ProfessorM Sample Notes Data",
+		"_postman_id": "fe71f828-3b41-84ad-8716-0482c0b58992",
+		"description": "This collection is associated with the tutorial posted at XXXX and the environment posted at YYYYY.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"description": "",
+			"item": [
+				{
+					"name": "Authenticate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var access_token = jsonData.access_token;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"access_token exists\"] = access_token !== null || access_token !== \"\";",
+									"",
+									"postman.setEnvironmentVariable(\"access_token\", access_token);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/oauth2/token",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"grant_type\":\"password\",\n   \"client_id\":\"sugar\",\n   \"client_secret\":\"\",\n   \"username\":\"{{username}}\",\n   \"password\":\"{{password}}\",\n   \"platform\":\"\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Notes & Attachments",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Mutants, Assassins Note",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfMutantsAssassinsNote = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfMutantsAssassinsNote !== null || idOfMutantsAssassinsNote !== \"\";",
+									"tests[\"name is correct\"] = \"Note for Mutants and Assassins\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"Note_MutantsAssassins\", idOfMutantsAssassinsNote);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Notes",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Note for Mutants and Assassins\",\n\t\"tag\":[\"Mutants\", \"Assassin\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Mutants, Assassins Note Attachment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Notes/{{Note_MutantsAssassins}}/file/filename",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "filename",
+									"description": "",
+									"type": "file",
+									"src": "{{Note_Path}}/mutants-assassin.png",
+									"value": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Mutants, Genetically Enhanced Note copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfMutantsGeneticallyEnhancedNote = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfMutantsGeneticallyEnhancedNote !== null || idOfMutantsGeneticallyEnhancedNote !== \"\";",
+									"tests[\"name is correct\"] = \"Note for Mutants and Genetically Enhanced\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"Note_MutantsGeneticallyEnhanced\", idOfMutantsGeneticallyEnhancedNote);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Notes",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Note for Mutants and Genetically Enhanced\",\n\t\"tag\":[\"Mutants\", \"Genetically Enhanced\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Mutants, Genetically Enhanced Note Attachment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Notes/{{Note_MutantsGeneticallyEnhanced}}/file/filename",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "filename",
+									"description": "",
+									"type": "file",
+									"src": "{{Note_Path}}/mutants-genetically-enhanced.png",
+									"value": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Mutants, Genius Note",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfMutantsGeniusNote = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfMutantsGeniusNote !== null || idOfMutantsGeniusNote !== \"\";",
+									"tests[\"name is correct\"] = \"Note for Mutants and Genius\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"Note_MutantsGenius\", idOfMutantsGeniusNote);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Notes",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Note for Mutants and Genius\",\n\t\"tag\":[\"Mutants\", \"Genius\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Mutants, Genius Note Attachment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Notes/{{Note_MutantsGenius}}/file/filename",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "filename",
+									"description": "",
+									"type": "file",
+									"src": "{{Note_Path}}/mutants-genius.png",
+									"value": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Genius, Assassin Note",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfGeniusAssassinNote = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfGeniusAssassinNote !== null || idOfGeniusAssassinNote !== \"\";",
+									"tests[\"name is correct\"] = \"Note for Genius and Assassin\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"Note_GeniusAssassin\", idOfGeniusAssassinNote);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Notes",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Note for Genius and Assassin\",\n\t\"tag\":[\"Genius\", \"Assassin\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Genius, Assassin Note Attachment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Notes/{{Note_GeniusAssassin}}/file/filename",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "filename",
+									"description": "",
+									"type": "file",
+									"src": "{{Note_Path}}/genius-assassin.png",
+									"value": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Human, Genius Note",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var idOfHumanGeniusNote = jsonData.id;",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									"tests[\"id exists\"] = idOfHumanGeniusNote !== null || idOfHumanGeniusNote !== \"\";",
+									"tests[\"name is correct\"] = \"Note for Human and Genius\" === jsonData.name;",
+									"",
+									"postman.setEnvironmentVariable(\"Note_HumanGenius\", idOfHumanGeniusNote);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Notes",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Note for Human and Genius\",\n\t\"tag\":[\"Human\", \"Genius\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Human, Genius Note Attachment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Successful POST request\"] = responseCode.code === 200;",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}{{rest_endpoint}}/Notes/{{Note_HumanGenius}}/file/filename",
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAuth-Token",
+								"value": "{{access_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "filename",
+									"description": "",
+									"type": "file",
+									"src": "{{Note_Path}}/human-genius.png",
+									"value": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
