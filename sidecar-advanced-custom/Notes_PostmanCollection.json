@@ -50,7 +50,7 @@
 			"description": "",
 			"item": [
 				{
-					"name": "Create Mutants, Assassins Note",
+					"name": "Create Mutants Note",
 					"event": [
 						{
 							"listen": "test",
@@ -58,13 +58,13 @@
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
-									"var idOfMutantsAssassinsNote = jsonData.id;",
+									"var idOfMutantsNote = jsonData.id;",
 									"",
 									"tests[\"Successful POST request\"] = responseCode.code === 200;",
-									"tests[\"id exists\"] = idOfMutantsAssassinsNote !== null || idOfMutantsAssassinsNote !== \"\";",
-									"tests[\"name is correct\"] = \"Note for Mutants and Assassins\" === jsonData.name;",
+									"tests[\"id exists\"] = idOfMutantsNote !== null || idOfMutantsNote !== \"\";",
+									"tests[\"name is correct\"] = \"Note for Mutants\" === jsonData.name;",
 									"",
-									"postman.setEnvironmentVariable(\"Note_MutantsAssassins\", idOfMutantsAssassinsNote);"
+									"postman.setEnvironmentVariable(\"Note_Mutants\", idOfMutantsNote);"
 								]
 							}
 						}
@@ -81,14 +81,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\":\"Note for Mutants and Assassins\",\n\t\"tag\":[\"Mutants\", \"Assassin\"]\n}"
+							"raw": "{\n\t\"name\":\"Note for Mutants\",\n\t\"tag\":[\"Mutants\"]\n}"
 						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "Create Mutants, Assassins Note Attachment",
+					"name": "Create Mutants Note Attachment",
 					"event": [
 						{
 							"listen": "test",
@@ -104,7 +104,7 @@
 						}
 					],
 					"request": {
-						"url": "{{url}}{{rest_endpoint}}/Notes/{{Note_MutantsAssassins}}/file/filename",
+						"url": "{{url}}{{rest_endpoint}}/Notes/{{Note_Mutants}}/file/filename",
 						"method": "POST",
 						"header": [
 							{
@@ -125,7 +125,7 @@
 									"key": "filename",
 									"description": "",
 									"type": "file",
-									"src": "{{Note_Path}}/mutants-assassin.png",
+									"src": "{{Note_Path}}/mutants.png",
 									"value": ""
 								}
 							]
@@ -135,7 +135,7 @@
 					"response": []
 				},
 				{
-					"name": "Create Mutants, Genetically Enhanced Note copy",
+					"name": "Create Genetically Enhanced Note",
 					"event": [
 						{
 							"listen": "test",
@@ -143,13 +143,13 @@
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
-									"var idOfMutantsGeneticallyEnhancedNote = jsonData.id;",
+									"var idOfGeneticallyEnhancedNote = jsonData.id;",
 									"",
 									"tests[\"Successful POST request\"] = responseCode.code === 200;",
-									"tests[\"id exists\"] = idOfMutantsGeneticallyEnhancedNote !== null || idOfMutantsGeneticallyEnhancedNote !== \"\";",
-									"tests[\"name is correct\"] = \"Note for Mutants and Genetically Enhanced\" === jsonData.name;",
+									"tests[\"id exists\"] = idOfGeneticallyEnhancedNote !== null || idOfGeneticallyEnhancedNote !== \"\";",
+									"tests[\"name is correct\"] = \"Note for Genetically Enhanced\" === jsonData.name;",
 									"",
-									"postman.setEnvironmentVariable(\"Note_MutantsGeneticallyEnhanced\", idOfMutantsGeneticallyEnhancedNote);"
+									"postman.setEnvironmentVariable(\"Note_GeneticallyEnhanced\", idOfGeneticallyEnhancedNote);"
 								]
 							}
 						}
@@ -166,14 +166,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\":\"Note for Mutants and Genetically Enhanced\",\n\t\"tag\":[\"Mutants\", \"Genetically Enhanced\"]\n}"
+							"raw": "{\n\t\"name\":\"Note for Genetically Enhanced\",\n\t\"tag\":[\"Genetically Enhanced\"]\n}"
 						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "Create Mutants, Genetically Enhanced Note Attachment",
+					"name": "Create Genetically Enhanced Note Attachment",
 					"event": [
 						{
 							"listen": "test",
@@ -189,7 +189,7 @@
 						}
 					],
 					"request": {
-						"url": "{{url}}{{rest_endpoint}}/Notes/{{Note_MutantsGeneticallyEnhanced}}/file/filename",
+						"url": "{{url}}{{rest_endpoint}}/Notes/{{Note_GeneticallyEnhanced}}/file/filename",
 						"method": "POST",
 						"header": [
 							{
@@ -210,7 +210,7 @@
 									"key": "filename",
 									"description": "",
 									"type": "file",
-									"src": "{{Note_Path}}/mutants-genetically-enhanced.png",
+									"src": "{{Note_Path}}/genetically-enhanced.png",
 									"value": ""
 								}
 							]
@@ -220,7 +220,7 @@
 					"response": []
 				},
 				{
-					"name": "Create Mutants, Genius Note",
+					"name": "Create Genius Note",
 					"event": [
 						{
 							"listen": "test",
@@ -228,13 +228,13 @@
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
-									"var idOfMutantsGeniusNote = jsonData.id;",
+									"var idOfGeniusNote = jsonData.id;",
 									"",
 									"tests[\"Successful POST request\"] = responseCode.code === 200;",
-									"tests[\"id exists\"] = idOfMutantsGeniusNote !== null || idOfMutantsGeniusNote !== \"\";",
-									"tests[\"name is correct\"] = \"Note for Mutants and Genius\" === jsonData.name;",
+									"tests[\"id exists\"] = idOfGeniusNote !== null || idOfGeniusNote !== \"\";",
+									"tests[\"name is correct\"] = \"Note for Genius\" === jsonData.name;",
 									"",
-									"postman.setEnvironmentVariable(\"Note_MutantsGenius\", idOfMutantsGeniusNote);"
+									"postman.setEnvironmentVariable(\"Note_Genius\", idOfGeniusNote);"
 								]
 							}
 						}
@@ -251,14 +251,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\":\"Note for Mutants and Genius\",\n\t\"tag\":[\"Mutants\", \"Genius\"]\n}"
+							"raw": "{\n\t\"name\":\"Note for Genius\",\n\t\"tag\":[\"Genius\"]\n}"
 						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "Create Mutants, Genius Note Attachment",
+					"name": "Create Genius Note Attachment",
 					"event": [
 						{
 							"listen": "test",
@@ -274,7 +274,7 @@
 						}
 					],
 					"request": {
-						"url": "{{url}}{{rest_endpoint}}/Notes/{{Note_MutantsGenius}}/file/filename",
+						"url": "{{url}}{{rest_endpoint}}/Notes/{{Note_Genius}}/file/filename",
 						"method": "POST",
 						"header": [
 							{
@@ -295,7 +295,7 @@
 									"key": "filename",
 									"description": "",
 									"type": "file",
-									"src": "{{Note_Path}}/mutants-genius.png",
+									"src": "{{Note_Path}}/genius.png",
 									"value": ""
 								}
 							]
@@ -305,7 +305,7 @@
 					"response": []
 				},
 				{
-					"name": "Create Genius, Assassin Note",
+					"name": "Create Assassin Note",
 					"event": [
 						{
 							"listen": "test",
@@ -313,13 +313,13 @@
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
-									"var idOfGeniusAssassinNote = jsonData.id;",
+									"var idOfAssassinNote = jsonData.id;",
 									"",
 									"tests[\"Successful POST request\"] = responseCode.code === 200;",
-									"tests[\"id exists\"] = idOfGeniusAssassinNote !== null || idOfGeniusAssassinNote !== \"\";",
-									"tests[\"name is correct\"] = \"Note for Genius and Assassin\" === jsonData.name;",
+									"tests[\"id exists\"] = idOfAssassinNote !== null || idOfAssassinNote !== \"\";",
+									"tests[\"name is correct\"] = \"Note for Assassin\" === jsonData.name;",
 									"",
-									"postman.setEnvironmentVariable(\"Note_GeniusAssassin\", idOfGeniusAssassinNote);"
+									"postman.setEnvironmentVariable(\"Note_Assassin\", idOfAssassinNote);"
 								]
 							}
 						}
@@ -336,14 +336,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\":\"Note for Genius and Assassin\",\n\t\"tag\":[\"Genius\", \"Assassin\"]\n}"
+							"raw": "{\n\t\"name\":\"Note for Assassin\",\n\t\"tag\":[\"Assassin\"]\n}"
 						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "Create Genius, Assassin Note Attachment",
+					"name": "Create Assassin Note Attachment",
 					"event": [
 						{
 							"listen": "test",
@@ -359,7 +359,7 @@
 						}
 					],
 					"request": {
-						"url": "{{url}}{{rest_endpoint}}/Notes/{{Note_GeniusAssassin}}/file/filename",
+						"url": "{{url}}{{rest_endpoint}}/Notes/{{Note_Assassin}}/file/filename",
 						"method": "POST",
 						"header": [
 							{
@@ -380,7 +380,7 @@
 									"key": "filename",
 									"description": "",
 									"type": "file",
-									"src": "{{Note_Path}}/genius-assassin.png",
+									"src": "{{Note_Path}}/assassin.png",
 									"value": ""
 								}
 							]
@@ -390,7 +390,7 @@
 					"response": []
 				},
 				{
-					"name": "Create Human, Genius Note",
+					"name": "Create Human Note",
 					"event": [
 						{
 							"listen": "test",
@@ -398,13 +398,13 @@
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
-									"var idOfHumanGeniusNote = jsonData.id;",
+									"var idOfHumanNote = jsonData.id;",
 									"",
 									"tests[\"Successful POST request\"] = responseCode.code === 200;",
-									"tests[\"id exists\"] = idOfHumanGeniusNote !== null || idOfHumanGeniusNote !== \"\";",
-									"tests[\"name is correct\"] = \"Note for Human and Genius\" === jsonData.name;",
+									"tests[\"id exists\"] = idOfHumanNote !== null || idOfHumanNote !== \"\";",
+									"tests[\"name is correct\"] = \"Note for Human\" === jsonData.name;",
 									"",
-									"postman.setEnvironmentVariable(\"Note_HumanGenius\", idOfHumanGeniusNote);"
+									"postman.setEnvironmentVariable(\"Note_Human\", idOfHumanNote);"
 								]
 							}
 						}
@@ -421,14 +421,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\":\"Note for Human and Genius\",\n\t\"tag\":[\"Human\", \"Genius\"]\n}"
+							"raw": "{\n\t\"name\":\"Note for Human\",\n\t\"tag\":[\"Human\"]\n}"
 						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "Create Human, Genius Note Attachment",
+					"name": "Create Human Attachment",
 					"event": [
 						{
 							"listen": "test",
@@ -444,7 +444,7 @@
 						}
 					],
 					"request": {
-						"url": "{{url}}{{rest_endpoint}}/Notes/{{Note_HumanGenius}}/file/filename",
+						"url": "{{url}}{{rest_endpoint}}/Notes/{{Note_Human}}/file/filename",
 						"method": "POST",
 						"header": [
 							{
@@ -465,7 +465,7 @@
 									"key": "filename",
 									"description": "",
 									"type": "file",
-									"src": "{{Note_Path}}/human-genius.png",
+									"src": "{{Note_Path}}/human.png",
 									"value": ""
 								}
 							]
