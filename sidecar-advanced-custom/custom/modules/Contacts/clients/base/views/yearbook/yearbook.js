@@ -83,6 +83,6 @@
         defaultLayout.$el.find('.preview-pane').removeClass('active');
 
         this._hidden = true;
-    },
+    }
 })
 
