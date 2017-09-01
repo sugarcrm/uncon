@@ -47,22 +47,25 @@
     },
 
     /**
-     * Generic method to render chart with check for visibility and data.
+     * @inheritdoc
      */
-    renderChart: function() {
-        if (!this.isChartReady()) {
+    loadData: function(options) {
+        if (this.meta.config) {
             return;
         }
-
-        // Set value of label inside donut chart
-        this.chart.hole(this.total);
-
-        d3.select(this.el).select('svg#' + this.cid)
-            .datum(this.chartData)
-            .call(this.chart);
-
-        this.chart_loaded = _.isFunction(this.chart.update);
-        this.displayNoData(!this.chart_loaded);
+        var url = app.api.buildURL('Accounts', 'filter');
+        var api_args = {
+            'fields': 'id,status_c,ratesg_c',
+            'order_by': 'ratesg_c',
+            'max_num': 10
+        };
+        var options = {
+            success: _.bind(function(serverData) {
+                this.evaluateResult(serverData);
+            }, this),
+            complete: options ? options.complete : null
+        };
+        app.api.call('create', url, api_args, options, {context: this});
     },
 
     /* Process data loaded from REST endpoint so that d3 chart can consume
@@ -75,18 +78,18 @@
         var gradeData = [];
         var total = 0;
 
+        var gradeSize = _.size(gradeList) - 1;
         var colorRange = d3.scale.linear()
-            .domain([0, 0.5, 1])
+            .domain([0, gradeSize / 2, gradeSize])
             .range([d3.rgb('#0f0'), d3.rgb('#00f'), d3.rgb('#f00')]);
         var colorIndex = 0;
-        var gradeSize = _.size(gradeList) - 1;
 
         _.each(gradeList, function(grade, key, values) {
             gradeList[key] = {
                 index: colorIndex,
                 value: 0,
                 key: grade,
-                color: colorRange(colorIndex/gradeSize)
+                color: colorRange(colorIndex)
             };
             colorIndex += 1;
         });
@@ -113,24 +116,21 @@
     },
 
     /**
-     * @inheritdoc
+     * Generic method to render chart with check for visibility and data.
      */
-    loadData: function(options) {
-        if (this.meta.config) {
+    renderChart: function() {
+        if (!this.isChartReady()) {
             return;
         }
-        var url = app.api.buildURL('Accounts', 'filter');
-        var api_args = {
-            'fields': 'id,status_c,ratesg_c',
-            'order_by': 'ratesg_c',
-            'max_num': 10
-        };
-        var options = {
-            success: _.bind(function(serverData) {
-                this.evaluateResult(serverData);
-            }, this),
-            complete: options ? options.complete : null
-        };
-        app.api.call('create', url, api_args, options, {context: this});
+
+        // Set value of label inside donut chart
+        this.chart.hole(this.total);
+
+        d3.select(this.el).select('svg#' + this.cid)
+            .datum(this.chartData)
+            .call(this.chart);
+
+        this.chart_loaded = _.isFunction(this.chart.update);
+        this.displayNoData(!this.chart_loaded);
     }
 })
