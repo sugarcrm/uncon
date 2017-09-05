@@ -1,5 +1,5 @@
 # UnCon code examples
-Definitive source for all your UnCon materials.
+Definitive source for all your UnCon code examples and exercises.
 
 Copyright (C) 2017 SugarCRM Inc.
 
