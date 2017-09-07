@@ -4,7 +4,7 @@
 
  /****** REPLACE THESE  *******/
  $packageID = "uncon2017-elastic-deepdive-710";
- $packageLabel = "UnCon 2017 Elasticsearch Deepdive for 7.10 with ES 5.4 support";
+ $packageLabel = "UnCon 2017 Elasticsearch Tutorial for 7.10 with ES 5.4 support";
  $supportedVersionRegex = '^7.10.[\d]+.[\d]+$';
 /******************************/
 

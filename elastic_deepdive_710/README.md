@@ -1,16 +1,20 @@
 # UnCon 2017
 
-## Elasticsearch Deep Dive Demo
+## Customizing Elasticsearch
 
 Copyright (C) 2017 SugarCRM Inc.
 
-This package contain the customizations as presented during the Elasticsearch
-Deep Dive session at UnCon 2016. It contains the following functionality:
+This package contain the customizations as presented during the Customizing
+Elasticsearch Tutorial at UnCon 2017. It contains the following functionality:
 - Add ASCII folding filter for text based fields
 - Use Elastic for the Opportunities Metrics dashboard using aggregates
 
+For SugarCRM 7.10 we will support Elasticsearch 5.4 server. The purpose of
+this code sample is to highlight the recommended approach and changes which
+have been introduced to be able to support Elasticsearch 5.4 on SugarCRM 7.10.
+
 ### Requirements
-- Sugar v7.10 installed
+- Sugar v7.10 installed (not yet shipped)
 
 ### Installation
 1. Login as Administrator into Sugar instance
