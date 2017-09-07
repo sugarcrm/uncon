@@ -271,7 +271,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"ratesg_c\":\"A Minus\",\n\t\"status_c\":\"Active\",\n\t\"industry\":\"Education\",\n\t\"account_type\":\"Analyst\",\n\t\"name\":\"Revengers\",\n\t\"employees\":\"5-10\",\n\t\"billing_address_city\":\"Manhattan\",\n\t\"billing_address_state\":\"NY\",\n\t\"billing_address_country\":\"USA\",\n\t\"twitter\":\"https://twitter.com/revenge\"\n}"
+							"raw": "{\n\t\"ratesg_c\":\"A Minus\",\n\t\"status_c\":\"Active\",\n\t\"industry\":\"Education\",\n\t\"account_type\":\"Analyst\",\n\t\"name\":\"Revengers\",\n\t\"employees\":\"5-10\",\n\t\"billing_address_city\":\"Los Angeles\",\n\t\"billing_address_state\":\"CA\",\n\t\"billing_address_country\":\"USA\",\n\t\"twitter\":\"https://twitter.com/revenge\"\n}"
 						},
 						"description": ""
 					},
@@ -347,7 +347,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"ratesg_c\":\"C\",\n\t\"status_c\":\"Defunct\",\n\t\"industry\":\"Construction\",\n\t\"account_type\":\"Analyst\",\n\t\"tag\":[\"offshoot\"],\n\t\"name\":\"East Coast Revengers\",\n\t\"employees\":\"5-10\",\n\t\"billing_address_city\":\"Los Angeles\",\n\t\"billing_address_state\":\"CA\",\n\t\"billing_address_country\":\"USA\",\n\t\"parent_id\":\"{{SuperGroup_Revengers}}\"\n}"
+							"raw": "{\n\t\"ratesg_c\":\"C\",\n\t\"status_c\":\"Defunct\",\n\t\"industry\":\"Construction\",\n\t\"account_type\":\"Analyst\",\n\t\"tag\":[\"offshoot\"],\n\t\"name\":\"East Coast Revengers\",\n\t\"employees\":\"5-10\",\n\t\"billing_address_city\":\"Manhattan\",\n\t\"billing_address_state\":\"NY\",\n\t\"billing_address_country\":\"USA\",\n\t\"parent_id\":\"{{SuperGroup_Revengers}}\"\n}"
 						},
 						"description": ""
 					},
