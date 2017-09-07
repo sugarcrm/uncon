@@ -27,6 +27,7 @@ Before beginning any of the tutorials associated with UnCon 2017, you'll want to
 
 ### Prerequisites
 - Sugar 7.9.1.0 installed with NO sample data.  See [Getting Started with Sugar Development](https://developer.sugarcrm.com/getting-started) for help.
+   * Note:  If you install Sugar using ***config_si.php***, ensure that the `disable_unknown_platforms` property is set to `false` or is not in the file.
 - [Postman](https://www.getpostman.com) installed 
 
 ### Install the modules and customizations
