@@ -1,0 +1,61 @@
+@import url(//fonts.googleapis.com/css?family=Patrick+Hand+SC|Bangers|Happy+Monkey);
+
+.yearbook-pane {
+    display: none;
+    h3 {
+        font-family: "Bangers", sans-serif;
+        color: #ffce55;
+        width: 100%;
+        line-height: 18px;
+    }
+    ul {
+        font-family: 'Happy Monkey', cursive;
+        color: #222;
+        list-style-type: none;
+        margin-top: 10px;
+        li {
+            line-height: 40px;
+            font-size: 1.1em;
+        }
+    }
+    .btn-toolbar {
+        margin-top: 15px;
+        margin-right: 15px;
+    }
+    .comic-pane {
+        width: 95%;
+        max-width: 943px;
+        height: auto;
+        min-height: 65px;
+        top: 2.5em;
+        left: 1.5em;
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 30px;
+        .text {
+            width: 75%;
+            position: absolute;
+            left: 2.8em;
+            -webkit-transform: skew(-15deg);
+            transform: skew(-15deg);
+            background: white;
+            box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            border-right: 3px solid;
+            .holder {
+                width: 85%;
+                line-height: 1.2em;
+                margin-top: 1.5em;
+                margin-bottom: 1.5em;
+                margin-left: 2em;
+                -webkit-transform: skew(15deg);
+                transform: skew(15deg);
+            }
+        }
+    }
+    img {
+        display: block;
+        margin: auto;
+        width: 90%;
+    }
+}
