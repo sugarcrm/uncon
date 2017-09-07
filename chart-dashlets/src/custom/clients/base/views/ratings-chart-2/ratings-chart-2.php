@@ -27,10 +27,9 @@ $viewdefs['base']['view']['ratings-chart-2'] = array(
                 )
             ),
             'config' => array(
-                'status' => 'Active',
                 'report_id' => '',
+                'status' => 'Active',
             ),
-            'config' => array(),
             'preview' => array(),
         ),
     ),

@@ -11,8 +11,11 @@
  */
 --}}
 <style>
-.dashboard .thumbnail.dashlet:not(.collapsed) .ratings-chart-wrapper-3 .nv-chart {
+.dashboard .thumbnail.dashlet:not(.collapsed) .ratings-chart-wrapper .nv-chart {
     height: 401px;
+}
+.sidebar-content .thumbnail.dashlet:not(.collapsed) .ratings-chart-wrapper .nv-chart {
+    height: 301px;
 }
 </style>
 <div data-content="chart">
@@ -20,8 +23,8 @@
         <svg id="{{cid}}"></svg>
     </div>
     {{#eachOptions statusCollection}}
-        <div class="opportunity-metric" style="width:{{../statusWidth}}">
-            <span class="label" data-status="{{value.key}}" style="background-color:{{value.color}}">{{value.grade}}</span>
+        <div class="opportunity-metric" data-status="{{value.key}}" style="width:{{../statusWidth}}">
+            <span class="label" style="background-color:{{value.color}}">{{value.grade}}</span>
             <div class="opportunity-metric-description">{{value.label}} ({{value.count}})</div>
         </div>
     {{/eachOptions}}

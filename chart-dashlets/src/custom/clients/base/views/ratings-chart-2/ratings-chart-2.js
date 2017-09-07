@@ -15,7 +15,7 @@
  */
 ({
     plugins: ['Dashlet', 'Chart'],
-    className: 'ratings-chart-wrapper-2',
+    className: 'ratings-chart-wrapper',
 
     /**
      * @inheritdoc
@@ -126,18 +126,16 @@
         });
 
         if (chartData.values && chartData.values.length) {
-
             reportStatusValues = chartData.values
                 .filter(_.bind(function(value) {
                     return value.label === this.statusState;
                 }, this));
 
             if (reportStatusValues.length) {
-
                 reportStatusValues[0].values
                     .forEach(function(value, i) {
                         var key = chartData.label[i];
-                        gradeScale[key].value += value;
+                        gradeScale[key].value = value;
                         total += value;
                     });
 

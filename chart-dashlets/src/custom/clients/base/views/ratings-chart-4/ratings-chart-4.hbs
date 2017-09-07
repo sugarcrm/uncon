@@ -11,16 +11,19 @@
  */
 --}}
 <style>
-.dashboard .thumbnail.dashlet:not(.collapsed) .ratings-chart-wrapper-4 .nv-chart {
+.dashboard .thumbnail.dashlet:not(.collapsed) .ratings-chart-wrapper .nv-chart {
     height: 401px;
 }
-.ratings-chart-wrapper-4 .opportunity-metric {
+.sidebar-content .thumbnail.dashlet:not(.collapsed) .ratings-chart-wrapper .nv-chart {
+    height: 301px;
+}
+.ratings-chart-wrapper .opportunity-metric {
     cursor: pointer;
 }
-.ratings-chart-wrapper-4 .opportunity-metric .label {
+.ratings-chart-wrapper .opportunity-metric .label {
     cursor: pointer;
 }
-.ratings-chart-wrapper-4 .opportunity-metric:focus .label {
+.ratings-chart-wrapper .opportunity-metric:focus .label {
     outline: 3px auto #589bda;
     outline: 3px auto -moz-mac-focusring;
     outline: 3px auto -webkit-focus-ring-color;

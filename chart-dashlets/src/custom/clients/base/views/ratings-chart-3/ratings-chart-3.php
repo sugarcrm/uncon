@@ -15,7 +15,7 @@ $viewdefs['base']['view']['ratings-chart-3'] = array(
     'dashlets' => array(
         array(
             'label' => 'Ratings Distribution Chart 3',
-            'description' => 'Uses the Report Api as datasource',
+            'description' => 'Uses the Report Api as datasource with status tabs',
             'filter' => array(
                 'module' => array(
                     'Home',
@@ -30,7 +30,6 @@ $viewdefs['base']['view']['ratings-chart-3'] = array(
                 'status' => 'Active',
                 'report_id' => '',
             ),
-            'config' => array(),
             'preview' => array(),
         ),
     ),

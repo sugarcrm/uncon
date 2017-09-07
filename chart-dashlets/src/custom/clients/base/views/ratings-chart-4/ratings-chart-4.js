@@ -15,7 +15,7 @@
  */
 ({
     plugins: ['Dashlet', 'Chart'],
-    className: 'ratings-chart-wrapper-4',
+    className: 'ratings-chart-wrapper',
 
     events: {
         'click [data-status]': 'changeStatus',
@@ -32,7 +32,7 @@
         this.statusWidth = '25%';
 
         this.chart = nv.models.pieChart()
-                .margin({top: 0, right: 0, bottom: 0, left: 0})
+                .margin({top: 0, right: 0, bottom: 10, left: 0})
                 .donut(true)
                 .donutLabelsOutside(true)
                 .donutRatio(0.447)
@@ -97,82 +97,6 @@
     },
 
     /**
-     * Event handler for toggling the active data series for the pie chart
-     *
-     * @inheritdoc
-     */
-    changeStatus: function(evt) {
-        var state = $(evt.currentTarget).data('status');
-        if (state && (evt.type === 'click' || evt.keyCode === 13 || evt.keyCode === 32)) {
-            d3.select(this.el)
-                .select('svg#' + this.cid + ' .nv-pie-hole-label')
-                .text('Loading...');
-            this.statusState = state;
-            this.loadData();
-        }
-    },
-
-    /**
-     * Generate an average for each status in the chart data
-     */
-    rollupStatusAverages: function(chartData, gradeScale) {
-        var rollup = {};
-
-        chartData.values.map(function(value) {
-            var count = d3.sum(value.values);
-            var average = Math.round(d3.sum(value.values, function(v, i) {
-                    var key = chartData.label[i]; // A-
-                    var gradeIndex = gradeScale[key].index; // 2
-                    return v * gradeIndex / count;
-                }));
-            var grade = _.find(gradeScale, function(grade) {
-                    return grade.index === average;
-                });
-            var status = {
-                key: value.label,
-                count: count,
-                grade: grade.key,
-                color: grade.color
-            };
-
-            rollup[value.label] = status;
-        });
-
-        return rollup;
-    },
-
-    /**
-     * Create a collection from each status in account status list dom
-     */
-    buildStatusCollection: function(chartData, gradeScale) {
-        var statusList = app.lang.getAppListStrings('account_status_list');
-        var statusCollection = [];
-        var rollup = this.rollupStatusAverages(chartData, gradeScale);
-        var total = d3.sum(rollup, function(d) { return d.value; });
-
-        // build the status collection from status list
-        // with values from the chart data rollup
-        _.each(statusList, _.bind(function(status, key) {
-            var r = rollup[key];
-            var s = {
-                key: key,
-                label: status,
-                count: r ? r.count : 0,
-                grade: r ? r.grade : '',
-                color: r ? r.color : 'white',
-                active: key === this.statusState ? true : false
-            };
-
-            statusCollection.push(s);
-        }, this));
-
-        this.statusCollection = statusCollection;
-        this.statusWidth = 100 / statusCollection.length + '%';
-
-        this._renderHtml();
-    },
-
-    /**
      * @inheritdoc
      */
     loadData: function(options) {
@@ -221,18 +145,16 @@
         });
 
         if (chartData.values && chartData.values.length) {
-
             reportStatusValues = chartData.values
                 .filter(_.bind(function(value) {
                     return value.label === this.statusState;
                 }, this));
 
             if (reportStatusValues.length) {
-
                 reportStatusValues[0].values
                     .forEach(function(value, i) {
                         var key = chartData.label[i];
-                        gradeScale[key].value += value;
+                        gradeScale[key].value = value;
                         total += value;
                     });
 
@@ -255,6 +177,80 @@
         };
 
         this.renderChart();
+    },
+
+    /**
+     * Event handler for toggling the active data series for the pie chart
+     *
+     * @inheritdoc
+     */
+    changeStatus: function(evt) {
+        var state = $(evt.currentTarget).data('status');
+        if (state && (evt.type === 'click' || evt.keyCode === 13 || evt.keyCode === 32)) {
+            d3.select(this.el)
+                .select('svg#' + this.cid + ' .nv-pie-hole-label')
+                .text('Loading...');
+            this.statusState = state;
+            this.loadData();
+        }
+    },
+
+    /**
+     * Create a collection from each status in account status list dom
+     */
+    buildStatusCollection: function(chartData, gradeScale) {
+        var statusList = app.lang.getAppListStrings('account_status_list');
+        var rollup = this.rollupStatusAverages(chartData, gradeScale);
+
+        // build the status collection from status list
+        // with values from the chart data rollup
+        var statusCollection = [];
+        _.each(statusList, _.bind(function(status, key) {
+            var r = rollup[key];
+            var s = {
+                key: key,
+                label: status,
+                count: r ? r.count : 0,
+                grade: r ? r.grade : '',
+                color: r ? r.color : 'white',
+                active: key === this.statusState ? true : false
+            };
+            statusCollection.push(s);
+        }, this));
+        this.statusCollection = statusCollection;
+
+        this.statusWidth = 100 / statusCollection.length + '%';
+
+        this._renderHtml();
+    },
+
+    /**
+     * Generate an average for each status in the chart data
+     */
+    rollupStatusAverages: function(chartData, gradeScale) {
+        var rollup = {};
+
+        chartData.values.map(function(value) {
+            var count = d3.sum(value.values);
+            var average = Math.round(d3.sum(value.values, function(v, i) {
+                    var key = chartData.label[i]; // A-
+                    var gradeIndex = gradeScale[key].index; // 2
+                    return v * gradeIndex / count;
+                }));
+            var grade = _.find(gradeScale, function(grade) {
+                    return grade.index === average;
+                });
+            var status = {
+                key: value.label,
+                count: count,
+                grade: grade.key,
+                color: grade.color
+            };
+
+            rollup[value.label] = status;
+        });
+
+        return rollup;
     },
 
     /**

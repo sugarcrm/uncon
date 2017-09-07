@@ -15,7 +15,7 @@
  */
 ({
     plugins: ['Dashlet', 'Chart'],
-    className: 'ratings-chart-wrapper-1',
+    className: 'ratings-chart-wrapper',
 
     /**
      * @inheritdoc
