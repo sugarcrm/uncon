@@ -9,17 +9,14 @@ Elasticsearch Tutorial at UnCon 2017. It contains the following functionality:
 - Add ASCII folding filter for text based fields
 - Use Elastic for the Opportunities Metrics dashboard using aggregates
 
-For SugarCRM 7.10 we will support Elasticsearch 5.4 server. The purpose of
-this code sample is to highlight the recommended approach and changes which
-have been introduced to be able to support Elasticsearch 5.4 on SugarCRM 7.10.
-
 ### Requirements
-- Sugar v7.10 installed (not yet shipped)
+- Sugar v7.9.1.0 installed
 
 ### Installation
 1. Login as Administrator into Sugar instance
 2. Use Sugar's Module Loader to install the latest release zip from this repository
-3. Run a full reindex using `bin/sugarcrm search:silent-reindex --clearData`
+3. Run a full reindex using `bin/sugarcrm search:reindex --clearData`
+4. Execute `cron.php` until the queue is empty (see `bin/sugarcrm elastic:queue`)
 
 ### Usage ASCI Folding
 ASCII converts alphabetic, numeric, and symbolic Unicode characters which are

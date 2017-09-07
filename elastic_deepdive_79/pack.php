@@ -2,10 +2,10 @@
 <?php
 // Copyright 2017 SugarCRM Inc.  Licensed by SugarCRM under the Apache 2.0 license.
 
- /****** REPLACE THESE  *******/
- $packageID = "uncon2017-elastic-deepdive-710";
- $packageLabel = "UnCon 2017 Elasticsearch Tutorial for 7.10 with ES 5.4 support";
- $supportedVersionRegex = '^7.10.[\d]+.[\d]+$';
+/****** REPLACE THESE  *******/
+$packageID = "uncon2017-elastic-tutorial-79";
+$packageLabel = "UnCon 2017 Elasticsearch Tutorial";
+$supportedVersionRegex = '^7.9.[1-9]+.[\d]+$';
 /******************************/
 
 if (empty($argv[1])) {
