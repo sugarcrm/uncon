@@ -7,7 +7,7 @@
      * The state of the panel.
      * @type {Boolean}
      */
-    _hidden: true,
+     _hidden: true,
 
     events: {
         'click button[data-action=close]': '_hidePanel'
@@ -47,37 +47,6 @@
         }
 
         this._hidden = false;
-
-        this._fetchImage();
-    },
-
-    /**
-     * Fetches the image matching the first tag on the model and display it.
-     */
-    _fetchImage: function() {
-        var tag = this.model.get('tag') && this.model.get('tag')[0];
-        var notes = app.data.createBeanCollection('Notes');
-        var self = this;
-        if (this.imgUrl || !tag) {
-            return;
-        }
-
-        notes.fetch(
-            {
-                fields: [
-                    'file_mime_type', 'file_ext','filename'
-                ],
-                params:
-                    {
-                        filter:[{'tag': {'$in': [tag.name]}}]
-                },
-                success: function(collection) {
-                    var id = collection.at(0) ? collection.at(0).get('id') : void 0;
-                    self.imgUrl = app.api.buildFileURL({module:'Notes', id: id, field: 'filename'});
-                    self.render();
-                }
-            }
-        );
     },
 
     /**
@@ -92,4 +61,3 @@
         this._hidden = true;
     }
 })
-
