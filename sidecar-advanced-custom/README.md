@@ -7,7 +7,7 @@
 4. Add a key called "Note_Path" and fill in the value with the absolute path of your `images` folder. Example: `/Users/<username>/Desktop/images`
 5. Click on `Update` and then download the environment file.
 6. Download `Notes_PostmanCollection.json` from this repo.
-6. Install newman with `npm install -g newman` in your terminal.
+6. Install newman with `npm install -g newman` in your terminal. If you don't have `npm` installed, please install it: https://www.npmjs.com/get-npm
 7. Run: `newman run path/to/Notes_PostmanCollection.json --environment <environment_file>`. This creates Notes records in your instance and links the images to them.
 
 ## Let's build the yearbook!
