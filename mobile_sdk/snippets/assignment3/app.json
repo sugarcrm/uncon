@@ -4,9 +4,11 @@
             "ui": {
                 "icons": {
                     "actions": {
+                        // Copy "location" item into config/app.json's "defaults.jsConfig.ui.icons.actions" section 
                         "location": "icon icon-location-arrow"
                     }
                 }
             }
-        },
+        }
+    }
 }
