@@ -23,6 +23,9 @@
 .ratings-chart-wrapper .opportunity-metric .label {
     cursor: pointer;
 }
+.ratings-chart-wrapper .opportunity-metric[aria-pressed=true] .opportunity-metric-description {
+    font-weight: bold;
+}
 .ratings-chart-wrapper .opportunity-metric:focus .label {
     outline: 3px auto #589bda;
     outline: 3px auto -moz-mac-focusring;
@@ -34,9 +37,9 @@
         <svg id="{{cid}}"></svg>
     </div>
     {{#eachOptions statusCollection}}
-        <div class="opportunity-metric" data-status="{{value.key}}" style="width:{{../statusWidth}}" tabindex="0" role="button" aria-label="{{value.label}}" aria-pressed="{{#eq value.active "true"}}true{{else}}false{{/eq}}">
-            <span class="label" style="background-color:{{value.color}}" rel="tooltip" title="Average {{value.label}}: {{value.grade}}">{{value.grade}}</span>
-            <div class="opportunity-metric-description"{{#if value.active}} style="font-weight:bold"{{/if}}>{{value.label}} ({{value.count}})</div>
+        <div class="opportunity-metric" data-status="{{value.key}}" style="width:{{../statusWidth}}" tabindex="0" role="button" aria-label="{{value.count}} {{value.label}} groups with an average {{value.grade}} rating" aria-pressed="{{#if value.active}}true{{else}}false{{/if}}" aria-current="{{#if value.active}}true{{else}}false{{/if}}">
+            <span class="label" style="background-color:{{value.color}}" rel="tooltip" title="{{value.label}} Groups: {{value.count}}&#10;Average Rating: {{value.grade}}">{{value.grade}}</span>
+            <div class="opportunity-metric-description">{{value.label}} ({{value.count}})</div>
         </div>
     {{/eachOptions}}
 </div>
