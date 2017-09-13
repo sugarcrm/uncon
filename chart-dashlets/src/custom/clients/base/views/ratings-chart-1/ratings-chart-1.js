@@ -75,7 +75,7 @@
         var gradeList = app.lang.getAppListStrings('grading_list');
         var records = serverData && serverData.records ? serverData.records : [];
 
-        var gradeData = [];
+        var ratingsData = [];
         var total = 0;
 
         var gradeSize = _.size(gradeList) - 1;
@@ -99,13 +99,13 @@
         });
 
         _.each(gradeList, function(grade) {
-            gradeData.push(grade);
+            ratingsData.push(grade);
         });
 
-        this.total = d3.sum(gradeData, function(g) { return g.value; });
+        this.total = d3.sum(ratingsData, function(g) { return g.value; });
 
         this.chartData = {
-            data: gradeData,
+            data: ratingsData,
             properties: {
                 title: app.lang.get('LBL_DASHLET_GRADES_CHART_NAME'),
                 total: total

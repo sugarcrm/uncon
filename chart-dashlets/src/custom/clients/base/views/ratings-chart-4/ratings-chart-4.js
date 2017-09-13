@@ -123,7 +123,7 @@
         var gradeList = app.lang.getAppListStrings('grading_list');
         var chartData = serverData && serverData.chartData ? serverData.chartData : [];
 
-        var gradeData = [];
+        var ratingsData = [];
         var total = 0;
         var reportStatusValues = [];
         var gradeScale = {};
@@ -159,17 +159,17 @@
                     });
 
                 _.each(gradeScale, function(grade) {
-                    gradeData.push(grade);
+                    ratingsData.push(grade);
                 });
             }
 
             this.buildStatusCollection(chartData, gradeScale);
         }
 
-        this.total = d3.sum(gradeData, function(g) { return g.value; });
+        this.total = d3.sum(ratingsData, function(g) { return g.value; });
 
         this.chartData = {
-            data: gradeData,
+            data: ratingsData,
             properties: {
                 title: app.lang.get('LBL_DASHLET_GRADES_CHART_NAME'),
                 total: total
