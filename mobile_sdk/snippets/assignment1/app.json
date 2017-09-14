@@ -9,7 +9,7 @@
                 "bundleId": "com.hero.crm"
             },
             "android": {
-                // Copy bundleId into "defaults.native.android" section
+                // Copy packageName into "defaults.native.android" section
                 "packageName": "com.hero.crm"
             }
         }
