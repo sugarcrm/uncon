@@ -18,7 +18,7 @@ Elasticsearch Tutorial at UnCon 2017. It contains the following functionality:
 3. Run a full reindex using `bin/sugarcrm search:reindex --clearData`
 4. Execute `cron.php` until the queue is empty (see `bin/sugarcrm elastic:queue`)
 
-### Usage ASCI Folding
+### Usage ASCII Folding
 ASCII converts alphabetic, numeric, and symbolic Unicode characters which are
 not in the first 127 ASCII characters (the "Basic Latin" Unicode block) into
 their ASCII equivalents, if one exists.
