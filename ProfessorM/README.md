@@ -21,9 +21,15 @@ For those familiar with Sugar, you'll notice that some of the standard modules h
 | Donations | Opportunities |
 | Funding Line Items | Revenue Line Items|
 
+Get all of the details on the Professor M scenario in the video below.
+[![The Professor M Scenario Part 1 - What is it and why should you care?](profmvideo1.png)](https://youtu.be/aKBTKcaney4 "The Professor M Scenario Part 1 - What is it and why should you care?")
+
 ## Installation instructions
 
 Before beginning any of the tutorials associated with UnCon 2017, you'll want to setup a Sugar instance that has the Professor M scenario installed.
+
+Watch the video below for instructions on how to install the scenario.  Text-based instructions follow.
+[![The Professor M Scenario Part 2 - How do you install it?](profmvideo2.png)](https://youtu.be/SO-Rav35X5U "The Professor M Scenario Part 2 - How do you install it?")
 
 ### Prerequisites
 - Sugar 7.9.1.0 installed with NO sample data.  See [Getting Started with Sugar Development](https://developer.sugarcrm.com/getting-started) for help.
