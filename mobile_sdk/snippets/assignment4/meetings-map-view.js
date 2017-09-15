@@ -28,7 +28,7 @@ let MeetingsMapView = customization.extend(NomadView, {
             zoom: true,
         });
         
-        map.addEventListener(plugin.google.maps.event.MAP_READY, _.bind(this.__onMapReady, this));
+        map.addEventListener(plugin.google.maps.event.MAP_READY, () => this.__onMapReady());
         
         this.__map = map;
     },
@@ -91,6 +91,12 @@ customization.registerRecordAction({
     label: app.lang.get('Map'),     // Displayable label                   
     iconKey: 'actions.map',         // Icon key referenced in SDK app.json configuration file
     rank: 0,
+
+    stateHandlers: {
+        isVisible() {   // Show the button on device only
+            return app.isNative;
+        },
+    },
     
     // Called when the action is selected from the menu
     handler(view) {
