@@ -19,7 +19,7 @@ have been introduced to be able to support Elasticsearch 5.4 on SugarCRM 7.10.
 ### Installation
 1. Login as Administrator into Sugar instance
 2. Use Sugar's Module Loader to install the latest release zip from this repository
-3. Run a full reindex using `bin/sugarcrm search:silent_reindex --clearData`
+3. Run a full reindex using `bin/sugarcrm search:silent-reindex --clearData`
 
 ### Usage ASCII Folding
 ASCII converts alphabetic, numeric, and symbolic Unicode characters which are
