@@ -61,7 +61,6 @@ Sugar will display many modules by default that you will not be using while work
    * Targets
    * Target Lists
    * Forecasts
-   * Process Definitions
    * Processes
    * Process Business Rules
    * Documents
@@ -77,6 +76,7 @@ Sugar will display many modules by default that you will not be using while work
    * Quotes
    * Reports
    * Process Email Templates
+   * Process Definitions
 1. Click **Save**
 
 ### Use the Sugar REST API to create the Professor M sample data
