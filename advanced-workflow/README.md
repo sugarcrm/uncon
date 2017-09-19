@@ -7,8 +7,8 @@ Copyright (C) 2017 SugarCRM Inc.
 ### Requirements
 - SugarCRM 7.9.0
   - SugarCRM 7.9.1 recommended
-- PHP 5.4+
-  - PHP 7.1 required for use with SugarCRM 7.9.2
+- PHP 5.6+
+  - PHP 7.1 supported as of 7.9.1.0
 - The Professor M Scenario
 - A Yandex API Key
   - You can get one free at [https://translate.yandex.com/developers/keys](https://translate.yandex.com/developers/keys)
