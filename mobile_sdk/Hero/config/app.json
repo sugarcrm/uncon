@@ -15,6 +15,7 @@
                 "trademarkText": "Hero and HeroCRM are trademarks owned by HeroCRM Inc. All other trademarks are the property of their respective owners."
             },
             "ui": {
+                "showTutorial": false,
                 // Reference icon CSS styles for your custom actions in ui.icons section  
                 "icons": {
                     "actions": {
