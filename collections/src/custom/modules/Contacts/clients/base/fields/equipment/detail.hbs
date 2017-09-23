@@ -1,0 +1,11 @@
+{{log "starting equipment field detail template"}}
+{{log this}}
+<table>
+{{#each value}}
+    {{log this}}
+<tr>
+    <td><img src="{{image}}" style="height:32px"/></td>
+    <td>{{#if href}}<a class="ellipsis_inline" data-placement="bottom" title="{{name}}" href="{{href}}">{{name}}</a>{{else}}{{name}}{{/if}}</td>
+</tr>
+{{/each}}
+</table>

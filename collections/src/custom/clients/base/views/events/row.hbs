@@ -1,0 +1,55 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#with rowModel}}
+    <li>
+        <div class="label label-module label-{{module}} pull-right" title="{{moduleIconToolTip module}}">
+            {{moduleIconLabel module}}
+        </div>
+        {{#if ../row_actions}}
+            <div class="actions pull-right">
+                {{#each ../../row_actions}}
+                    {{field ../../../this model=../this}}
+                {{/each}}
+            </div>
+        {{/if}}
+        <p>
+            {{#if attributes.assigned_user_id}}
+                <a href="#{{buildRoute module="Employees" id=attributes.assigned_user_id action="detail"}}" class="pull-left avatar avatar-md" data-title="{{fieldValue this "assigned_user_name"}}">
+                    <img class="avatar hide" src="" data-src="{{fieldValue this "picture_url"}}" alt="{{fieldValue this "assigned_user_name"}}">
+                    <span class="hide">Us</span>
+                </a>
+            {{else}}
+                <span class="fa fa-stack pull-left">
+                                <i class="fa fa-user fa-stack-base"></i>
+                                <i class="fa fa-question-circle fa-light"></i>
+                            </span>
+            {{/if}}
+            <a href="#{{buildRoute model=this action="detail"}}">{{fieldValue this "name"}}</a>
+        </p>
+        {{#if ../overdueBadge}}
+            {{#with ../../overdueBadge}}
+                {{field ../../../this model=../../this template='detail'}}
+            {{/with}}
+        {{/if}}
+        <div class="details">
+            {{#if attributes.assigned_user_id}}
+                <a href="#{{buildRoute module="Employees" id=attributes.assigned_user_id action="detail"}}">
+                    {{fieldValue this "assigned_user_name"}}&#44;
+                </a>
+            {{else}}
+                {{str "LBL_UNASSIGNED" this.module}}&#44;
+            {{/if}}
+            {{relativeTime attributes.record_date class='date'}}
+        </div>
+    </li>
+{{/with}}

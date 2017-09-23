@@ -1,0 +1,25 @@
+<table>
+{{#each value}}
+    {{log this}}
+    <tr>
+        <td><img src="{{image}}" style="height:32px"/></td>
+
+        <td>{{#if name}}
+            <input type="hidden" name="equipment" class="select2 inherit-width" value="{{id}}" data-rname="{{name}}" >
+            {{else}}
+            <input type="hidden" name="add_equip" class="select2 inherit-width" value="" data-rname="name">
+            {{/if}}
+        </td>
+        <td><div class="btn-group prevent-mousedown">
+            <a href="javascript:void(0)" class="btn removeEquipment" rel="tooltip" title="{{str "LBL_REMOVE"}}" data-id="{{id}}">
+                <i class="fa fa-minus"></i>
+            </a>
+            {{#if @last}}
+                <a href="javascript:void(0)" class="btn addEquipment" rel="tooltip" title="{{str "LBL_ADD"}}">
+                    <i class="fa fa-plus"></i>
+                </a>
+            {{/if}}
+        </div></td>
+    </tr>
+{{/each}}
+</table>
