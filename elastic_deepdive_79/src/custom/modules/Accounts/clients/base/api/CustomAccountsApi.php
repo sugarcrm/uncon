@@ -17,7 +17,7 @@ class CustomAccountsApi extends AccountsApi
      * @param RestService $api
      * @param array $args
      */
-    public function opportunityStats(RestService $api, array $args)
+    public function opportunityStats(ServiceBase $api, array $args)
     {
         $analytics = SearchEngine::getInstance()
             ->getEngine()
