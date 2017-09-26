@@ -15,6 +15,7 @@
                 "trademarkText": "Hero and HeroCRM are trademarks owned by HeroCRM Inc. All other trademarks are the property of their respective owners."
             },
             "ui": {
+                "showTutorial": false,
                 // Reference icon CSS styles for your custom actions in ui.icons section  
                 "icons": {
                     "actions": {
@@ -31,7 +32,13 @@
             "ios": {
                 "bundleId": "com.hero.crm",
                 "binaryName": "HeroCRM",
-                "teamId": ""
+                "autoProvisioning": false,
+                // Update the following signing properties to build IPA file from command line
+                // See App Signing Guide for details:
+                // http://support.sugarcrm.com/Documentation/Knowledge_Base/Mobile/App_Signing_for_Mobile_SDK/
+                "teamId": "6E989M5787",
+                "identity": "iPhone Distribution: SugarCRM Inc.",
+                "profile": "./HeroCRM.mobileprovision"
             },
             "android": {
                 "packageName": "com.hero.crm",
