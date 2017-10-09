@@ -6,7 +6,7 @@ Copyright (C) 2015 SugarCRM Inc.
 
 ## Setup
 
-1. Download the `sugar_repiar` script
+1. Download the `sugar_repair` script
 2. add it to your $PATH variable (eg: ~/bin or /usr/local/bin)
 3. run `chmod +x /path/to/sugar_repair`
 4. goto your Sugar Install and run `sugar_repair .`
