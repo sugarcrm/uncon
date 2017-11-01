@@ -53,7 +53,7 @@ We've created a custom package you can install.  The package will create and cus
      1. Move the file you just downloaded in the step above to [YourSugarDirectory]\custom\modules\Opportunities\clients\base\views\subpanel-for-pmse_bpmprocessdefinition-opportunities_locked_fields_link
      1. Navigate to **Administration** > **Repair** > **Quick Repair and Rebuild**.
    * If the above installation still fails due to a MAXPATHLEN error, you may need to remove other files with long names from the zip file.
-     1. Determine which files are too long.
+     1. Determine which files are too long.  Hint:  you can see the full paths of the files in the manifest.
      1. Unzip ProfM.zip.
      1. For each file that needs to be removed, remove it from the unzipped copy of ProfM.zip.
      1. For each file that needs to removed, remove the corresponding entry in the manifest, taking note of where the files should be eventually installed (indicated by 'to').
