@@ -34,6 +34,7 @@ Watch the video below for instructions on how to install the scenario.  Text-bas
 ### Prerequisites
 - Sugar 7.9.1.0 installed with NO sample data.  See [Getting Started with Sugar Development](https://developer.sugarcrm.com/getting-started) for help.
    * Note:  If you install Sugar using ***config_si.php***, ensure that the `disable_unknown_platforms` property is set to `false` or is not in the file.
+   * Note for Windows users:  Make the path to your Sugar instance as short as possible to avoid errors of file paths being too long.
 - [Postman](https://www.getpostman.com) installed 
 
 ### Install the modules and customizations
@@ -45,7 +46,23 @@ We've created a custom package you can install.  The package will create and cus
 1. Click **Install** for the ProfessorM package
 1. Review and accept the license agreement
 1. Click **Commit**
-
+   * Hint for Windows users:  If you receive a warning with the message "Full extraction path exceed MAXPATHLEN (260)...", try the following:
+     1. Install [ProfM.zip for Windows](/ProfessorM/windows/ProfM.zip).
+     1. In your Sugar instance, create the following directories if they do not already exist: [YourSugarDirectory]\custom\modules\Opportunities\clients\base\views\subpanel-for-pmse_bpmprocessdefinition-opportunities_locked_fields_link
+     1. Download [subpanel-for-pmse_bpmprocessdefinition-opportunities_locked_fields_link.php](/ProfessorM/windows/subpanel-for-pmse_bpmprocessdefinition-opportunities_locked_fields_link/subpanel-for-pmse_bpmprocessdefinition-opportunities_locked_fields_link.php)
+     1. Move the file you just downloaded in the step above to [YourSugarDirectory]\custom\modules\Opportunities\clients\base\views\subpanel-for-pmse_bpmprocessdefinition-opportunities_locked_fields_link
+     1. Navigate to **Administration** > **Repair** > **Quick Repair and Rebuild**.
+   * If the above installation still fails due to a MAXPATHLEN error, you may need to remove other files with long names from the zip file.
+     1. Determine which files are too long.
+     1. Unzip ProfM.zip.
+     1. For each file that needs to be removed, remove it from the unzipped copy of ProfM.zip.
+     1. For each file that needs to removed, remove the corresponding entry in the manifest, taking note of where the files should be eventually installed (indicated by 'to').
+     1. Zip the ProfM directory, ensuring that the manifest is at the root of the zip and is NOT enclosed in another directory.
+     1. Install the newly zipped ProfM.zip.
+     1. Move the files you removed from the zip to the appropriate locations in your local Sugar directories.
+     1. Navigate to **Administration** > **Repair** > **Quick Repair and Rebuild**.
+   
+   
 ### Customize the modules that are displayed
 Sugar will display many modules by default that you will not be using while working on the tutorials.  To make things simpler, we'll hide the modules that won't be used and rearrange the modules that are displayed.
 1. Login to Sugar as an Administrator if you have not already done so
