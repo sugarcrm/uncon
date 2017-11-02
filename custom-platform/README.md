@@ -18,7 +18,7 @@ any customizations or integrations which rely on a custom platform need to regis
 front.
 
 This package shows how to use the extension framework to do so. More information can be found
-(here)[http://support.sugarcrm.com/Documentation/Sugar_Developer/Sugar_Developer_Guide_7.9/Architecture/Extensions/Platforms/].
+[here](http://support.sugarcrm.com/Documentation/Sugar_Developer/Sugar_Developer_Guide_7.9/Architecture/Extensions/Platforms/).
 
 ### Build instructions
 Run `pack.php [version]` to generate a Module Loadable Package into the `releases/` directory.
