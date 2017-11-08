@@ -13,7 +13,7 @@ Copyright (C) 2017 SugarCRM Inc.
 2. Use Sugar's Module Loader to install the latest release zip from this repository
 
 ### Usage
-SugarCRM will change its behavior out of the box to disallow unknown platform for 7.11. Therefore
+SugarCRM will change its behavior out of the box to disallow unknown platforms in the Winter '18 (7.11) release. Therefore
 any customizations or integrations which rely on a custom platform need to register those up
 front.
 
