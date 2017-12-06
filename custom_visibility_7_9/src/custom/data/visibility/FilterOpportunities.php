@@ -1,5 +1,5 @@
 <?php
-// Copyright 2016 SugarCRM Inc.  Licensed by SugarCRM under the Apache 2.0 license.
+// Copyright 2017 SugarCRM Inc.  Licensed by SugarCRM under the Apache 2.0 license.
 
 use Sugarcrm\Sugarcrm\Elasticsearch\Provider\Visibility\StrategyInterface as ElasticStrategyInterface;
 use Sugarcrm\Sugarcrm\Elasticsearch\Provider\Visibility\Visibility;
@@ -205,7 +205,7 @@ class FilterOpportunities extends SugarVisibility implements ElasticStrategyInte
     /**
      * {@inheritdoc}
      */
-    public function elasticAddFilters(User $user, \Elastica\Filter\Bool $filter, Visibility $provider)
+    public function elasticAddFilters(User $user, \Elastica\Filter\BoolFilter $filter, Visibility $provider)
     {
         if (!$this->isSecurityApplicable($user)) {
             return;
