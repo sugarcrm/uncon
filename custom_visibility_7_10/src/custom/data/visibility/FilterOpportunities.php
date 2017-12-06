@@ -205,7 +205,8 @@ class FilterOpportunities extends SugarVisibility implements ElasticStrategyInte
     /**
      * {@inheritdoc}
      */
-    public function elasticAddFilters(User $user, \Elastica\Filter\BoolFilter $filter, Visibility $provider)
+    public function elasticAddFilters(User $user, Elastica\Query\BoolQuery $filter,
+                                      Sugarcrm\Sugarcrm\Elasticsearch\Provider\Visibility\Visibility $provider)
     {
         if (!$this->isSecurityApplicable($user)) {
             return;

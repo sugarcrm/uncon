@@ -7,10 +7,10 @@ if (empty($argv[1])) {
 }
 
 $version = $argv[1];
-$id = "uncon16-custom-visibility-sugarv7_9_x-{$version}";
-$name = "SugarCRM UnCon 2016 Custom Visibility Demo for Sugar 7.9.x";
+$id = "uncon16-custom-visibility-sugarv7_10_x-{$version}";
+$name = "SugarCRM UnCon 2016 Custom Visibility Demo for Sugar 7.10.x";
 $zipFile = "releases/sugarcrm-{$id}.zip";
-$supportedVersionRegex = '^7.9.[1-9]+.[\d]+$';
+$supportedVersionRegex = '^7.1[0-9].[\d]+.[\d]+$';
 
 if (file_exists($zipFile)) {
     die("Release $zipFile already exists!\n");

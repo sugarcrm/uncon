@@ -6,7 +6,7 @@ Copyright (C) 2016 SugarCRM Inc.
 
 
 ### Requirements
-- SugarCRM 7.9.x
+- SugarCRM 7.1x.x
 
 ### Installation
 - Install SugarCRM and login as an admin.
