@@ -1,4 +1,4 @@
-# UnCon 2016
+# UnCon 2017
 
 ## Customizing Sugar Visibility
 
@@ -6,7 +6,7 @@ Copyright (C) 2016 SugarCRM Inc.
 
 
 ### Requirements
-- SugarCRM 7.7.x and 7.8.x
+- SugarCRM 7.9.x
 
 ### Installation
 - Install SugarCRM and login as an admin.
@@ -15,12 +15,11 @@ Copyright (C) 2016 SugarCRM Inc.
 - Execute cron to process all queued records into Elasticsearch. (From your Sugar directory, you can execute 
 `bin/sugarcrm elastic:queue` to check if the reindex has completed and `php cron.php` to consume the queue until the 
 reindex finishes. You may need to execute `chmod +x bin/sugarcrm` in order to be able to execute these commands.)
-- If using 7.7.x, add the "sales stage" field to the record view for the Opportunity module using Studio.
-- If using 7.8.x, ensure you are NOT using Revenue Line Items. (Navigate to Administration -> Opportunities and ensure
+- Ensure you are NOT using Revenue Line Items. (Navigate to Administration -> Opportunities and ensure
 the **Opportunities** radio button is selected.)
 
 ### Usage
-- Create a new role with for example name 'Demo Visibility'
+- Create a new role named 'Demo Visibility'
 - Assign a (demo) user to this new role.  Note: if you are using the sample data, do NOT use Jim as he has admin 
 permission on the Opportunities module and will be able to view all records.  We recommend using Max.
 - Configure your instance to filter opportunities for a given sales stages for this role by adding the following to 
