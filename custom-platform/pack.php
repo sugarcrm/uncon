@@ -5,7 +5,7 @@
  /****** REPLACE THESE  *******/
  $packageID = "uncon2017-custom-platform";
  $packageLabel = "UnCon 2017 Custom Platform Registration";
- $supportedVersionRegex = '^7.9.[\d]+.[\d]+$';
+ $supportedVersionRegex = '^7\.(9|10|11)\.[\d]+.*|8\.[\d]+\.[\d]+.*';
 /******************************/
 
 if (empty($argv[1])) {
@@ -16,7 +16,7 @@ $version = $argv[1];
 
 $id = "{$packageID}-{$version}";
 
-$zipFile = "releases/sugarcrm-{$id}.zip";
+$zipFile = "releases/{$id}.zip";
 
 if (file_exists($zipFile)) {
     die("Release $zipFile already exists!\n");
