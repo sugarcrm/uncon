@@ -38,7 +38,7 @@ Watch the video below for instructions on how to install the scenario.  Text-bas
 - [Postman](https://www.getpostman.com) installed 
 
 ### Install the modules and customizations
-We've created a custom package you can install.  The package will create and customize the modules you'll need for the scenario.  The following instructions will walk you throw how to install the package.
+We've created a custom package you can install.  The package will create and customize the modules you'll need for the scenario.  The following instructions will walk you through how to install the package.
 1. Download [ProfM.zip](/ProfessorM/ProfM.zip)
 1. Login to Sugar as an Administrator
 1. Go to **Administration** > **Module Loader**
