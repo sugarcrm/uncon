@@ -16,7 +16,7 @@ $version = $argv[1];
 
 $id = "{$packageID}-{$version}";
 
-$zipFile = "releases/sugarcrm-{$id}.zip";
+$zipFile = "releases/{$id}.zip";
 
 if (file_exists($zipFile)) {
     die("Release $zipFile already exists!\n");
