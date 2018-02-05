@@ -53,7 +53,19 @@ customization.registerRecordAction({
         // Called when reverse geocoding completes
         let placemarksObtained = placemarks => {
             let address = placemarks[0];
-            address = (address.formattedAddressLines || []).join(' ').trim();
+            if (_.isEmpty(address.formattedAddressLines)) {
+                address = [
+                    'subThoroughfare',
+                    'thoroughfare',
+                    'locality',
+                    'adminArea',
+                    'postalCode',
+                    'country',
+                ].map(p => address[p]).join(', ').trim();
+            }
+            else {
+                address = (address.formattedAddressLines || []).join(' ').trim();
+            }
             app.logger.debug(`Placemark: ${address}`);
             updateModel(address);
         };
@@ -84,6 +96,7 @@ customization.registerRecordAction({
 
         geolocation.getCurrentPosition({
             enableHighAccuracy: true,
+            timeout: 30000,
             successCb: locationObtained,
             errorCb: (errCode, errMessage) => {
                 app.logger.debug(`Location is not available: ${errCode} - ${errMessage}`);
