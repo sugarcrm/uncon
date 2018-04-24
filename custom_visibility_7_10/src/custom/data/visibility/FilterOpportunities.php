@@ -65,20 +65,30 @@ class FilterOpportunities extends SugarVisibility implements ElasticStrategyInte
     }
 
     /**
-     * {@inheritdoc}
+     * Overwrite parent method, SugarVisibility::addVisibilityWhere
+     *
+     * Add visibility, i.e. condition, clauses to the WHERE part of the query
+     *
+     * This demo function adds new condition to where clause when sales_stage is NOT IN the list of $this->filterSalesStages
+     *
+     * @param string $query
+     * @return string, the updated $query with visibility where clause
      */
     public function addVisibilityWhere(&$query)
     {
+        // check if visibility is applicable
         if (!$this->isSecurityApplicable()) {
             return $query;
         }
 
+        // create where clause for sales_stage
         $whereClause = sprintf(
             "%s.sales_stage NOT IN (%s)",
             $this->getTableAlias(),
             implode(',', array_map(array($this->bean->db, 'quoted'), $this->filterSalesStages))
         );
 
+        // add to query
         if (!empty($query)) {
             $query .= " AND $whereClause ";
         } else {
@@ -89,11 +99,21 @@ class FilterOpportunities extends SugarVisibility implements ElasticStrategyInte
     }
 
     /**
-     * {@inheritdoc}
+     * Overwrite parent method, SugarVisibility::addVisibilityWhereQuery
+     *
+     * Add visibility, i.e. condition, clauses to the WHERE part of SugarQuery
+     *
+     * @param SugarQuery $query
+     * @param array $options
+     * @return SugarQuery, the updated $sugarQuery with visibility where clause
      */
     public function addVisibilityWhereQuery(SugarQuery $sugarQuery, $options = array()) {
+        // create where clause
         $where = null;
         $this->addVisibilityWhere($where, $options);
+
+        // add the where clause to $sugarQuery's where part
+        // there is nothing to add if $where is empty
         if (!empty($where)) {
             $sugarQuery->where()->addRaw($where);
         }
@@ -168,7 +188,15 @@ class FilterOpportunities extends SugarVisibility implements ElasticStrategyInte
     }
 
     /**
-     * {@inheritdoc}
+     * Implementation of ElasticStrategyInterface interface
+     *
+     * Create elastic analyzer for the field, 'visibility_sales_stage', which is introduced $this->elasticBuildMapping().
+     * Leave the function empty if you don't need special analyzer.
+     *
+     * For more information about elastic analyzer, please visit https://www.elastic.co/guide/en/elasticsearch/guide/current/analysis-intro.html
+     *
+     * @param Sugarcrm\Sugarcrm\Elasticsearch\Analysis\AnalysisBuilder $analysisBuilder, analysis builder
+     * @param Sugarcrm\Sugarcrm\Elasticsearch\Provider\Visibility\Visibility $provider, Elasticsearch Visibility Provider
      */
     public function elasticBuildAnalysis(AnalysisBuilder $analysisBuilder, Visibility $provider)
     {
@@ -176,7 +204,14 @@ class FilterOpportunities extends SugarVisibility implements ElasticStrategyInte
     }
 
     /**
-     * {@inheritdoc}
+     * Implementation of ElasticStrategyInterface interface
+     *
+     * Build Elasticsearch mapping, which defines how a document's fields are stored and indexed in Elastic engine
+     *
+     * This demo function adds a new not-analyzed field, 'visibility_sales_stage', to Elastic engine
+     *
+     * @param Sugarcrm\Sugarcrm\Elasticsearch\Mapping\Mapping $mapping
+     * @param Sugarcrm\Sugarcrm\Elasticsearch\Provider\Visibility\Visibility $provider, Elasticsearch Visibility Provider
      */
     public function elasticBuildMapping(Mapping $mapping, Visibility $provider)
     {
@@ -184,7 +219,16 @@ class FilterOpportunities extends SugarVisibility implements ElasticStrategyInte
     }
 
     /**
-     * {@inheritdoc}
+     * Implementation of ElasticStrategyInterface interface
+     *
+     * Process document before it has been indexed,
+     * it populates the document data fields with corresponding SugarBean fields
+     *
+     * This demo function populates the sales_stage into our explicit filter field 'visibility_sales_stage'
+     *
+     * @param Sugarcrm\Sugarcrm\Elasticsearch\Adapter\Document $document
+     * @param SugarBean $bean
+     * @param Sugarcrm\Sugarcrm\Elasticsearch\Provider\Visibility\Visibility $provider, Elasticsearch Visibility Provider
      */
     public function elasticProcessDocumentPreIndex(Document $document, \SugarBean $bean, Visibility $provider)
     {
@@ -194,7 +238,15 @@ class FilterOpportunities extends SugarVisibility implements ElasticStrategyInte
     }
 
     /**
-     * {@inheritdoc}
+     * Implementation of ElasticStrategyInterface interface
+     *
+     * Get Bean index fields to be indexed
+     *
+     * This demo function adds field, 'sales_stage', to be indexed
+     *
+     * @param string $module, Sugar module name
+     * @param Sugarcrm\Sugarcrm\Elasticsearch\Provider\Visibility\Visibility $provider, Elasticsearch Visibility Provider
+     * @return array, array of bean fields to be indexed
      */
     public function elasticGetBeanIndexFields($module, Visibility $provider)
     {
@@ -203,10 +255,17 @@ class FilterOpportunities extends SugarVisibility implements ElasticStrategyInte
     }
 
     /**
-     * {@inheritdoc}
+     * Implementation of ElasticStrategyInterface interface
+     *
+     * Add visibility filters
+     *
+     * This demo function adds elastic filter with condition 'filter_sales_stages' NOT IN $this->filterSalesStages
+     *
+     * @param User $user, the user who requests data
+     * @param Elastica\Query\BoolQuery $filter, elastic bool filter
+     * @param Sugarcrm\Sugarcrm\Elasticsearch\Provider\Visibility\Visibility $provider, Elasticsearch Visibility Provider
      */
-    public function elasticAddFilters(User $user, Elastica\Query\BoolQuery $filter,
-                                      Sugarcrm\Sugarcrm\Elasticsearch\Provider\Visibility\Visibility $provider)
+    public function elasticAddFilters(User $user, Elastica\Query\BoolQuery $filter, Visibility $provider)
     {
         if (!$this->isSecurityApplicable($user)) {
             return;
