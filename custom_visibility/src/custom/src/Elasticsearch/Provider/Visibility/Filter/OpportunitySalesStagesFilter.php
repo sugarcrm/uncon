@@ -17,12 +17,16 @@ use Sugarcrm\Sugarcrm\Elasticsearch\Provider\Visibility\Visibility;
 class OpportunitySalesStagesFilter implements FilterInterface
 {
     /**
-     * @var Visibility
+     * Elasticsearch Visibility Provider
+     * @var Sugarcrm\Sugarcrm\Elasticsearch\Provider\Visibility\Visibility
      */
     protected $provider;
 
     /**
-     * {@inheritdoc}
+     * Implementation FilterInterface::setProvider
+     *
+     * Set visibility provider, implementation of the interface method
+     * @param Sugarcrm\Sugarcrm\Elasticsearch\Provider\Visibility\Visibility $provider, Elasticsearch Visibility Provider
      */
     public function setProvider(Visibility $provider)
     {
@@ -30,7 +34,14 @@ class OpportunitySalesStagesFilter implements FilterInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Implementation FilterInterface::buildFilter
+     *
+     * to build elastic Terms filter, http://elastica.io/api/3.2.2/classes/Elastica.Filter.Terms.html
+     *
+     * This demo function adds condition that 'visibility_sales_stage' must be IN $options['filter_sales_stages']
+     *
+     * @param array $options
+     * @return \Elastica\Query\AbstractQuery
      */
     public function buildFilter(array $options = array())
     {
